@@ -406,7 +406,7 @@ select:focus-visible,
 .hero__title {
   margin: 0;
   font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(80px, 11.5vw, 195px);
+  font-size: clamp(90px, 14vw, 250px);
   line-height: 0.98;
   font-weight: 700;
   letter-spacing: -0.045em;
