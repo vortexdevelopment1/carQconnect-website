@@ -72,8 +72,8 @@ export function Navbar() {
                   <Link 
                     key={link.label} 
                     href={link.href}
-                    className={`text-[14px] font-medium uppercase tracking-[0.05em] transition-all duration-200 ${
-                      isActive ? 'text-[#ff5a0a] font-bold' : 'text-[#131316] hover:text-[#ff5a0a]'
+                    className={`text-[clamp(11px,0.94vw,14px)] font-medium tracking-wide transition-all duration-200 ${
+                      isActive ? 'text-[#ff6a00] font-bold' : 'text-[#131316] hover:text-[#ff6a00]'
                     }`}
                   >
                     {link.label}
@@ -95,7 +95,7 @@ export function Navbar() {
           <div className="flex-1 flex justify-end items-center gap-3 md:gap-5">
             <Link 
               href="/membership"
-              className="hidden min-[1025px]:inline-flex items-center justify-center px-[clamp(12px,1.5vw,24px)] h-[clamp(36px,3.44vw,44px)] min-h-[44px] rounded-lg text-[14px] font-bold uppercase transition-all shadow-md bg-[#ff5a0a] text-[#1a0b00] hover:bg-[#ff8a2b]"
+              className="hidden min-[1025px]:inline-flex items-center justify-center px-[clamp(12px,1.5vw,24px)] h-[clamp(36px,3.44vw,44px)] min-h-[44px] rounded-lg text-sm font-bold tracking-wider transition-all shadow-md bg-[#ff6a00] text-[#1a0b00] hover:bg-[#ff8a2b]"
             >
               <span>GET MEMBERSHIP</span>
             </Link>
