@@ -396,7 +396,7 @@ select:focus-visible,
   z-index: 2;
   right: clamp(30px, 3.5vw, 48px);
   top: 20.6%;
-  width: min(66vw, 860px);
+  width: min(80vw, 1200px);
   text-align: right;
   display: flex;
   flex-direction: column;
@@ -406,7 +406,7 @@ select:focus-visible,
 .hero__title {
   margin: 0;
   font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(38px, 5.35vw, 82px);
+  font-size: clamp(60px, 8.5vw, 125px);
   line-height: 0.98;
   font-weight: 700;
   letter-spacing: -0.045em;

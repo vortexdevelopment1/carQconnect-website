@@ -59,7 +59,7 @@ export function Navbar() {
       <header 
         className={`fixed top-0 left-0 right-0 z-[100] flex flex-col transition-all duration-300 pt-[env(safe-area-inset-top)] ${
           isScrolled || menuOpen
-            ? 'bg-white/95 backdrop-blur-md shadow-sm' 
+            ? 'bg-[#fff6ef]/95 backdrop-blur-md shadow-sm border-b border-[#ff6a00]/10' 
             : 'bg-transparent'
         }`}
       >
@@ -73,11 +73,7 @@ export function Navbar() {
                     key={link.label} 
                     href={link.href}
                     className={`text-[clamp(11px,0.94vw,14px)] font-medium tracking-wide transition-all duration-200 ${
-                      isActive 
-                        ? 'text-[#ff6a00] font-bold' 
-                        : isLight 
-                          ? 'text-[#131316] hover:text-[#ff6a00]' 
-                          : 'text-white hover:text-white/80'
+                      isActive ? 'text-[#ff6a00] font-bold' : 'text-[#131316] hover:text-[#ff6a00]'
                     }`}
                   >
                     {link.label}
@@ -89,8 +85,8 @@ export function Navbar() {
 
           <div className="flex-[0_0_auto] min-[1025px]:flex-1 flex min-[1025px]:justify-center justify-start items-center">
             <Link className="flex items-center gap-2 transition-transform hover:scale-[0.98]" href="/" aria-label="carQconnect home" onClick={closeMenu}>
-              <CarQMark className={isLight ? "" : "opacity-90"} />
-              <span className={`font-display text-[clamp(22px,2.19vw,34px)] font-semibold tracking-tight ${isLight ? 'text-[#131316]' : 'text-white'}`}>
+              <CarQMark className="" />
+              <span className={`font-display text-[clamp(22px,2.19vw,34px)] font-semibold tracking-tight ${'text-[#131316]'}`}>
                 car<span className="text-[#ff6a00]">Q</span>connect
               </span>
             </Link>
