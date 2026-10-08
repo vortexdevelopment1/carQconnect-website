@@ -40,10 +40,11 @@ export function Hero() {
           }
           .hero__lede {
             font-family: 'Inter', system-ui, sans-serif !important;
-            font-size: clamp(14px, 1.05vw, 17px) !important;
+            font-size: clamp(14px, 1.3vw, 18px) !important;
             line-height: 1.5 !important;
-            max-width: 520px !important;
+            max-width: 580px !important;
             margin-left: auto !important;
+            transform: translateY(-24px) !important;
           }
           .buy__label {
             font-family: 'Inter', system-ui, sans-serif !important;
