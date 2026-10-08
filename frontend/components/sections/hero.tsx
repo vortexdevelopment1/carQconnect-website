@@ -23,6 +23,37 @@ function CartIcon() {
 export function Hero() {
   return (
     <section className="hero" id="home">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+        @media (min-width: 1024px) {
+          .hero__title {
+            font-family: 'Archivo', 'Inter', system-ui, sans-serif !important;
+            font-size: clamp(40px, 5vw, 88px) !important;
+            font-weight: 800 !important;
+            line-height: 1.06 !important;
+            letter-spacing: -0.02em !important;
+          }
+          .hero__line,
+          .hero__word {
+            white-space: nowrap !important;
+          }
+          .hero__lede {
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: clamp(14px, 1.05vw, 17px) !important;
+            line-height: 1.5 !important;
+            max-width: 520px !important;
+            margin-left: auto !important;
+          }
+          .buy__label {
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: clamp(15px, 1.25vw, 20px) !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.02em !important;
+          }
+        }
+      `}</style>
+
       <div className="hero__bg" aria-hidden="true">
         <span className="hero__arc" />
         <span className="hero__warm" />

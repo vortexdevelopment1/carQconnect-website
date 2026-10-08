@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 const links = [ { label: "HOME", href: "/" }, { label: "FEATURES", href: "/features" }, { label: "HOW IT WORKS", href: "/how-it-works" }, { label: "FAQ", href: "/faq" }, { label: "SUPPORT", href: "/support" } ];
 
+const INTER = "'Inter', system-ui, sans-serif";
+
 function CarQMark({ className = "" }: { className?: string }) {
   return (
     <svg className={className} width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -72,8 +74,9 @@ export function Navbar() {
                   <Link 
                     key={link.label} 
                     href={link.href}
-                    className={`text-[clamp(11px,0.94vw,14px)] font-medium tracking-wide transition-all duration-200 ${
-                      isActive ? 'text-[#ff6a00] font-bold' : 'text-[#131316] hover:text-[#ff6a00]'
+                    style={{ fontFamily: INTER }}
+                    className={`text-[clamp(13px,0.92vw,15px)] font-medium tracking-[0.01em] transition-all duration-200 ${
+                      isActive ? 'text-[#ff6a00]' : 'text-[#131316] hover:text-[#ff6a00]'
                     }`}
                   >
                     {link.label}
@@ -86,7 +89,10 @@ export function Navbar() {
           <div className="flex-[0_0_auto] min-[1025px]:flex-1 flex min-[1025px]:justify-center justify-start items-center">
             <Link className="flex items-center gap-2 transition-transform hover:scale-[0.98]" href="/" aria-label="carQconnect home" onClick={closeMenu}>
               <CarQMark className="" />
-              <span className={`font-display text-[clamp(22px,2.19vw,34px)] font-semibold tracking-tight ${'text-[#131316]'}`}>
+              <span
+                style={{ fontFamily: INTER }}
+                className="text-[clamp(22px,2.1vw,34px)] font-semibold tracking-tight text-[#131316]"
+              >
                 car<span className="text-[#ff6a00]">Q</span>connect
               </span>
             </Link>
@@ -95,7 +101,8 @@ export function Navbar() {
           <div className="flex-1 flex justify-end items-center gap-3 md:gap-5">
             <Link 
               href="/membership"
-              className="hidden min-[1025px]:inline-flex items-center justify-center px-[clamp(12px,1.5vw,24px)] h-[clamp(36px,3.44vw,44px)] min-h-[44px] rounded-lg text-sm font-bold tracking-wider transition-all shadow-md bg-[#ff6a00] text-[#1a0b00] hover:bg-[#ff8a2b]"
+              style={{ fontFamily: INTER }}
+              className="hidden min-[1025px]:inline-flex items-center justify-center px-[clamp(16px,1.6vw,26px)] h-[clamp(44px,3.15vw,50px)] min-h-[44px] rounded-lg text-[clamp(13px,0.92vw,15px)] font-bold tracking-wide transition-all shadow-md bg-[#ff6a00] text-[#1a0b00] hover:bg-[#ff8a2b]"
             >
               <span>GET MEMBERSHIP</span>
             </Link>
@@ -114,7 +121,7 @@ export function Navbar() {
           </div>
         </div>
 
-                        {/* Mobile Dropdown */}
+        {/* Mobile Dropdown */}
         {menuOpen && (
           <div 
             id="mobile-menu"
@@ -159,9 +166,8 @@ export function Navbar() {
       )}
       
       <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         @keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-          to { transform: scaleY(1); opacity: 1; }
-        }
         @media (prefers-reduced-motion: reduce) {
           #mobile-menu { animation: none !important; transform: none !important; }
         }
@@ -169,6 +175,3 @@ export function Navbar() {
     </>
   );
 }
-
-
-

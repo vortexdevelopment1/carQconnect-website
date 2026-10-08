@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ShieldCheck, Apple, Smartphone } from "lucide-react";
+import { ShieldCheck, Apple, Smartphone, ArrowUp } from "lucide-react";
 import { footerColumns } from "@/lib/data/nav";
 
 export function Footer() {
@@ -55,7 +55,7 @@ export function Footer() {
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="group inline-flex items-center min-h-[44px] whitespace-nowrap text-[14.5px] text-[#A8ACBA] transition-all duration-200 hover:translate-x-1 hover:text-white">
-                      {link.label} <span className="ml-0 text-base leading-none text-[#FF5A00] opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:opacity-100">â†’</span>
+                      {link.label} <span className="ml-0 text-base leading-none text-[#FF5A00] opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:opacity-100">&rarr;</span>
                     </Link>
                   </li>
                 ))}
@@ -69,8 +69,8 @@ export function Footer() {
           <p className="text-[13px] text-[#7B7F90]">
             &copy; 2026 carQconnect. All rights reserved.
           </p>
-          <a href="#" onClick={scrollToTop} className="text-[13px] font-semibold text-[#A8ACBA] transition-colors hover:text-[#FF5A00]">
-            Back to top â†‘
+          <a href="#" onClick={scrollToTop} className="group flex items-center gap-1.5 text-[13px] font-semibold text-[#A8ACBA] transition-colors hover:text-[#FF5A00]">
+            Back to top <ArrowUp className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={2.5} />
           </a>
         </div>
       </div>

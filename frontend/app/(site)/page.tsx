@@ -4,7 +4,6 @@ import { ProductComparison } from "@/components/sections/product-comparison";
 import { AppDownloadSection } from "@/components/sections/app-download-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { FinalCta } from "@/components/sections/final-cta";
-import { WhatsAppCta } from "@/components/sections/whatsapp-cta";
 
 export default function HomePage() {
   return (
@@ -15,7 +14,6 @@ export default function HomePage() {
       <AppDownloadSection />
       <FaqSection />
       <FinalCta />
-      <WhatsAppCta />
     </>
   );
 }
