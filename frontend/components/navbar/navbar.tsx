@@ -114,9 +114,9 @@ export function Navbar() {
               aria-controls="mobile-menu"
               onClick={() => setMenuOpen(!menuOpen)}
             >
-              <span className={`block w-6 h-[1.5px] transition-all ${isLight ? "bg-black" : "bg-white"} ${menuOpen ? 'rotate-45 translate-y-[7.5px]' : ''}`}></span>
-              <span className={`block w-6 h-[1.5px] transition-all ${isLight ? "bg-black" : "bg-white"} ${menuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block w-6 h-[1.5px] transition-all ${isLight ? "bg-black" : "bg-white"} ${menuOpen ? '-rotate-45 -translate-y-[7.5px]' : ''}`}></span>
+              <span className={`block w-6 h-[1.5px] transition-all ${"bg-[#111]"} ${menuOpen ? 'rotate-45 translate-y-[7.5px]' : ''}`}></span>
+              <span className={`block w-6 h-[1.5px] transition-all ${"bg-[#111]"} ${menuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block w-6 h-[1.5px] transition-all ${"bg-[#111]"} ${menuOpen ? '-rotate-45 -translate-y-[7.5px]' : ''}`}></span>
             </button>
           </div>
         </div>

@@ -740,64 +740,177 @@ p, .body-text { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.6; }
 
 
 
-/* WhatsApp CTA */
-.wa-btn {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 9999;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background-color: #25d366;
-  color: #0b1f12;
-  font-weight: 700;
-  font-size: 14.5px;
-  border-radius: 999px;
-  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
-  animation: whatsappPulse 2.6s infinite;
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
+
+/* --- FINAL HERO CQW ARCHITECTURE --- */
+.hero {
+  position: relative !important;
+  width: min(100%, 1920px) !important;
+  margin: 0 auto !important;
+  container-type: inline-size !important;
+  overflow: hidden !important;
+  background-color: #d7d6dc !important; /* Base mobile bg */
 }
 
-.wa-btn:hover {
-  transform: translateY(-3px);
-  background-color: #2beb72;
-  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+/* Base states */
+.hero-image-mobile-only { display: block; }
+.hero-image-desktop-only { display: none; }
+.hero__product-image {
+  position: absolute !important;
+  inset: auto auto 0 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background: none !important;
+  animation: none !important;
+  transform: none !important;
 }
 
-.wa-btn:active {
-  transform: scale(0.97);
+.hero__copy {
+  position: absolute !important;
+  z-index: 2 !important;
+  background: transparent !important;
+  right: 3.6cqw !important;
+  top: 23cqw !important;
+  text-align: right !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
 }
 
-.wa-btn:focus-visible {
-  outline: 3px solid white;
-  outline-offset: 2px;
+.hero__title {
+  margin: 0 !important;
+  color: #111 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  line-height: 1.06 !important;
+  font-size: clamp(11px, 4.7cqw, 80px) !important;
+  background: transparent !important;
+  text-align: right !important;
 }
 
-@keyframes whatsappPulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-  70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+.hero__lede {
+  margin: 14px 0 24px 0 !important;
+  color: #6b6b73 !important;
+  line-height: 1.4 !important;
+  font-size: clamp(7.5px, 2.5cqw, 28px) !important;
+  background: transparent !important;
+  text-align: right !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .wa-btn {
-    animation: none;
-    transition: none;
+.hero__line {
+  display: block !important;
+  white-space: nowrap !important;
+  transform: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+.buy {
+  display: inline-flex !important;
+  height: clamp(24px, 8cqw, 46px) !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 0 !important;
+}
+.buy__label {
+  font-size: clamp(9px, 3cqw, 15px) !important;
+}
+.buy__body {
+  height: 100% !important;
+  clip-path: polygon(0 0, calc(100% - 1.2em) 0, 100% 50%, calc(100% - 1.2em) 100%, 0 100%) !important;
+  background: linear-gradient(90deg, #ff5a14 0%, #ff3d00 100%) !important;
+  padding: 0 2em 0 1.2em !important;
+  border-radius: 0 !important;
+}
+.buy::after, .buy__body::before, .buy__divider, .buy__eyelet, .buy__cart {
+  display: none !important;
+}
+
+/* Desktop Defaults Recovery */
+@media (min-width: 1024px) {
+  .hero {
+    background-color: #f4f4f6 !important;
+    height: 100svh !important;
+    min-height: 620px !important;
+    aspect-ratio: auto !important;
+  }
+  .hero-image-mobile-only { display: none !important; }
+  .hero-image-desktop-only { display: block !important; }
+  .hero__product-image {
+    inset: 0 !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .hero__copy {
+    top: 16svh !important;
+    right: clamp(30px, 3.5vw, 48px) !important;
+    width: min(80vw, 1200px) !important;
   }
 }
 
-@media (max-width: 600px) {
-  .wa-btn {
-    right: 16px;
-    bottom: 16px;
-    padding: 14px;
-    gap: 0;
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero {
+    aspect-ratio: 100 / 84 !important;
+    height: auto !important;
+    max-height: 100svh !important;
   }
-  .wa-label {
-    display: none;
+  .hero__product-image {
+    aspect-ratio: 481 / 272 !important;
   }
 }
 
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .hero {
+    aspect-ratio: 100 / 84 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .hero__product-image {
+    aspect-ratio: 481 / 272 !important;
+  }
+}
+
+/* Global resets */
+html, body {
+  overflow-x: hidden !important;
+}
+
+/* Header Overrides for Mobile/Tablet */
+@media (max-width: 1023px) {
+  header {
+    position: absolute !important;
+    padding: calc(env(safe-area-inset-top) + 8px) 14px 8px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+  }
+  header > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  header span.font-semibold {
+    font-size: 18px !important;
+  }
+  header svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  header button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  header button span {
+    background-color: #111 !important;
+  }
+}

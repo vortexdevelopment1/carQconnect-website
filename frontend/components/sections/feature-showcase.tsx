@@ -183,8 +183,8 @@ export function FeatureShowcase() {
           border: '1px solid #2E3139',
           padding: '6px',
           borderRadius: '14px',
-          width: 'max-content',
-          maxWidth: '100%'
+          width: '100%',
+          maxWidth: '500px'
         }}
       >
         {features.map((feature, idx) => {
@@ -200,13 +200,11 @@ export function FeatureShowcase() {
               onClick={() => { handleTabChange(idx); setIsPaused(true); }}
               onKeyDown={(e) => handleKeyDown(e, idx)}
               className={cn(
-                "whitespace-nowrap transition-colors flex-1 flex items-center justify-center focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1D1F26]",
+                "whitespace-nowrap transition-colors flex-1 flex items-center justify-center focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1D1F26] text-[15px] px-[20px] py-[11px]",
                 "[@media(max-width:767px)]:text-[13px] [@media(max-width:767px)]:px-[14px] [@media(max-width:767px)]:py-[9px]"
               )}
               style={{
                 fontWeight: 700,
-                fontSize: '15px',
-                padding: '11px 20px',
                 borderRadius: '10px',
                 color: isActive ? '#fff' : '#A4ABB8',
                 background: isActive ? 'linear-gradient(90deg, #FF7A1A, #FF5A00)' : 'transparent',

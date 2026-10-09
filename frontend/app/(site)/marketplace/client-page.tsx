@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Check, QrCode, MapPin, Signal } from "lucide-react";
+import { BackButton } from "@/components/ui/back-button";
 
 type Filter = "all" | "qr" | "gps" | "soon";
 
@@ -12,10 +13,11 @@ export default function MarketplaceClient() {
     <div className="font-display text-[#0f1220]">
       {/* 1) HERO BAND */}
       <section 
-        className="relative pt-[108px] pb-[36px] overflow-hidden"
+        className="relative pt-[76px] pb-[36px] overflow-hidden"
         style={{ background: 'radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,.28) 0%, rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3 0%, #f7f9fc 100%)' }}
       >
         <div className="relative z-10 max-w-[1360px] mx-auto px-6 flex flex-col items-start text-left">
+          <div className="mb-2 -mt-4"><BackButton fallback="/#features" label="Back" /></div>
           
           <div className="rounded-full border border-[#e1e6ee] bg-white px-3.5 py-1 text-[13px] font-semibold text-[#5b6478] mb-[16px]">
             Marketplace

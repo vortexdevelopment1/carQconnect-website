@@ -19,14 +19,14 @@ const rules = [
 export default function QrSafetyPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#FFFFFF] pt-40 pb-24 border-b border-[#ECEEF4]">
+      <section className="relative overflow-hidden bg-[#FFFFFF] pt-[90px] md:pt-[100px] pb-12 md:pb-20 border-b border-[#ECEEF4]">
         <div 
           aria-hidden="true" 
           className="pointer-events-none absolute inset-0"
           style={{ background: 'radial-gradient(600px 400px at 85% 0%, rgba(255,90,0,0.12), transparent 70%)' }}
         />
         <div className="container-page relative z-10 max-w-[1180px] mx-auto">
-        <div className="pt-8"><BackButton fallback="/#features" label="Back to Features" /></div>
+        <div className="mb-2 -mt-2"><BackButton fallback="/#features" label="Back" /></div>
           <div className="flex items-center gap-4 mb-6">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
             <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">QR SAFETY</span>
@@ -40,7 +40,7 @@ export default function QrSafetyPage() {
             The QR is the physical-to-digital bridge at the core of carQconnect. Activate it once, and it works for anyone who needs to reach you about your vehicle.
           </p>
           
-          <div className="flex flex-wrap items-center gap-[14px]">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-[14px]">
             <a href="/#download" className="flex items-center justify-center h-[52px] px-[28px] bg-[#FF5A00] text-white text-[14px] font-bold rounded-[12px] shadow-[0_10px_30px_rgba(255,90,0,.3)] hover:bg-[#FF7226] transition-colors">
               Download App
             </a>

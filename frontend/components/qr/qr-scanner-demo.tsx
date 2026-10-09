@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Phone, MessageSquare, Flag, AlertTriangle, QrCode, Check } from "lucide-react";
+import { Phone, MessageSquare, Flag, AlertTriangle, QrCode, Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const actions = [
@@ -41,6 +41,21 @@ export function QrScannerDemo() {
   const currentNote = selectedAction 
     ? actions.find(a => a.id === selectedAction)?.note 
     : "Tap an action to see what happens.";
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleSimulate();
+    }, 4000);
+
+    const timeout = setTimeout(() => {
+      handleSimulate();
+    }, 1500);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   const handleSimulate = () => {
     if (isAnimatingRef.current) return;
@@ -143,9 +158,9 @@ export function QrScannerDemo() {
           </div>
 
           {/* CONNECTOR */}
-          <div className="relative z-10 -my-[22px] flex items-center justify-center md:-mx-[22px] md:my-0">
+          <div className="relative z-10 my-[16px] flex items-center justify-center md:-mx-[22px] md:my-0">
             <div className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-[#FF5A00] text-white shadow-[0_8px_24px_rgba(255,90,0,0.4)]">
-              <span className="text-xl leading-none rotate-90 md:rotate-0">&rarr;</span>
+              <ArrowRight className="w-6 h-6 rotate-90 md:rotate-0" strokeWidth={2.5} />
             </div>
           </div>
 
