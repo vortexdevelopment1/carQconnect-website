@@ -13,11 +13,11 @@ export default function MarketplaceClient() {
     <div className="font-display text-[#0f1220]">
       {/* 1) HERO BAND */}
       <section 
-        className="relative pt-[76px] pb-[36px] overflow-hidden"
+        className="relative pt-[76px] pb-[16px] md:pb-[36px] overflow-hidden"
         style={{ background: 'radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,.28) 0%, rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3 0%, #f7f9fc 100%)' }}
       >
         <div className="relative z-10 max-w-[1360px] mx-auto px-6 flex flex-col items-start text-left">
-          <div className="mb-2 -mt-4"><BackButton fallback="/#features" label="Back" /></div>
+          <div className="mb-2 max-md:mt-4 md:mt-2"><BackButton fallback="/features" label="Back to features" /></div>
           
           <div className="rounded-full border border-[#e1e6ee] bg-white px-3.5 py-1 text-[13px] font-semibold text-[#5b6478] mb-[16px]">
             Marketplace
@@ -45,7 +45,7 @@ export default function MarketplaceClient() {
           </div>
 
           {/* 2) FILTER CHIPS */}
-          <div className="flex items-center gap-3 overflow-x-auto hide-scrollbar snap-x snap-mandatory mt-[24px] w-full">
+          <div className="flex items-center gap-2 md:gap-3 flex-wrap mt-[24px] w-full">
             {[
               { id: "all", label: "All products" },
               { id: "qr", label: "QR Safety" },
@@ -59,7 +59,7 @@ export default function MarketplaceClient() {
                   type="button"
                   onClick={() => setFilter(btn.id as Filter)}
                   aria-pressed={active}
-                  className={`flex-shrink-0 rounded-full px-5 min-h-[44px] snap-start text-[14px] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ff6a00] focus:ring-offset-2 border ${
+                  className={`flex-shrink-0 rounded-full px-3 md:px-5 min-h-[38px] md:min-h-[44px] text-[13px] md:text-[14px] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ff6a00] focus:ring-offset-2 border ${
                     active
                       ? "bg-[#ff6a00] font-semibold text-[#1a0b00] border-[#ff6a00]"
                       : "border-[#e1e6ee] bg-white font-medium text-[#0f1220] hover:border-[#ff6a00] hover:text-[#ff6a00]"

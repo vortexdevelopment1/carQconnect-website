@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/sections/page-header";
+import { BackButton } from "@/components/ui/back-button";
 import { VehicleUtilitiesSection } from "@/components/sections/vehicle-utilities-section";
 import { GarageSection } from "@/components/sections/garage-section";
-import { BackButton } from "@/components/ui/back-button";
 
 export const metadata: Metadata = {
   title: "Vehicle Utilities",
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function VehicleUtilitiesPage() {
   return (
     <>
-      <div className="container-page pt-8"><BackButton fallback="/#features" label="Back to Features" /></div>
-      <PageHeader
+            <PageHeader
+        backButton={<BackButton fallback="/features" label="Back to features" />}
         eyebrow="Vehicle Utilities"
         title="The small, recurring vehicle admin — handled."
         description="FASTag balance and recharge, RTO information, document expiry and service reminders, all tied to your Digital Garage."

@@ -19,24 +19,24 @@ const rules = [
 export default function QrSafetyPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#FFFFFF] pt-[90px] md:pt-[100px] pb-12 md:pb-20 border-b border-[#ECEEF4]">
+      <section className="relative overflow-hidden bg-[#FFFFFF] pt-[70px] md:pt-[80px] pb-0 md:pb-2 border-b border-[#ECEEF4]">
         <div 
           aria-hidden="true" 
           className="pointer-events-none absolute inset-0"
           style={{ background: 'radial-gradient(600px 400px at 85% 0%, rgba(255,90,0,0.12), transparent 70%)' }}
         />
         <div className="container-page relative z-10 max-w-[1180px] mx-auto">
-        <div className="mb-2 -mt-2"><BackButton fallback="/#features" label="Back" /></div>
-          <div className="flex items-center gap-4 mb-6">
+        <div className="mb-2 max-md:mt-4 md:mt-2"><BackButton fallback="/features" label="Back to features" /></div>
+          <div className="flex items-center gap-4 mb-3 md:mb-6">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
             <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">QR SAFETY</span>
           </div>
           
-          <h1 className="font-display font-[800] tracking-tight text-[#12131A] mb-5 max-w-[800px]" style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.1 }}>
+          <h1 className="font-display font-[800] tracking-tight text-[#12131A] mb-2 md:mb-5 max-w-[800px]" style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.1 }}>
             A smarter, safer identity for your <span className="text-[#FF5A00]">vehicle.</span>
           </h1>
           
-          <p className="text-[17px] leading-relaxed text-[#5B6070] max-w-[560px] mb-8">
+          <p className="text-[17px] leading-relaxed text-[#5B6070] max-w-[560px] mb-4 md:mb-8">
             The QR is the physical-to-digital bridge at the core of carQconnect. Activate it once, and it works for anyone who needs to reach you about your vehicle.
           </p>
           
@@ -53,7 +53,7 @@ export default function QrSafetyPage() {
 
       <QrScannerDemo />
 
-      <section className="bg-white py-14 md:py-[72px] border-t border-[#ECEEF4]">
+      <section className="bg-white py-8 md:py-10 border-t border-[#ECEEF4]">
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="flex items-center gap-4 mb-3.5">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />

@@ -1,4 +1,6 @@
-export function WhatsAppCta() {
+const fs = require('fs');
+
+const content = `export function WhatsAppCta() {
   return (
     <a 
       href="https://wa.me/919999999999?text=Hi" 
@@ -19,4 +21,6 @@ export function WhatsAppCta() {
       <span className="text-[14px] font-semibold tracking-wide pr-1">Chat on WhatsApp</span>
     </a>
   );
-}
+}`;
+
+fs.writeFileSync('components/sections/whatsapp-cta.tsx', content, 'utf8');

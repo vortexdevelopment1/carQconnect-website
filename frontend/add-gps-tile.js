@@ -1,4 +1,6 @@
-export function HeroQrScanner() {
+const fs = require('fs');
+
+const content = `export function HeroQrScanner() {
   return (
     <svg
       className="hero-svg absolute inset-0 w-full h-full pointer-events-none"
@@ -56,7 +58,7 @@ export function HeroQrScanner() {
       </g>
 
       {/* Flat 2D GPS tile printed on the left pedestal's top pad */}
-      <g id="gps-flat" transform="matrix(20.2 15.94 -25.4 14.44 53.24 85.49)">
+      <g id="gps-flat" transform="matrix(21.9 16.9 -24.4 15 50 85.6)">
         <rect x=".1" y=".1" width=".8" height=".8" rx=".1" fill="#17171a" />
         <g clipPath="url(#gpsClip)">
           <g stroke="#34343a" strokeWidth=".012" fill="none">
@@ -82,4 +84,6 @@ export function HeroQrScanner() {
       </g>
     </svg>
   );
-}
+}`;
+
+fs.writeFileSync('components/qr/hero-qr-scanner.tsx', content, 'utf8');

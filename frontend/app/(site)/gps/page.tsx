@@ -20,18 +20,20 @@ const features = [
 export default function GpsPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#FFFFFF] pt-[70px] md:pt-[80px] pb-12 md:pb-20 border-b border-[#ECEEF4]">
+      <section className="relative overflow-hidden bg-[#FFFFFF] pt-[70px] md:pt-[80px] pb-6 md:pb-20 border-b border-[#ECEEF4]">
         <div 
           aria-hidden="true" 
           className="pointer-events-none absolute inset-0"
           style={{ background: 'radial-gradient(600px 400px at 85% 0%, rgba(255,90,0,0.12), transparent 70%)' }}
         />
-        <div className="container-page relative z-10 max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="container-page relative z-10 max-w-[1180px] mx-auto">
+          <div className="mb-2 max-md:mt-4 md:mt-2"><BackButton fallback="/features" label="Back to features" /></div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
           
           {/* Left Column: Text */}
           <div className="flex flex-col">
-            <div className="mb-2 -mt-2"><BackButton fallback="/#features" label="Back" /></div>
+            
 
             <div className="flex items-center gap-4 mb-6">
               <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
@@ -61,7 +63,7 @@ export default function GpsPage() {
           </div>
 
           {/* Right Column: Visual */}
-          <div className="w-full max-w-[560px] max-lg:mx-auto rounded-[26px] bg-[#12131A] border border-[#2A2D3A] shadow-[0_24px_60px_rgba(18,19,26,0.28)] overflow-hidden text-white mt-8 lg:mt-0 flex flex-col">
+          <div className="w-full max-w-[560px] max-lg:mx-auto rounded-[26px] bg-[#12131A] border border-[#2A2D3A] shadow-[0_24px_60px_rgba(18,19,26,0.28)] overflow-hidden text-white mt-4 lg:mt-[50px] flex flex-col">
             
             {/* Top Bar */}
             <div className="flex justify-between items-center px-5 py-4 border-b border-[#2A2D3A]">
@@ -159,6 +161,7 @@ export default function GpsPage() {
             </div>
           </div>
         </div>
+      </div>
       </section>
 
       <section className="bg-surface-2 py-24 md:py-32 border-y border-border">

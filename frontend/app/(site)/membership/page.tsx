@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BackButton } from "@/components/ui/back-button";
 import { QrCode, MapPin, Route, Headset, CheckCircle2, Zap, Crown, Lock, Smartphone, ArrowRightLeft } from "lucide-react";
 import { membershipPlans } from "@/lib/data/membershipPlans";
 
@@ -18,6 +19,7 @@ export default function MembershipPage() {
         style={{ background: 'radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,.28) 0%, rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3 0%, #f7f9fc 100%)' }}
       >
         <div className="max-w-[1240px] mx-auto flex flex-col items-center text-center relative z-10">
+          <div className="mb-6 self-start md:self-center"><BackButton fallback="/features" label="Back to features" /></div>
           <div className="flex items-center gap-4 mb-6">
             <div className="w-[32px] h-[2px] bg-[#ff5a00]" />
             <span className="text-[12px] font-[800] uppercase tracking-[0.16em] text-[#ff5a00]">MEMBERSHIP</span>

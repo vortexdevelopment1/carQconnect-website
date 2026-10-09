@@ -1,4 +1,18 @@
+const fs = require('fs');
+let content = fs.readFileSync('components/ui/back-button.tsx', 'utf8');
 
+// If the label is "Back to features", it is misleading if it goes somewhere else in history.
+// We will add a forceFallback prop and use Link if provided, but since we have a lot of files,
+// let's just make the button always use router.push(fallback) if fallback is provided,
+// OR just replace router.back() with router.push(fallback) everywhere to solve the user's issue completely,
+// as they specifically said "ye back to features vala btn features vale page me jana chahiye".
+
+content = content.replace(
+  'import { ArrowLeft } from "lucide-react";',
+  'import { ArrowLeft } from "lucide-react";\nimport Link from "next/link";'
+);
+
+content = `
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -27,3 +41,6 @@ export function BackButton({ fallback = "/", label = "Back", forceFallback = fal
     </Link>
   );
 }
+`;
+
+fs.writeFileSync('components/ui/back-button.tsx', content, 'utf8');

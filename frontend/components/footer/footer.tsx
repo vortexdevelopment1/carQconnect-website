@@ -65,7 +65,7 @@ export function Footer() {
           
         </div>
 
-        <div className="relative z-10 mt-14 flex items-center justify-between border-t border-[#262935] py-[22px]">
+        <div id="footer-copy-bar" className="relative z-10 mt-14 flex items-center justify-between border-t border-[#262935] py-[22px]">
           <p className="text-[13px] text-[#7B7F90]">
             &copy; 2026 carQconnect. All rights reserved.
           </p>

@@ -21,23 +21,23 @@ export default function SafetyPage() {
   return (
     <>
       <PageHeader
+        backButton={<BackButton fallback="/features" label="Back to features" />}
         eyebrow="Safety"
-        title="When every second matters."
+        title="SOS and emergency safety"
         description="SOS in carQconnect is built as a high-priority safety workflow — deliberate to trigger, fast to act on, and clear about what happens next."
       />
       <SosSection />
 
-      <section className="bg-surface-2 py-24 md:py-32 border-y border-border">
+      <section className="bg-surface-2 py-12 md:py-16 border-y border-border">
         <div className="container-page">
-        <div className="pt-8"><BackButton fallback="/#features" label="Back to Features" /></div>
-          <SectionHeading
+                  <SectionHeading
             title="Family & emergency contacts"
             description="Configure who gets notified, and in what order, before you ever need SOS."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {contactFeatures.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="rounded-card-lg border border-border bg-surface p-6">
-                <Icon className="h-5 w-5 text-blue" strokeWidth={1.75} />
+              <div key={title} className="rounded-card-lg border border-[#ff5a00]/40 bg-surface p-6 hover:border-[#ff5a00] hover:shadow-glow transition-all">
+                <Icon className="h-5 w-5 text-[#ff5a00]" strokeWidth={1.75} />
                 <h3 className="mt-4 font-display text-[15px] font-medium text-ink">{title}</h3>
                 <p className="mt-1.5 text-[13px] text-tertiary">{description}</p>
               </div>

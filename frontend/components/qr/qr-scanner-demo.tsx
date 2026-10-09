@@ -42,20 +42,7 @@ export function QrScannerDemo() {
     ? actions.find(a => a.id === selectedAction)?.note 
     : "Tap an action to see what happens.";
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleSimulate();
-    }, 4000);
 
-    const timeout = setTimeout(() => {
-      handleSimulate();
-    }, 1500);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
-  }, []);
 
   const handleSimulate = () => {
     if (isAnimatingRef.current) return;
@@ -92,7 +79,7 @@ export function QrScannerDemo() {
   };
 
   return (
-    <section id="demo" className="bg-[#F7F8FC] px-6 py-14 md:py-20">
+    <section id="demo" className="bg-[#F7F8FC] px-6 pt-4 pb-8 md:pt-6 md:pb-10">
       <div className="mx-auto max-w-[1180px]">
         
         {/* Header */}

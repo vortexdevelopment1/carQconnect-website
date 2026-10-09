@@ -5,17 +5,17 @@ const flow = [
   { icon: Hand, label: "Hold SOS" },
   { icon: MapPin, label: "Location captured" },
   { icon: Users, label: "Family alerted" },
-  { icon: LifeBuoy, label: "Emergency support" },
+  { icon: LifeBuoy, label: "Help within reach" },
 ];
 
 export function SosSection() {
   return (
-    <section className="bg-[#f4f4f5] py-24 md:py-32 border-b border-black/10">
+    <section className="bg-[#f4f4f5] py-12 md:py-16 border-b border-black/10">
       <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionHeading
             title="When every second matters."
-            description="A deliberate press-and-hold starts the SOS flow — capturing your location, notifying the emergency contacts you've configured, and keeping you connected to emergency support."
+            description="A deliberate press-and-hold starts the SOS flow, capturing your location, notifying the emergency contacts you've configured, and putting emergency calling and nearby help within reach."
           />
           <ul className="mt-8 space-y-3 text-[14px] text-neutral-700">
             <li className="flex items-center gap-2">

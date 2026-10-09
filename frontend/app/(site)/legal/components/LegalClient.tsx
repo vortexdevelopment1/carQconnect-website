@@ -83,7 +83,8 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-6 pt-[120px]">
+      <div className="relative z-10 max-w-[1240px] mx-auto px-6 pt-[80px] md:pt-[100px]">
+        
         
         {/* Tab Switcher */}
         <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-[#eceef4]">
@@ -106,7 +107,7 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
         </div>
 
         {/* HEADER */}
-        <div className="mb-14">
+        <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-[32px] h-[2px] bg-[#ff5a00]" />
             <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#ff5a00]">LEGAL</span>
