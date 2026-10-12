@@ -9,16 +9,16 @@ export function HeroQrScanner() {
     >
       <defs>
         <linearGradient id="fade-mask" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#000" stop-opacity="0" />
-          <stop offset="0.32" stop-color="#fff" stop-opacity="1" />
+          <stop offset="0" stopColor="#000" stopOpacity="0" />
+          <stop offset="0.32" stopColor="#fff" stopOpacity="1" />
         </linearGradient>
         <mask id="hero-mask">
           <rect x="0" y="0" width="481" height="272" fill="url(#fade-mask)" />
         </mask>
         <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#ff6a1f" stop-opacity="0" />
-          <stop offset="0.85" stop-color="#ff6a1f" stop-opacity="0.55" />
-          <stop offset="1" stop-color="#ffd2b0" stop-opacity="1" />
+          <stop offset="0" stopColor="#ff6a1f" stopOpacity="0" />
+          <stop offset="0.85" stopColor="#ff6a1f" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#ffd2b0" stopOpacity="1" />
         </linearGradient>
         <clipPath id="qrClip">
           <rect x="0.01" y="0.01" width="0.98" height="0.98" />

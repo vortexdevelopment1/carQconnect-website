@@ -112,6 +112,14 @@ function PhoneScreen({ screen }: { screen: { name: string; src?: string } }) {
 function StepSection({ step, index }: { step: Step; index: number }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -196,7 +204,7 @@ function StepSection({ step, index }: { step: Step; index: number }) {
         </div>
 
         {/* CENTER COLUMN (Desktop only) */}
-        <div className="flex items-center justify-center max-[900px]:hidden">
+        <div className="flex items-center justify-center max-[1023px]:hidden">
           <div className="center-anim relative flex h-[64px] w-[64px] items-center justify-center">
             <div
               className="absolute inset-0 rounded-[12px]"
@@ -214,9 +222,9 @@ function StepSection({ step, index }: { step: Step; index: number }) {
         </div>
 
         {/* PHONES COLUMN */}
-        <div className="flex items-center justify-center max-[900px]:order-3 max-[900px]:mt-12 max-[900px]:w-full max-[900px]:scale-80">
+        <div className="flex items-center justify-center max-[1023px]:order-3 max-[1023px]:mt-12 max-[1023px]:w-full max-[1023px]:scale-80">
           <div
-            className="relative flex w-full max-[900px]:max-w-[420px] max-[900px]:mx-auto items-center justify-center"
+            className="relative flex w-full max-[1023px]:max-w-[420px] max-[1023px]:mx-auto items-center justify-center"
             style={{ perspective: "1400px", containerType: "inline-size", aspectRatio: "100 / 107", width: "100%" }}
           >
             {/* Background elements */}
@@ -227,7 +235,6 @@ function StepSection({ step, index }: { step: Step; index: number }) {
 
             {/* Phones */}
             {step.screens.map((screen, i) => {
-              const isMobile = typeof window !== 'undefined' && window.innerWidth < 900;
               const transforms = isMobile ? [
                 { tx: '-15%', ty: '0%', s: 1, z: 3, o: 1 },
                 { tx: '15%', ty: '-3%', s: 0.96, z: 2, o: 0.92 },
@@ -427,7 +434,7 @@ export function HowItWorksScroll() {
       ))}
 
       {/* Navigator */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-50 max-[900px]:hidden">
+      <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-50 max-[1023px]:hidden">
         {steps.map((_, i) => {
           const isActive = activeIndex === i;
           return (

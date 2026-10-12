@@ -580,7 +580,7 @@ select:focus-visible,
 /* -------------------------------------------------------- narrow screens */
 
 @media (max-width: 1024px) {
-    body { padding-bottom: 88px; }
+    /* body padding-bottom removed for clean footer edge */
 
   :root {
     --edge: 22px;
@@ -887,11 +887,8 @@ html, body {
 /* Header Overrides for Mobile/Tablet */
 @media (max-width: 1023px) {
   header {
-    position: absolute !important;
+    position: fixed !important;
     padding: calc(env(safe-area-inset-top) + 8px) 14px 8px !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border-bottom: none !important;
   }
   header > div {
     padding-left: 0 !important;

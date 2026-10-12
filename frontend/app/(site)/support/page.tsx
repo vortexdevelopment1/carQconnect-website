@@ -18,10 +18,11 @@ export default function SupportPage() {
           </>
         }
         description="Start with the AI assistant. If it can't resolve things, you're handed to a human without repeating yourself."
+        className="pt-[max(env(safe-area-inset-top),clamp(80px,10vw,120px))] pb-4 md:pb-6"
       />
 
       {/* THREE WAYS TO GET HELP */}
-      <section className="py-[80px]">
+      <section className="pt-6 md:pt-10 pb-[60px] md:pb-[80px]">
         <div className="max-w-[1120px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[64px] items-center">
           
           <div>

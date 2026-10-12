@@ -20,20 +20,45 @@ function CarQMark({ className = "" }: { className?: string }) {
 export function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
 
   const isDarkHero = pathname === '/'; 
   const isLight = isScrolled || !isDarkHero || menuOpen;
   
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      if (menuOpen) {
+        setIsVisible(true);
+        setIsScrolled(true);
+        return;
+      }
+
+      setIsScrolled(currentScrollY > 20);
+
+      if (currentScrollY > 60) {
+        if (currentScrollY > lastScrollY.current + 5) {
+          // Scrolling down -> hide navbar
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY.current - 5) {
+          // Scrolling up even slightly -> reveal navbar
+          setIsVisible(true);
+        }
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuOpen]);
 
   // Handle body scroll locking
   useEffect(() => {
@@ -59,7 +84,9 @@ export function Navbar() {
   return (
     <>
       <header data-type-scale="off" 
-        className={`fixed top-0 left-0 right-0 z-[100] flex flex-col transition-all duration-300 pt-[env(safe-area-inset-top)] ${
+        className={`fixed top-0 left-0 right-0 z-[100] flex flex-col transition-transform duration-300 ease-in-out pt-[env(safe-area-inset-top)] ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        } ${
           isScrolled || menuOpen
             ? 'bg-[#fff6ef]/95 backdrop-blur-md shadow-sm border-b border-[#ff6a00]/10' 
             : 'bg-transparent'

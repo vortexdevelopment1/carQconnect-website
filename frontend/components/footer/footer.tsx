@@ -92,7 +92,7 @@ export function Footer() {
         {/* COPYRIGHT BAR (the line lives here, ABOVE the watermark) */}
         <div
           id="footer-copy-bar"
-          className="relative z-10 mt-6 flex items-center justify-between gap-4 border-t border-[#262935] py-[10px] min-[640px]:mt-8 min-[640px]:py-[12px]"
+          className="relative z-10 mt-6 flex items-center justify-between gap-4 border-t border-[#262935] py-[10px] max-[639px]:pr-[64px] min-[640px]:mt-8 min-[640px]:py-[12px]"
         >
           <p className="flex flex-col gap-[2px] text-[12.5px] text-[#7B7F90] min-[640px]:text-[13px]">
             <span>&copy; 2026 carQconnect.</span>

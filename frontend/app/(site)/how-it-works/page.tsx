@@ -35,17 +35,17 @@ export default function HowItWorksPage() {
 
       {/* Closing Band */}
       <section 
-        className="py-24 text-center"
+        className="py-10 min-[640px]:py-12 lg:py-24 text-center"
         style={{
           background: "linear-gradient(110deg, #ff6a00, #ff8a2b)"
         }}
       >
         <div className="container-page">
-          <h2 className="font-display text-4xl font-bold text-white">Ready to start?</h2>
-          <p className="mt-4 text-lg text-white/90">Download the app and set up your vehicle.</p>
+          <h2 className="font-display text-2xl min-[640px]:text-3xl lg:text-4xl font-bold text-white">Ready to start?</h2>
+          <p className="mt-2 min-[640px]:mt-3 lg:mt-4 text-sm min-[640px]:text-base lg:text-lg text-white/90">Download the app and set up your vehicle.</p>
           <a
             href="/#download"
-            className="mt-8 inline-flex h-12 items-center justify-center rounded-btn bg-[#0b0c10] px-8 text-sm font-bold text-white transition hover:bg-black hover:-translate-y-1 shadow-lg"
+            className="mt-5 min-[640px]:mt-6 lg:mt-8 inline-flex h-10 lg:h-12 items-center justify-center rounded-btn bg-[#0b0c10] px-6 lg:px-8 text-sm font-bold text-white transition hover:bg-black hover:-translate-y-1 shadow-lg"
           >
             Download App
           </a>
