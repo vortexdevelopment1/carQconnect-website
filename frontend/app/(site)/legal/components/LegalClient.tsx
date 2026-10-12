@@ -110,9 +110,9 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-[32px] h-[2px] bg-[#ff5a00]" />
-            <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#ff5a00]">LEGAL</span>
+            <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#ff5a00]">LEGAL</span>
           </div>
-          <h1 className="text-[clamp(34px,5vw,52px)] font-[800] leading-[1.1] tracking-tight text-[#12131a] mb-4">
+          <h1 className="font-[800] text-[#12131a] mb-4">
             {data.title}
           </h1>
           <p className="text-[16px] text-[#5b6070] max-w-[640px] leading-relaxed">
@@ -174,7 +174,7 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
             {data.sections.map((s, index) => (
               <div key={s.id} id={s.id} className="scroll-mt-28">
                 {index !== 0 && <hr className="border-t border-[#eceef4] mb-10" />}
-                <h2 className="text-[22px] font-[800] text-[#12131a] mb-4">
+                <h2 className="font-[800] text-[#12131a] mb-4">
                   {s.title}
                 </h2>
                 <div className="flex flex-col gap-4">

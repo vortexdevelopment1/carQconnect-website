@@ -16,7 +16,7 @@ export function ConnectedSystems() {
               CONNECTED VEHICLE PLATFORM
             </p>
             <h2 
-              className="font-display [@media(max-width:767px)]:text-[clamp(26px,7vw,32px)]"
+              className="font-display [@media(max-width:767px)]:"
               style={{ color: 'white', fontWeight: 800, fontSize: 'clamp(34px,4.2vw,56px)', lineHeight: 1.08, letterSpacing: '-.03em', margin: '12px 0 14px' }}
             >
               Smart systems. <br />
@@ -39,10 +39,10 @@ export function ConnectedSystems() {
           <div className="pr-0 lg:pr-8">
             <div className="flex items-center gap-4">
               <div className="w-8 h-[2px] bg-[#FF5A00]" />
-              <p className="text-xs font-extrabold tracking-[0.16em] text-[#FF5A00] uppercase">WHY CARQCONNECT</p>
+              <p className="text-[clamp(10px,2vw,12px)] font-extrabold tracking-[0.16em] text-[#FF5A00] uppercase">WHY CARQCONNECT</p>
             </div>
             <h2 
-              className="mt-6 font-display font-bold tracking-tight text-[#0C0C0E]" 
+              className="mt-6 font-display font-bold text-[#0C0C0E]" 
               style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: 1.08 }}
             >
               Because your vehicle needs more than a phone number on the dashboard.
@@ -52,7 +52,7 @@ export function ConnectedSystems() {
             </p>
             <Link 
               href="/features" 
-              className="mt-10 inline-flex items-center justify-center gap-2 text-[15px] font-bold text-white bg-[#0C0C0E] hover:bg-[#FF5A00] hover:-translate-y-1 transition-all duration-300 py-3.5 px-7 rounded-xl w-fit shadow-md"
+              className="mt-10 inline-flex items-center justify-center gap-2 text-[clamp(13px,2vw,15px)] font-bold text-white bg-[#0C0C0E] hover:bg-[#FF5A00] hover:-translate-y-1 transition-all duration-300 py-[clamp(10px,2.5vw,14px)] px-[clamp(18px,4vw,28px)] rounded-xl w-fit shadow-md"
             >
               See all product features <ArrowUpRight className="h-4 w-4 stroke-[2.5]" />
             </Link>

@@ -29,10 +29,10 @@ export default function QrSafetyPage() {
         <div className="mb-2 max-md:mt-4 md:mt-2"><BackButton fallback="/features" label="Back to features" /></div>
           <div className="flex items-center gap-4 mb-3 md:mb-6">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-            <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">QR SAFETY</span>
+            <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">QR SAFETY</span>
           </div>
           
-          <h1 className="font-display font-[800] tracking-tight text-[#12131A] mb-2 md:mb-5 max-w-[800px]" style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.1 }}>
+          <h1 className="font-display font-[800] text-[#12131A] mb-2 md:mb-5 max-w-[800px]" style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.1 }}>
             A smarter, safer identity for your <span className="text-[#FF5A00]">vehicle.</span>
           </h1>
           
@@ -57,10 +57,10 @@ export default function QrSafetyPage() {
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="flex items-center gap-4 mb-3.5">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-            <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">PRIVACY</span>
+            <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">PRIVACY</span>
           </div>
           
-          <h2 className="font-display font-[800] tracking-[-0.03em] text-[#12131A] leading-[1.08]" style={{ fontSize: 'clamp(30px,4vw,46px)' }}>
+          <h2 className="font-display font-[800] text-[#12131A]" style={{ fontSize: 'clamp(30px,4vw,46px)' }}>
             Built around your <span className="text-[#FF5A00]">privacy.</span>
           </h2>
           

@@ -13,7 +13,7 @@ export default function MarketplaceClient() {
     <div className="font-display text-[#0f1220]">
       {/* 1) HERO BAND */}
       <section 
-        className="relative pt-[76px] pb-[16px] md:pb-[36px] overflow-hidden"
+        className="relative pt-[76px] pb-[48px] md:pb-[64px] overflow-visible"
         style={{ background: 'radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,.28) 0%, rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3 0%, #f7f9fc 100%)' }}
       >
         <div className="relative z-10 max-w-[1360px] mx-auto px-6 flex flex-col items-start text-left">
@@ -23,7 +23,7 @@ export default function MarketplaceClient() {
             Marketplace
           </div>
           
-          <h1 className="text-[clamp(34px,5vw,56px)] font-[800] leading-[1.06] tracking-[-0.025em] text-[#0f1220] max-w-[800px] mb-[12px]">
+          <h1 className="font-[800] text-[#0f1220] max-w-[800px] mb-[12px]">
             Upgrade your vehicle with <span className="text-[#ff6a00]">carQconnect.</span>
           </h1>
           
@@ -45,7 +45,7 @@ export default function MarketplaceClient() {
           </div>
 
           {/* 2) FILTER CHIPS */}
-          <div className="flex items-center gap-2 md:gap-3 flex-wrap mt-[24px] w-full">
+          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 flex-wrap mt-[24px] w-full">
             {[
               { id: "all", label: "All products" },
               { id: "qr", label: "QR Safety" },
@@ -59,7 +59,7 @@ export default function MarketplaceClient() {
                   type="button"
                   onClick={() => setFilter(btn.id as Filter)}
                   aria-pressed={active}
-                  className={`flex-shrink-0 rounded-full px-3 md:px-5 min-h-[38px] md:min-h-[44px] text-[13px] md:text-[14px] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ff6a00] focus:ring-offset-2 border ${
+                  className={`flex-shrink-0 rounded-full px-2.5 sm:px-3 md:px-5 min-h-[32px] md:min-h-[44px] text-[11px] sm:text-[13px] md:text-[14px] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ff6a00] focus:ring-offset-2 border ${
                     active
                       ? "bg-[#ff6a00] font-semibold text-[#1a0b00] border-[#ff6a00]"
                       : "border-[#e1e6ee] bg-white font-medium text-[#0f1220] hover:border-[#ff6a00] hover:text-[#ff6a00]"
@@ -84,7 +84,7 @@ export default function MarketplaceClient() {
                   className="relative h-[190px] w-full flex items-center justify-center overflow-hidden bg-[#12141c]"
                   style={{ background: 'radial-gradient(60% 80% at 50% 40%, rgba(255,106,0,.20), rgba(255,106,0,0) 70%), #12141c' }}
                 >
-                  <div className="absolute top-5 right-5 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-3 py-1 text-[12px] font-bold">
+                  <div className="absolute top-5 left-5 z-20 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-3 py-1 text-[12px] font-bold">
                     Most popular
                   </div>
                   {/* QR Illustration */}
@@ -102,7 +102,7 @@ export default function MarketplaceClient() {
                 
                 <div className="p-[22px] flex flex-col flex-grow gap-[10px]">
                   <div className="text-[12px] font-bold tracking-[0.14em] text-[#c2410c] uppercase">QR Safety</div>
-                  <h2 className="text-[22px] font-[800] text-[#0f1220]">carQconnect QR Safety Tag</h2>
+                  <h2 className="font-[800] text-[#0f1220]">carQconnect QR Safety Tag</h2>
                   <p className="text-[15px] text-[#5b6478]">
                     A private, practical identity for your vehicle. Anyone who finds it can reach you without seeing your number.
                   </p>
@@ -135,7 +135,7 @@ export default function MarketplaceClient() {
                   className="relative h-[190px] w-full flex items-center justify-center overflow-hidden bg-[#12141c]"
                   style={{ background: 'radial-gradient(60% 80% at 50% 40%, rgba(255,106,0,.20), rgba(255,106,0,0) 70%), #12141c' }}
                 >
-                  <div className="absolute top-5 right-5 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-3 py-1 text-[12px] font-bold">
+                  <div className="absolute top-5 left-5 z-20 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-3 py-1 text-[12px] font-bold">
                     New
                   </div>
                   {/* GPS Illustration */}
@@ -161,7 +161,7 @@ export default function MarketplaceClient() {
                 
                 <div className="p-[22px] flex flex-col flex-grow gap-[10px]">
                   <div className="text-[12px] font-bold tracking-[0.14em] text-[#c2410c] uppercase">GPS Devices</div>
-                  <h2 className="text-[22px] font-[800] text-[#0f1220]">carQconnect GPS Tracker</h2>
+                  <h2 className="font-[800] text-[#0f1220]">carQconnect GPS Tracker</h2>
                   <p className="text-[15px] text-[#5b6478]">
                     Live location, geofencing and trip history, so you can see your vehicle's status at a glance.
                   </p>
@@ -192,7 +192,7 @@ export default function MarketplaceClient() {
               <div className="md:col-span-2 mt-2 flex flex-col md:flex-row items-center justify-between rounded-[24px] border-[1.5px] border-dashed border-[#c4cddc] bg-white px-[24px] py-[20px] gap-6">
                 <div className="flex-1">
                   <div className="text-[12px] font-bold tracking-[0.14em] text-[#c2410c] uppercase mb-1">Coming soon</div>
-                  <h2 className="text-[22px] font-[800] text-[#0f1220] mb-2">Compatible hardware</h2>
+                  <h2 className="font-[800] text-[#0f1220] mb-2">Compatible hardware</h2>
                   <p className="text-[15px] text-[#5b6478] max-w-[600px]">
                     More safety and telematics hardware for the same vehicle profile. Start with a QR tag and add more when you need it.
                   </p>
@@ -217,9 +217,9 @@ export default function MarketplaceClient() {
         <div className="relative z-10 max-w-[1360px] mx-auto px-6">
           <div className="flex items-center gap-4 mb-[10px]">
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
-            <span className="text-[12px] font-[800] uppercase tracking-[0.16em] text-[#ff8a3d]">COMPARE</span>
+            <span className="text-[clamp(9.5px,2vw,12px)] font-[800] uppercase tracking-[0.16em] text-[#ff8a3d]">COMPARE</span>
           </div>
-          <h2 className="text-[clamp(26px,3.4vw,38px)] font-[800] tracking-tight text-white mb-[20px]">Which one is right for you?</h2>
+          <h2 className="font-[800] text-white mb-[20px]">Which one is right for you?</h2>
           
           <div className="w-full overflow-x-auto rounded-[22px] border border-white/10 bg-[#1a1d27]">
             <table className="w-full min-w-[640px] text-left border-collapse">
@@ -255,9 +255,9 @@ export default function MarketplaceClient() {
         <div className="max-w-[1360px] mx-auto px-6">
           <div className="flex items-center gap-4 mb-[10px]">
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
-            <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#ff6a00]">HOW IT WORKS</span>
+            <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#ff6a00]">HOW IT WORKS</span>
           </div>
-          <h2 className="text-[clamp(26px,3.4vw,38px)] font-[800] tracking-tight text-[#0f1220] mb-[20px]">From delivery to your dashboard</h2>
+          <h2 className="font-[800] text-[#0f1220] mb-[20px]">From delivery to your dashboard</h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[12px]">
             {[
@@ -270,7 +270,7 @@ export default function MarketplaceClient() {
                 <div className="mb-[10px] flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#ff6a00] text-[13px] font-bold text-[#1a0b00]">
                   {step.num}
                 </div>
-                <h3 className="text-[16px] font-bold text-[#0f1220] mb-2">{step.title}</h3>
+                <h3 className="font-bold text-[#0f1220] mb-2">{step.title}</h3>
                 <p className="text-[14.5px] leading-[1.6] text-[#5b6478]">{step.desc}</p>
               </div>
             ))}
@@ -287,7 +287,7 @@ export default function MarketplaceClient() {
               style={{ background: 'radial-gradient(circle at center, rgba(255,106,0,.12), transparent 60%)' }}
             />
             <div className="relative z-10 flex-1">
-              <h2 className="text-[28px] md:text-[32px] font-[700] tracking-tight text-white mb-[4px]">
+              <h2 className="font-[700] text-white mb-[4px]">
                 Get the carQconnect app.
               </h2>
               <p className="text-[14.5px] text-[#a4abb8] max-w-[500px]">

@@ -10,31 +10,31 @@ export function PrivacyControlSection() {
       <div className="mx-auto max-w-[1240px]">
         
         {/* TOP AREA */}
-        <div className="grid gap-[40px] items-center lg:grid-cols-2">
+        <div className="grid gap-[24px] lg:gap-[40px] items-center lg:grid-cols-2">
           
           {/* LEFT: Text & CTAs */}
           <div className="flex flex-col">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-              <span className="text-[13px] font-bold tracking-[0.16em] text-[#FF5A00] uppercase">PRIVACY & CONTROL</span>
+              <span className="text-[clamp(10px,2.2vw,13px)] font-bold tracking-[0.16em] text-[#FF5A00] uppercase">PRIVACY & CONTROL</span>
             </div>
             
             <h2 
-              className="font-display font-bold tracking-tight text-[#12131A] mb-6"
+              className="font-display font-bold text-[#12131A] mb-6"
               style={{ fontSize: 'clamp(36px, 4.5vw, 54px)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
             >
               Built around privacy,<br />
               safety and <span className="text-[#FF5A00]">control.</span>
             </h2>
             
-            <p className="text-[16px] sm:text-[17px] leading-[1.6] text-[#5B6070] max-w-[540px] mb-10">
+            <p className="text-[16px] sm:text-[17px] leading-[1.6] text-[#5B6070] max-w-[540px] mb-6 md:mb-10">
               Public QR actions are designed to expose only approved information. Owner contact stays protected, while important interactions remain useful and reusable.
             </p>
             
             <div className="flex items-center gap-6">
               <Link 
                 href="/#download"
-                className="inline-flex items-center justify-center bg-[#12131A] text-white text-[13px] font-bold uppercase tracking-[0.06em] px-[24px] py-[14px] rounded-[6px] transition-transform hover:-translate-y-1"
+                className="inline-flex items-center justify-center bg-[#12131A] text-white text-[clamp(11px,2vw,13px)] font-bold uppercase tracking-[0.06em] px-[clamp(16px,4vw,24px)] py-[clamp(10px,3vw,14px)] rounded-[6px] transition-transform hover:-translate-y-1"
               >
                 CREATE YOUR ACCOUNT
               </Link>
@@ -42,7 +42,7 @@ export function PrivacyControlSection() {
           </div>
           
           {/* RIGHT: Phone Mockup */}
-          <div className="w-full max-w-[360px] mx-auto bg-[#F7F8FC] rounded-[24px] p-[16px] [@media(max-width:959px)]:mt-8">
+          <div className="w-full max-w-[360px] mx-auto bg-[#F7F8FC] rounded-[24px] p-[16px] [@media(max-width:959px)]:mt-2">
             <div className="bg-white border border-[#ECEEF4] rounded-[22px] overflow-hidden shadow-[0_18px_50px_rgba(18,19,26,0.1)]">
               {/* Header Bar */}
               <div className="bg-[#12131A] px-[18px] py-[14px] flex items-center justify-between">
@@ -53,7 +53,7 @@ export function PrivacyControlSection() {
               <div className="p-[18px] pb-[16px]">
                 {/* Block 1: Actions */}
                 <div className="mb-4">
-                  <h4 className="text-[10.5px] font-bold tracking-[0.14em] text-[#FF5A00] uppercase mb-3">AVAILABLE ACTIONS</h4>
+                  <h4 className="text-[clamp(8.5px,1.8vw,10.5px)] font-bold tracking-[0.14em] text-[#FF5A00] uppercase mb-3">AVAILABLE ACTIONS</h4>
                   <div className="flex flex-col gap-[6px]">
                     {["Call owner (masked)", "Send message", "Report an issue", "Emergency action"].map(action => (
                       <div key={action} className="flex items-center gap-3 bg-[#FFEBDD] rounded-[9px] px-[10px] py-[6px]">
@@ -149,7 +149,7 @@ export function PrivacyControlSection() {
           {["Server-verified payments", "Rate-limited QR scans", "Consent-based location"].map(text => (
             <div key={text} className="flex items-center gap-[8px]">
               <div className="w-[4px] h-[4px] rounded-full bg-[#FF5A00]" />
-              <span className="text-[12.5px] font-semibold text-[#5B6070]">{text}</span>
+              <span className="text-[clamp(11px,1.8vw,12.5px)] font-semibold text-[#5B6070]">{text}</span>
             </div>
           ))}
         </div>

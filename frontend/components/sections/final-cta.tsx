@@ -30,13 +30,13 @@ export function FinalCta() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-[14px]">
           <Link
             href="#download"
-            className="flex items-center justify-center bg-[#FF5A00] text-white text-[14px] font-bold px-[28px] py-[15px] rounded-[12px] shadow-[0_10px_30px_rgba(255,90,0,0.35)] hover:bg-[#FF7226] transition-colors"
+            className="flex items-center justify-center bg-[#FF5A00] text-white text-[clamp(12px,2vw,14px)] font-bold px-[clamp(18px,4vw,28px)] py-[clamp(11px,3vw,15px)] rounded-[12px] shadow-[0_10px_30px_rgba(255,90,0,0.35)] hover:bg-[#FF7226] transition-colors"
           >
             Download App
           </Link>
           <Link
             href="/marketplace"
-            className="flex items-center justify-center bg-transparent border-[1.5px] border-[#3A3D4C] text-white text-[14px] font-bold px-[28px] py-[15px] rounded-[12px] hover:border-[#FF5A00] transition-colors"
+            className="flex items-center justify-center bg-transparent border-[1.5px] border-[#3A3D4C] text-white text-[clamp(12px,2vw,14px)] font-bold px-[clamp(18px,4vw,28px)] py-[clamp(11px,3vw,15px)] rounded-[12px] hover:border-[#FF5A00] transition-colors"
           >
             View Hardware
           </Link>

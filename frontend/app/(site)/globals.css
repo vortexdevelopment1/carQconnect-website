@@ -55,11 +55,9 @@ select:focus-visible,
 
 .container-page {
   width: 100%;
-  max-width: 1360px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(16px, 4vw, 24px);
-  padding-right: clamp(16px, 4vw, 24px);
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 24px);
 }
 
 .glass {
@@ -944,21 +942,14 @@ html, body {
 .wa-btn:active { transform: scale(.97); }
 .wa-icon { width: 24px; height: 24px; flex: none; }
 
-/* Mobile: sirf icon wala gol button */
-@media (max-width: 639px) {
-  .wa-btn { width: 52px; height: 52px; padding: 0; }
-  .wa-label { display: none; }
-  .wa-icon { width: 28px; height: 28px; }
-}
-@media (max-width: 359px) {
-  .wa-btn { width: 46px; height: 46px; }
-  .wa-icon { width: 24px; height: 24px; }
-}
-/* Tablet */
-@media (min-width: 640px) and (max-width: 1023px) {
-  .wa-btn { height: 44px; font-size: 14px; padding: 0 16px; }
-  .wa-icon { width: 22px; height: 22px; }
-}
+/* Mobile & Tablet (< 1024px): icon-only 48px round button */
+  @media (max-width: 1023px) {
+    .wa-btn { width: 48px !important; height: 48px !important; padding: 0 !important; }
+    .wa-label { display: none !important; }
+    .wa-icon { width: 26px !important; height: 26px !important; }
+    /* Removed to allow JS transform to position it properly and stick above footer */
+  }
+  /* Tablet overrides removed */
 /* Bahut badi screen */
 @media (min-width: 1920px) {
   .wa-btn { height: 56px; font-size: 18px; }
@@ -977,4 +968,46 @@ html, body {
   svg animate {
     display: none !important;
   }
+}
+
+@layer base {
+  :root {
+    --fs-h1: clamp(18px, 10px + 2vw, 54px);
+    --fs-h2: clamp(18px, 10px + 1.9vw, 38px);
+    --fs-h3: clamp(15px, 13px + 0.5vw, 20px);
+    --fs-body: clamp(13px, 12px + 0.35vw, 17px);
+    --fs-small: clamp(12px, 11.5px + 0.15vw, 14px);
+  }
+
+  main :where(h1):not([data-type-scale="off"] *) { 
+    font-size: var(--fs-h1); 
+    line-height: 1.12; 
+    letter-spacing: -0.02em; 
+    /* text-wrap: balance; removed to prevent forced 3-lines */
+    overflow-wrap: anywhere; 
+  }
+  
+  main :where(h2):not([data-type-scale="off"] *) { 
+    font-size: var(--fs-h2); 
+    line-height: 1.15; 
+    letter-spacing: -0.015em; 
+    text-wrap: balance; 
+    overflow-wrap: anywhere; 
+  }
+  
+  main :where(h3):not([data-type-scale="off"] *) { 
+    font-size: var(--fs-h3); 
+    line-height: 1.25; 
+    text-wrap: balance; 
+  }
+  
+  main :where(p, li):not([data-type-scale="off"] *) { 
+    font-size: var(--fs-body); 
+    line-height: 1.6; 
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-page { max-width: 1240px; }
+  html { font-size: 17px; }
 }

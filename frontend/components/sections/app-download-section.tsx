@@ -4,91 +4,203 @@ import { Smartphone, Apple, Mic, Calculator, MessageSquareText } from "lucide-re
 
 export function AppDownloadSection() {
   return (
-    <section id="download" className="bg-[#12131A] pt-[64px] pb-[72px] px-[32px] overflow-hidden">
+    <section id="download" data-type-scale="off" className="bg-[#12131A] pt-[64px] pb-[72px] px-[32px] overflow-hidden">
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media (max-width: 640px) {
+          #download {
+            padding-inline: clamp(12px, 4vw, 18px) !important;
+            padding-block: clamp(24px, 6.5vw, 40px) !important;
+            padding-bottom: 72px !important;
+          }
+          #download .container-page {
+            padding-inline: 0 !important;
+          }
+          #download .left-col {
+            gap: clamp(10px, 3vw, 16px) !important;
+          }
+          #download .eyebrow {
+            font-size: clamp(10px, 2.9vw, 12px) !important;
+          }
+          #download .eyebrow-line {
+            width: clamp(22px, 7vw, 32px) !important;
+          }
+          #download .heading {
+            font-size: clamp(18px, 5.8vw, 28px) !important;
+            line-height: 1.15 !important;
+            letter-spacing: -0.015em !important;
+            text-wrap: balance !important;
+          }
+          #download .paragraph {
+            font-size: clamp(12px, 3.5vw, 15px) !important;
+            line-height: 1.55 !important;
+            max-width: 100% !important;
+          }
+          #download .feature-list {
+            gap: clamp(12px, 3.6vw, 18px) !important;
+          }
+          #download .feature-item {
+            gap: clamp(10px, 3vw, 14px) !important;
+          }
+          #download .feature-icon-wrapper {
+            width: clamp(28px, 9vw, 38px) !important;
+            height: clamp(28px, 9vw, 38px) !important;
+          }
+          #download .feature-icon-wrapper svg {
+            width: 50% !important;
+            height: 50% !important;
+          }
+          #download .feature-text-block {
+            min-width: 0 !important;
+          }
+          #download .feature-title {
+            font-size: clamp(12px, 3.6vw, 15px) !important;
+            line-height: 1.25 !important;
+          }
+          #download .feature-desc {
+            font-size: clamp(10.5px, 3vw, 13.5px) !important;
+            line-height: 1.5 !important;
+          }
+          #download .store-btn {
+            height: clamp(40px, 12vw, 48px) !important;
+            max-width: 220px !important;
+            gap: 8px !important;
+          }
+          #download .store-btn-small {
+            font-size: clamp(8px, 2.4vw, 10px) !important;
+          }
+          #download .store-btn-text {
+            font-size: clamp(13px, 3.8vw, 16px) !important;
+          }
+          #download .chat-card-wrap {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+          }
+          #download .chat-card {
+            padding: clamp(10px, 3.2vw, 16px) !important;
+            border-radius: clamp(12px, 3.6vw, 18px) !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          #download .chat-header-text {
+            font-size: clamp(9.5px, 2.8vw, 12px) !important;
+          }
+          #download .chat-bubble {
+            font-size: clamp(10.5px, 3.1vw, 13px) !important;
+            line-height: 1.4 !important;
+            padding: clamp(7px, 2.2vw, 11px) clamp(10px, 3vw, 14px) !important;
+            max-width: 88% !important;
+          }
+          #download .chat-pills {
+            gap: 6px !important;
+            flex-wrap: wrap !important;
+          }
+          #download .chat-pill {
+            font-size: clamp(9.5px, 2.8vw, 12px) !important;
+            padding: 6px 10px !important;
+          }
+          #download .chat-note {
+            font-size: clamp(9px, 2.6vw, 11.5px) !important;
+          }
+        }
+        @media (max-width: 420px) {
+          #download .store-btn-wrapper {
+            flex-direction: column !important;
+          }
+          #download .store-btn {
+            width: 100% !important;
+            max-width: 220px !important;
+          }
+        }
+      `}} />
+
       
       
       <div className="container-page max-w-[1180px] mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-12 items-center relative">
         
         {/* LEFT COLUMN */}
-        <div className="flex flex-col z-20">
+        <div className="flex flex-col z-20 left-col">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-            <span className="text-[12px] font-bold tracking-[0.16em] text-[#FF5A00] uppercase">GET THE APP</span>
+            <div className="w-[32px] h-[2px] bg-[#FF5A00] eyebrow-line" />
+            <span className="text-[clamp(9.5px,2vw,12px)] font-bold tracking-[0.16em] text-[#FF5A00] uppercase eyebrow">GET THE APP</span>
           </div>
           
-          <h2 className="font-display font-bold tracking-tight text-white mb-5" style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: 1.1 }}>
+          <h2 className="font-display font-bold text-white mb-5 heading" style={{ fontSize: 'clamp(26px, 3.2vw, 48px)', lineHeight: 1.1 }}>
             Your vehicle's intelligence belongs in <span className="text-[#FF5A00]">your pocket.</span>
           </h2>
           
-          <p className="text-[16px] leading-[1.6] text-[#A8ACBA] max-w-[480px] mb-8">
+          <p className="text-[clamp(14px,1.2vw,16px)] leading-[1.6] text-[#A8ACBA] max-w-[480px] mb-8 paragraph">
             Plan trips by voice, get fuel and toll estimates, and get help when you need it. Safety, GPS and FASTag, all in one app. Buy hardware and activate it in the carQconnect app.
           </p>
           
-          <div className="flex flex-col gap-6 mb-10 max-w-[480px]">
-            <div className="flex items-start gap-4">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#1B1D26] border border-[#2A2D3A] flex items-center justify-center shrink-0">
+          <div className="flex flex-col gap-6 mb-10 max-w-[480px] feature-list">
+            <div className="flex items-start gap-4 feature-item">
+              <div className="w-[36px] h-[36px] rounded-full bg-[#1B1D26] border border-[#2A2D3A] flex items-center justify-center shrink-0 feature-icon-wrapper">
                 <Mic className="w-4 h-4 text-[#FF5A00]" />
               </div>
-              <div>
-                <p className="text-[15px] font-bold text-white leading-tight">Voice trip planning</p>
-                <p className="text-[14px] text-[#A8ACBA] mt-1.5 leading-snug">Just say where you're going. The app plans the route.</p>
+              <div className="feature-text-block">
+                <p className="text-[15px] font-bold text-white leading-tight feature-title">Voice trip planning</p>
+                <p className="text-[14px] text-[#A8ACBA] mt-1.5 leading-snug feature-desc">Just say where you're going. The app plans the route.</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#1B1D26] border border-[#2A2D3A] flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-4 feature-item">
+              <div className="w-[36px] h-[36px] rounded-full bg-[#1B1D26] border border-[#2A2D3A] flex items-center justify-center shrink-0 feature-icon-wrapper">
                 <Calculator className="w-4 h-4 text-[#FF5A00]" />
               </div>
-              <div>
-                <p className="text-[15px] font-bold text-white leading-tight">Fuel and toll estimates</p>
-                <p className="text-[14px] text-[#A8ACBA] mt-1.5 leading-snug">See the estimated cost before you start, based on your vehicle's mileage.</p>
+              <div className="feature-text-block">
+                <p className="text-[15px] font-bold text-white leading-tight feature-title">Fuel and toll estimates</p>
+                <p className="text-[14px] text-[#A8ACBA] mt-1.5 leading-snug feature-desc">See the estimated cost before you start, based on your vehicle's mileage.</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#1B1D26] border border-[#2A2D3A] flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-4 feature-item">
+              <div className="w-[36px] h-[36px] rounded-full bg-[#1B1D26] border border-[#2A2D3A] flex items-center justify-center shrink-0 feature-icon-wrapper">
                 <MessageSquareText className="w-4 h-4 text-[#FF5A00]" />
               </div>
-              <div>
-                <p className="text-[15px] font-bold text-white leading-tight">AI support, with a human backup</p>
-                <p className="text-[14px] text-[#A8ACBA] mt-1.5 leading-snug">Get quick answers, and the conversation passes to a person if needed.</p>
+              <div className="feature-text-block">
+                <p className="text-[15px] font-bold text-white leading-tight feature-title">AI support, with a human backup</p>
+                <p className="text-[14px] text-[#A8ACBA] mt-1.5 leading-snug feature-desc">Get quick answers, and the conversation passes to a person if needed.</p>
               </div>
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
-            <a href="#download" className="flex items-center justify-center gap-2.5 h-[48px] bg-black border border-[#2A2D3A] rounded-[8px] px-5 hover:bg-[#1B1D26] transition-colors w-full sm:w-[180px]">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full store-btn-wrapper">
+            <a href="#download" className="flex items-center justify-center gap-2.5 h-[48px] bg-black border border-[#2A2D3A] rounded-[8px] px-5 hover:bg-[#1B1D26] transition-colors w-full sm:w-[180px] store-btn">
               <img src="/apple.svg" alt="Apple" className="w-[22px] h-[22px]" />
               <div className="flex flex-col items-start">
-                <span className="text-[10px] leading-tight text-white/70">Download on the</span>
-                <span className="text-[15px] font-semibold leading-tight text-white">App Store</span>
+                <span className="text-[10px] leading-tight text-white/70 store-btn-small">Download on the</span>
+                <span className="text-[15px] font-semibold leading-tight text-white store-btn-text">App Store</span>
               </div>
             </a>
-            <a href="#download" className="flex items-center justify-center gap-2.5 h-[48px] bg-black border border-[#2A2D3A] rounded-[8px] px-5 hover:bg-[#1B1D26] transition-colors w-full sm:w-[180px]">
+            <a href="#download" className="flex items-center justify-center gap-2.5 h-[48px] bg-black border border-[#2A2D3A] rounded-[8px] px-5 hover:bg-[#1B1D26] transition-colors w-full sm:w-[180px] store-btn">
               <img src="/google-play.svg" alt="Google Play" className="w-6 h-6" />
               <div className="flex flex-col items-start">
-                <span className="text-[10px] leading-tight text-white/70">GET IT ON</span>
-                <span className="text-[15px] font-semibold leading-tight text-white">Google Play</span>
+                <span className="text-[10px] leading-tight text-white/70 store-btn-small">GET IT ON</span>
+                <span className="text-[15px] font-semibold leading-tight text-white store-btn-text">Google Play</span>
               </div>
             </a>
           </div>
         </div>
 
         {/* RIGHT COLUMN (Chat Card) */}
-        <div className="relative flex justify-center items-center lg:justify-end lg:pr-12 min-h-[380px] z-10">
+        <div className="relative flex justify-center items-center lg:justify-end lg:pr-12 min-h-[380px] z-10 chat-card-wrap">
           
           <div className="relative w-full max-w-[420px]">
             {/* Radial Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[500px] md:h-[500px] bg-[#FF5A00] opacity-[0.18] blur-[100px] rounded-full pointer-events-none" />
             
             {/* Chat Card */}
-            <div className="relative w-full bg-[#1B1D26] border border-[#2A2D3A] rounded-[24px] p-6 shadow-[0_20px_60px_rgba(255,90,0,0.1)]">
+            <div className="relative w-full bg-[#1B1D26] border border-[#2A2D3A] rounded-[24px] p-6 shadow-[0_20px_60px_rgba(255,90,0,0.1)] chat-card">
             
             {/* Top Bar */}
             <div className="flex items-center justify-between pb-6 border-b border-[#2A2D3A] mb-6">
               <div className="flex items-center gap-2.5">
                 <div className="w-2 h-2 rounded-full bg-[#FF5A00]" />
-                <span className="text-[13px] font-medium text-white">carQconnect Assistant</span>
+                <span className="text-[13px] font-medium text-white chat-header-text">carQconnect Assistant</span>
               </div>
               <Mic className="w-4 h-4 text-[#A8ACBA]" />
             </div>

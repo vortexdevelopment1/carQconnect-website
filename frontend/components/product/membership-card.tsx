@@ -18,7 +18,7 @@ export function MembershipCard({ plan }: { plan: Plan }) {
           Most chosen
         </span>
       )}
-      <h3 className="font-display text-xl font-medium text-ink">{plan.name}</h3>
+      <h3 className="font-display font-medium text-ink">{plan.name}</h3>
       <p className="mt-2 text-[13px] text-tertiary">{plan.summary}</p>
 
       <p className="mt-6 font-display text-2xl text-ink">{plan.priceLabel}</p>

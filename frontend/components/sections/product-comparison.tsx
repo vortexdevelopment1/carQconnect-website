@@ -18,16 +18,16 @@ export function ProductComparison() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-              <p className="text-[12px] font-bold tracking-[0.16em] text-[#FF5A00] uppercase">CHOOSE YOUR SETUP</p>
+              <p className="text-[clamp(9.5px,2vw,12px)] font-bold tracking-[0.16em] text-[#FF5A00] uppercase">CHOOSE YOUR SETUP</p>
             </div>
-            <h2 className="font-display font-bold tracking-tight text-[#12131A]" style={{ fontSize: 'clamp(28px, 4vw, 42px)', lineHeight: 1.1 }}>
+            <h2 className="font-display font-bold text-[#12131A]" style={{ fontSize: 'clamp(28px, 4vw, 42px)', lineHeight: 1.1 }}>
               Start simple. Add what matters.
             </h2>
             <p className="mt-4 text-[15.5px] leading-relaxed text-[#5B6070] max-w-xl">
               Buy and activate in the carQconnect app. Use this guide to decide which setup fits your vehicle.
             </p>
           </div>
-          <Link href="/marketplace" className="group shrink-0 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#12131A] border-b-[2px] border-[#FF5A00] pb-1 hover:text-[#FF5A00] transition-colors">
+          <Link href="/marketplace" className="group shrink-0 self-start md:self-auto inline-flex items-center gap-1.5 text-[13px] md:text-[14px] font-semibold text-[#12131A] border-b-[2px] border-[#FF5A00] pb-1 hover:text-[#FF5A00] transition-colors">
             Explore all hardware 
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
           </Link>

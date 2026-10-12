@@ -31,7 +31,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
         <div>
           {product.badge && <Badge tone="success">{product.badge}</Badge>}
-          <h1 className="mt-4 font-display text-3xl md:text-4xl font-medium text-ink">
+          <h1 className="mt-4 font-display font-medium text-ink">
             {product.name}
           </h1>
           <p className="mt-2 text-tertiary">{product.tagline}</p>
@@ -57,7 +57,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </div>
 
           <div className="mt-8">
-            <h2 className="font-display text-base font-medium text-ink">What&apos;s included</h2>
+            <h2 className="font-display font-medium text-ink">What&apos;s included</h2>
             <ul className="mt-3 space-y-2">
               {product.whatsIncluded.map((item) => (
                 <li key={item} className="text-[13px] text-secondary">• {item}</li>
@@ -66,7 +66,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </div>
 
           <div className="mt-8">
-            <h2 className="font-display text-base font-medium text-ink">Specifications</h2>
+            <h2 className="font-display font-medium text-ink">Specifications</h2>
             <dl className="mt-3 divide-y divide-border rounded-card border border-border">
               {product.specs.map((spec) => (
                 <div key={spec.label} className="flex justify-between px-4 py-3 text-[13px]">

@@ -12,7 +12,7 @@ export default function HowItWorksOverview() {
       <div className="container-page relative z-10 flex flex-col items-center text-center">
         <div className="flex items-center gap-4 mb-6">
           <div className="w-8 h-[2px] bg-[#FF5A00]" />
-          <p className="text-[12px] font-extrabold tracking-[0.16em] text-[#FF5A00] uppercase flex items-center gap-2">
+          <p className="text-[clamp(9.5px,2vw,12px)] font-extrabold tracking-[0.16em] text-[#FF5A00] uppercase flex items-center gap-2">
             HOW IT WORKS <span className="opacity-50">&bull;</span> SHORT VERSION
           </p>
           <div className="w-8 h-[2px] bg-[#FF5A00]" />

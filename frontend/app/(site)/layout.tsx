@@ -67,9 +67,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable} ${manrope.variable} ${display.variable} ${body.variable}`}>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased flex flex-col min-h-[100svh] bg-[#0D0E13]">
         <Navbar />
-        <main>{children}</main>
+        <main className="flex-1 flex flex-col bg-[#f7f9fc]">{children}</main>
         <Footer />
         <WhatsAppFloat />
       </body>

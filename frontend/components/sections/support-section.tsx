@@ -27,7 +27,7 @@ export function SupportSection() {
           {cards.map(({ icon: Icon, title, description }) => (
             <div key={title} className="rounded-2xl border border-black/10 bg-white/80 p-6 shadow-sm hover:border-[#ff4d00]/40 transition-all">
               <Icon className="h-5 w-5 text-[#ff4d00]" strokeWidth={1.75} />
-              <h3 className="mt-4 font-display text-[15px] font-semibold text-neutral-900">{title}</h3>
+              <h3 className="mt-4 font-display font-semibold text-neutral-900">{title}</h3>
               <p className="mt-1.5 text-[13px] text-neutral-600">{description}</p>
             </div>
           ))}

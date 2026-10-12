@@ -3,7 +3,8 @@ export function HeroQrScanner() {
     <svg
       className="hero-svg absolute inset-0 w-full h-full pointer-events-none"
       viewBox="0 0 481 272"
-      preserveAspectRatio="xMidYMax slice"
+      preserveAspectRatio="xMidYMax slice" 
+      style={{ objectPosition: "left bottom" }}
       aria-hidden="true"
     >
       <defs>

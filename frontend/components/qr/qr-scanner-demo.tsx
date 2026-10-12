@@ -86,12 +86,12 @@ export function QrScannerDemo() {
         <div className="mb-11 text-center md:text-left flex flex-col items-center md:items-start">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-            <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">SEE IT IN ACTION</span>
+            <span className="text-[clamp(10px,1vw,12px)] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">SEE IT IN ACTION</span>
           </div>
-          <h2 className="font-display font-[800] text-[#12131A] tracking-[-0.03em] leading-[1.08]" style={{ fontSize: 'clamp(30px,4vw,46px)' }}>
+          <h2 className="font-display font-[800] text-[#12131A]">
             See what a scanner <span className="text-[#FF5A00]">sees.</span>
           </h2>
-          <p className="mt-3 max-w-[520px] text-[16px] text-[#5B6070]">
+          <p className="mt-3 max-w-[520px] text-[clamp(14px,2vw,16px)] text-[#5B6070]">
             A scan opens a privacy-first page on any phone. No app needed. Try it.
           </p>
         </div>
@@ -100,13 +100,13 @@ export function QrScannerDemo() {
         <div className="grid grid-cols-1 items-stretch md:grid-cols-[1fr_auto_1fr]">
           
           {/* LEFT CARD */}
-          <div className="flex flex-col items-center justify-center rounded-[26px] border border-[#ECEEF4] bg-white p-[34px] text-center shadow-[0_12px_36px_rgba(18,19,26,0.06)] min-h-0 md:min-h-[440px]">
-            <span className="mb-6 text-[13px] font-bold uppercase tracking-[0.14em] text-[#FF5A00]">
+          <div className="flex flex-col items-center justify-center rounded-[26px] border border-[#ECEEF4] bg-white p-[clamp(16px,4vw,34px)] text-center shadow-[0_12px_36px_rgba(18,19,26,0.06)] min-h-0 md:min-h-[440px]">
+            <span className="mb-6 text-[clamp(11px,1.2vw,13px)] font-bold uppercase tracking-[0.14em] text-[#FF5A00]">
               STEP 1 &middot; SCAN THE TAG
             </span>
 
             {/* Scan Frame */}
-            <div className="relative mb-6 flex h-[210px] w-[210px] items-center justify-center rounded-[26px] border border-[#ECEEF4] bg-[#F4F5FA]">
+            <div className="relative mb-6 flex h-[180px] md:h-[210px] w-[180px] md:w-[210px] items-center justify-center rounded-[26px] border border-[#ECEEF4] bg-[#F4F5FA]">
               {/* Corner brackets */}
               <div className="absolute left-[14px] top-[14px] h-[30px] w-[30px] rounded-tl-[10px] border-l-[3px] border-t-[3px] border-[#FF5A00]" />
               <div className="absolute right-[14px] top-[14px] h-[30px] w-[30px] rounded-tr-[10px] border-r-[3px] border-t-[3px] border-[#FF5A00]" />
@@ -129,16 +129,16 @@ export function QrScannerDemo() {
               </div>
             </div>
 
-            <h3 className="mb-1 font-display text-[19px] font-[800] text-[#12131A]">
+            <h3 className="mb-1 font-display font-[800] text-[#12131A]">
               carQconnect QR tag on a vehicle
             </h3>
-            <p className="mb-5 text-[14px] text-[#5B6070]">
+            <p className="mb-5 text-[clamp(12px,1.5vw,14px)] text-[#5B6070]">
               Anyone can scan it with a phone camera.
             </p>
 
             <button
               onClick={handleSimulate}
-              className="rounded-[10px] border-[1.5px] border-[#FF5A00] bg-white px-6 py-3 text-[13px] font-bold uppercase tracking-[0.06em] text-[#FF5A00] transition-colors duration-200 hover:bg-[#FF5A00] hover:text-white"
+              className="rounded-[10px] border-[1.5px] border-[#FF5A00] bg-white px-6 py-3 text-[clamp(11px,1.2vw,13px)] font-bold uppercase tracking-[0.06em] text-[#FF5A00] transition-colors duration-200 hover:bg-[#FF5A00] hover:text-white"
             >
               Simulate scan
             </button>
@@ -152,7 +152,7 @@ export function QrScannerDemo() {
           </div>
 
           {/* RIGHT CARD */}
-          <div className="relative flex flex-col items-center justify-center overflow-hidden rounded-[26px] border border-[#2A2D3A] bg-[#12131A] p-[34px] text-center text-white shadow-[0_24px_60px_rgba(18,19,26,0.28)] min-h-0 md:min-h-[440px]">
+          <div className="relative flex flex-col items-center justify-center overflow-hidden rounded-[26px] border border-[#2A2D3A] bg-[#12131A] p-[clamp(16px,4vw,34px)] text-center text-white shadow-[0_24px_60px_rgba(18,19,26,0.28)] min-h-0 md:min-h-[440px]">
             {/* Soft Glow */}
             <div 
               className="pointer-events-none absolute inset-0"
@@ -170,29 +170,29 @@ export function QrScannerDemo() {
             />
 
             <div className="relative z-10 flex w-full flex-col items-center">
-              <span className="mb-6 text-[13px] font-bold uppercase tracking-[0.14em] text-[#FF8A3D]">
+              <span className="mb-6 text-[clamp(11px,1.2vw,13px)] font-bold uppercase tracking-[0.14em] text-[#FF8A3D]">
                 STEP 2 &middot; CHOOSE AN ACTION
               </span>
 
               {/* Mini Browser Bar */}
               <div className="mb-4 w-full max-w-[340px] border-b border-[#2A2D3A] pb-3.5">
-                <div className="flex items-center justify-center gap-2 relative">
-                  <div className="absolute left-0 flex gap-[3px]">
+                <div className="flex items-center justify-between gap-2 px-1">
+                  <div className="flex gap-[3px] shrink-0">
                     <div className="h-[9px] w-[9px] rounded-full bg-[#3A3D4C]" />
                     <div className="h-[9px] w-[9px] rounded-full bg-[#3A3D4C]" />
                     <div className="h-[9px] w-[9px] rounded-full bg-[#3A3D4C]" />
                   </div>
-                  <span className="font-mono text-[12px] text-[#7B7F90]">Secure page, no app needed</span>
+                  <span className="font-mono text-[10px] sm:text-[clamp(10px,1vw,12px)] text-[#7B7F90] truncate text-right">Secure page, no app needed</span>
                 </div>
               </div>
 
               {/* Vehicle Badge */}
-              <div className="mb-3 rounded-full border border-emerald-400/30 bg-emerald-400/12 px-3 py-1 text-[12px] font-semibold text-emerald-400">
+              <div className="mb-3 rounded-full border border-emerald-400/30 bg-emerald-400/12 px-3 py-1 text-[clamp(10px,1vw,12px)] font-semibold text-emerald-400">
                 Vehicle protected
               </div>
 
-              <h4 className="font-display text-[24px] font-[800] text-white">MP09 &bull;&bull; 1234</h4>
-              <p className="mb-5 text-[13px] text-[#A8ACBA]">Owner details stay private</p>
+              <h4 className="font-display text-[clamp(18px,3vw,24px)] font-[800] text-white">MP09 &bull;&bull; 1234</h4>
+              <p className="mb-5 text-[clamp(11px,1.2vw,13px)] text-[#A8ACBA]">Owner details stay private</p>
 
               {/* Actions Grid */}
               <div className="grid w-full max-w-[340px] grid-cols-2 gap-[10px]">
@@ -203,7 +203,7 @@ export function QrScannerDemo() {
                       key={action.id}
                       onClick={() => setSelectedAction(action.id)}
                       className={cn(
-                        "flex flex-col items-center gap-2 rounded-[14px] border bg-[#1B1D26] px-2 py-4 text-[13px] font-semibold text-white transition-all duration-200",
+                        "flex flex-col items-center gap-2 rounded-[14px] border bg-[#1B1D26] px-2 py-3 md:py-4 text-[clamp(10px,1vw,12px)] md:text-[clamp(11px,1.2vw,13px)] font-semibold text-white transition-all duration-200",
                         isSelected 
                           ? "border-[#FF5A00] -translate-y-0.5" 
                           : "border-[#2A2D3A] hover:border-[#FF5A00] hover:-translate-y-0.5"
@@ -217,7 +217,7 @@ export function QrScannerDemo() {
               </div>
 
               {/* Dynamic Note */}
-              <div className="mt-4 min-h-[20px] text-[12.5px] transition-colors duration-200" style={{ color: selectedAction ? '#FFB48A' : '#7B7F90' }}>
+              <div className="mt-4 min-h-[20px] text-[clamp(10px,1.1vw,12.5px)] transition-colors duration-200" style={{ color: selectedAction ? '#FFB48A' : '#7B7F90' }}>
                 {currentNote}
               </div>
             </div>
@@ -225,7 +225,7 @@ export function QrScannerDemo() {
         </div>
 
         {/* TRUST ROW */}
-        <div className="mt-8 flex flex-wrap justify-center gap-x-7 gap-y-3 text-[13.5px] font-semibold text-[#5B6070]">
+        <div className="mt-8 flex flex-wrap justify-center gap-x-7 gap-y-3 text-[clamp(11px,1.3vw,13.5px)] font-semibold text-[#5B6070]">
           {["No app required for the scanner", "Owner's number stays private", "Only owner-approved info is shown"].map((text) => (
             <div key={text} className="flex items-center gap-2">
               <Check className="h-4 w-4 text-[#1FA971]" strokeWidth={3} />

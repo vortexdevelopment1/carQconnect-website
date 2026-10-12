@@ -14,7 +14,7 @@ export function SosSection() {
       <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionHeading
-            title="When every second matters."
+            title={<>When every <span className="text-orange">second matters.</span></>}
             description="A deliberate press-and-hold starts the SOS flow, capturing your location, notifying the emergency contacts you've configured, and putting emergency calling and nearby help within reach."
           />
           <ul className="mt-8 space-y-3 text-[14px] text-neutral-700">
@@ -50,19 +50,19 @@ export function SosSection() {
             </div>
           </div>
 
-          <div className="relative flex w-full items-center justify-between gap-2 overflow-x-auto scrollbar-none">
+          <div className="relative flex w-full items-center justify-between gap-1 sm:gap-2">
             {flow.map((step, i) => (
-              <div key={step.label} className="flex items-center gap-2">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/5">
-                    <step.icon className="h-4 w-4 text-neutral-800" />
+              <div key={step.label} className="flex items-center gap-1 sm:gap-2">
+                <div className="flex flex-col items-center gap-1 sm:gap-2 text-center max-w-[60px] sm:max-w-none">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-black/10 bg-black/5 shrink-0">
+                    <step.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-neutral-800" />
                   </div>
-                  <span className="whitespace-nowrap text-[11px] font-semibold text-neutral-700">
+                  <span className="text-[9px] sm:text-[11px] font-semibold text-neutral-700 leading-tight">
                     {step.label}
                   </span>
                 </div>
                 {i < flow.length - 1 && (
-                  <div className="mb-5 h-px w-6 bg-black/15" />
+                  <div className="mb-6 h-px w-3 sm:w-6 bg-black/15 shrink-0" />
                 )}
               </div>
             ))}

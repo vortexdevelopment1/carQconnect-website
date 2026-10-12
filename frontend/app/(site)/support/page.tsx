@@ -29,7 +29,7 @@ export default function SupportPage() {
               <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
               <span className="text-[12px] font-[800] uppercase tracking-[0.16em] text-[#c2410c]">HOW SUPPORT WORKS</span>
             </div>
-            <h2 className="text-[clamp(32px,4vw,44px)] font-[800] tracking-tight text-[#0f1220] mb-[40px] leading-[1.1]">
+            <h2 className="font-[800] text-[#0f1220] mb-[40px]">
               Three ways to get help
             </h2>
 
@@ -44,7 +44,7 @@ export default function SupportPage() {
                     <item.icon className="w-[24px] h-[24px] text-[#ff6a00]" strokeWidth={2} />
                   </div>
                   <div>
-                    <h3 className="text-[18px] font-bold text-[#0f1220] mb-1">{item.title}</h3>
+                    <h3 className="font-bold text-[#0f1220] mb-1">{item.title}</h3>
                     <p className="text-[15px] text-[#5b6478] leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ export default function SupportPage() {
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
             <span className="text-[12px] font-[800] uppercase tracking-[0.16em] text-[#c2410c]">WHAT WE HELP WITH</span>
           </div>
-          <h2 className="text-[clamp(32px,4vw,44px)] font-[800] tracking-tight text-[#0f1220] mb-[40px] leading-[1.1]">
+          <h2 className="font-[800] text-[#0f1220] mb-[40px]">
             Ask the assistant about
           </h2>
 
@@ -129,7 +129,7 @@ export default function SupportPage() {
                 <div className="w-[44px] h-[44px] rounded-[12px] bg-[#fff1e6] flex items-center justify-center mb-5">
                   <card.icon className="w-[22px] h-[22px] text-[#ff6a00]" strokeWidth={2} />
                 </div>
-                <h3 className="text-[18px] font-bold text-[#0f1220] mb-2">{card.title}</h3>
+                <h3 className="font-bold text-[#0f1220] mb-2">{card.title}</h3>
                 <p className="text-[15px] text-[#5b6478] leading-relaxed">{card.desc}</p>
               </div>
             ))}
@@ -149,9 +149,9 @@ export default function SupportPage() {
         <div className="max-w-[1120px] mx-auto px-6">
           <div className="flex items-center gap-4 mb-[16px]">
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
-            <span className="text-[12px] font-[800] uppercase tracking-[0.16em] text-[#ff8a3d]">HUMAN SUPPORT</span>
+            <span className="text-[clamp(9.5px,2vw,12px)] font-[800] uppercase tracking-[0.16em] text-[#ff8a3d]">HUMAN SUPPORT</span>
           </div>
-          <h2 className="text-[clamp(32px,4vw,44px)] font-[800] tracking-tight text-white mb-[48px] leading-[1.1]">
+          <h2 className="font-[800] text-white mb-[48px]">
             When a human steps in
           </h2>
 
@@ -165,7 +165,7 @@ export default function SupportPage() {
                 <div className="w-[40px] h-[40px] rounded-[10px] bg-[#ff6a00] flex items-center justify-center text-[16px] font-bold text-[#1a0b00] mb-6">
                   {card.step}
                 </div>
-                <h3 className="text-[18px] font-bold text-white mb-2">{card.title}</h3>
+                <h3 className="font-bold text-white mb-2">{card.title}</h3>
                 <p className="text-[14.5px] text-[#9aa0b2] leading-relaxed">{card.desc}</p>
               </div>
             ))}
@@ -183,7 +183,7 @@ export default function SupportPage() {
       <section id="download" className="py-[48px]" style={{ background: 'linear-gradient(110deg, #ff6a00, #ff8a2b)' }}>
         <div className="max-w-[1120px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex-1">
-            <h2 className="text-[32px] md:text-[40px] font-[800] tracking-tight text-[#1a0b00] mb-[4px]">
+            <h2 className="font-[800] text-[#1a0b00] mb-[4px]">
               Get help in the app.
             </h2>
             <p className="text-[17px] text-[#3d1d00] max-w-[500px]">

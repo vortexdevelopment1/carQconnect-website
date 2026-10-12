@@ -13,7 +13,7 @@ export function ProductCard({ product }: { product: Product }) {
         <span className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-surface-2"><Icon className="h-6 w-6 text-[#ff4d0d]" strokeWidth={1.5} /></span>
         {product.badge && <Badge tone="success">{product.badge}</Badge>}
       </div>
-      <h3 className="mt-6 font-display text-lg font-medium text-ink">{product.name}</h3>
+      <h3 className="mt-6 font-display font-medium text-ink">{product.name}</h3>
       <p className="mt-1.5 text-[13px] text-tertiary">{product.tagline}</p>
       <div className="mt-6 flex items-center justify-between">
         <span className="text-[13px] font-medium text-secondary">Available in app</span>

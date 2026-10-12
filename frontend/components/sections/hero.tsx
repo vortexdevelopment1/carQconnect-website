@@ -23,162 +23,168 @@ function CartIcon() {
 
 export function Hero() {
   return (
-    <section className="hero" id="home">
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+    <section data-type-scale="off" className="hero" id="home">
+      <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
-        /* =============================================================
-           HERO RESPONSIVE (mobile -> tablet -> laptop -> large screens)
-           ============================================================= */
+        /* =====================================================
+           TUNING VARIABLES (change numbers ONLY here, per range)
+           --copy-top : where the text block starts (from hero top)
+           --title    : H1 font-size
+           --lede     : grey paragraph font-size
+           --lede-w   : max width of the grey paragraph
+           --btn-*    : Download App button size
+           ===================================================== */
 
-        /* ---------- 1) MOBILE (0 - 639px) ---------- */
+        /* PHONES (< 640px) */
+        .hero {
+          --copy-top: calc(20.6vw + 18px);
+          --copy-pr: clamp(14px, 4vw, 24px);
+          --gap: clamp(6px, 1.6vw, 18px);
+          --title: clamp(15px, 5.4vw, 34px);
+          --lede: clamp(7px, 1.9vw + 0.5px, 12px);
+          --lede-w: 60%;
+          --btn-h: clamp(26px, 3.1vw + 15px, 52px);
+          --btn-px: clamp(10px, 2vw + 3px, 28px);
+          --btn-fs: clamp(9px, 1.3vw + 5px, 17px);
+        }
 
-        /* Text block: right-aligned, nav se thoda neeche */
+        /* PHONES ONLY: smaller Download App button */
+        @media (max-width: 639px) {
+          .hero {
+            --btn-h: clamp(22px, 2vw + 15px, 30px);
+            --btn-px: clamp(8px, 1.6vw + 3px, 22px);
+            --btn-fs: clamp(8px, 1.1vw + 4.5px, 14px);
+          }
+        }
+
+        /* TABLETS / SMALL LAPTOPS (640px - 1100px) */
+        @media (min-width: 640px) and (max-width: 1100px) {
+          .hero {
+            --copy-top: calc(10vw + 72px);
+            --title: calc(3.22vw + 16.5px);
+            --lede: clamp(12px, 1.35vw + 3px, 16px);
+            --lede-w: min(46ch, 52%);
+            --gap: clamp(10px, 1.6vw, 18px);
+            height: min(74vw, calc(100svh - 40px)) !important;
+            min-height: 380px !important;
+          }
+        }
+
+        /* LAPTOPS / DESKTOPS / BIG MONITORS (>= 1101px) */
+        @media (min-width: 1101px) {
+          .hero {
+            --copy-top: calc(88px + (100% - 88px) * 0.085);
+            --copy-pr: clamp(40px, 3.9vw, 96px);
+            --gap: clamp(16px, 1.5vw, 28px);
+            --title: clamp(44px, min(4.7vw, 9.2svh), 96px);
+            --lede: clamp(16px, 1.15vw, 19px);
+            --lede-w: 600px;
+            --btn-h: clamp(52px, 3.4vw, 76px);
+            --btn-px: clamp(28px, 2.2vw, 44px);
+            --btn-fs: clamp(17px, 1.45vw, 28px);
+          }
+        }
+
+        /* LANDSCAPE PHONES (short height) */
+        @media (orientation: landscape) and (max-height: 500px) {
+          .hero {
+            --copy-top: 62px;
+            --title: clamp(16px, 8.6svh, 34px);
+            --lede: clamp(8px, 2.8svh, 12px);
+            --btn-h: clamp(24px, 8svh, 36px);
+          }
+        }
+
+        /* =====================================================
+           RULES (same for every screen, they only read variables)
+           ===================================================== */
         .hero .hero__copy {
+          position: absolute !important;
+          top: var(--copy-top) !important;
+          left: 0 !important;
+          right: 0 !important;
+          width: auto !important;          /* removes any global width cap */
+          max-width: none !important;      /* removes any global max-width (e.g. 1200px) */
+          bottom: auto !important;
+          height: auto !important;
+          margin: 0 !important;
+          padding: 0 var(--copy-pr) 0 0 !important;
           display: flex !important;
           flex-direction: column !important;
           align-items: flex-end !important;
-          gap: 0 !important;
+          justify-content: flex-start !important;
+          gap: var(--gap) !important;
           text-align: right !important;
-          transform: translateY(clamp(8px, 3vw, 16px)) !important;
+          transform: none !important;
+          z-index: 3 !important;           /* text always above the cube image */
+          pointer-events: none;            /* only the button is clickable */
         }
 
-        /* Heading + paragraph ki lines 3 hi rahengi */
         .hero .hero__line,
         .hero .hero__word {
           display: block !important;
           white-space: nowrap !important;
         }
 
-        /* Heading (black text): mobile par thoda aur BADA */
-        @media (max-width: 639px) {
-          .hero .hero__title {
-            font-size: clamp(15px, 5.4vw, 28px) !important;
-            line-height: 1.08 !important;
+        /* TITLE: reference-style typography (lighter stroke, tighter spacing) */
+        .hero .hero__title {
+          margin: 0 !important;
+          text-align: right !important;
+          font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif !important;
+          font-weight: 800 !important;
+          font-stretch: 100% !important;
+          font-synthesis: none !important;
+          -webkit-font-smoothing: antialiased;
+          font-size: var(--title) !important;
+          line-height: 1.02 !important;
+          letter-spacing: -0.028em !important;
+        }
+
+        .hero .hero__lede {
+          margin: 0 !important;
+          text-align: right !important;
+          font-family: 'Inter', system-ui, sans-serif !important;
+          font-size: var(--lede) !important;
+          line-height: 1.5 !important;
+          max-width: var(--lede-w) !important;
+        }
+
+        /* below 1101px the paragraph wraps naturally (smaller width, no overlap on the boxes) */
+        @media (max-width: 1100px) {
+          .hero .hero__lede .hero__line {
+            display: inline !important;
+            white-space: normal !important;
           }
         }
 
-        /* Heading aur paragraph ke beech gap KAM (mobile) */
-        .hero .hero__title {
-          margin-bottom: 0 !important;
-          text-align: right !important;
-        }
-
-        /* Paragraph (gray text): font chhota, aur button ke beech gap KAM */
-        .hero .hero__lede {
-          font-size: clamp(6px, 2.15vw, 10px) !important;
-          line-height: 1.4 !important;
-          max-width: none !important;
-          margin: clamp(2px, 0.8vw, 5px) 0 clamp(2px, 0.8vw, 4px) auto !important;
-          transform: none !important;
-          text-align: right !important;
-        }
-
-        /* Download App button: mobile par CHHOTA + stylish (arrow icon hata diya) */
         .hero .buy {
           align-self: flex-end !important;
-          margin-top: 0 !important;
+          margin: 0 !important;
+          pointer-events: auto;
+          position: relative;
           filter: drop-shadow(0 3px 8px rgba(255, 90, 20, 0.35));
           transition: transform 0.2s ease;
         }
-        .hero .buy:active {
-          transform: scale(0.96);
+        .hero .buy::before {              /* bigger invisible tap area */
+          content: '';
+          position: absolute;
+          inset: -6px;
+          z-index: -1;
         }
+        .hero .buy:active { transform: scale(0.96); }
+
         .hero .buy__body {
-          min-height: clamp(22px, 6.6vw, 28px) !important;
-          padding-inline: clamp(10px, 3.2vw, 14px) clamp(15px, 4.4vw, 20px) !important;
+          min-height: var(--btn-h) !important;
+          padding-inline: var(--btn-px) !important;
         }
         .hero .buy__label {
-          font-size: clamp(8.5px, 2.5vw, 11px) !important;
+          font-family: 'Inter', system-ui, sans-serif !important;
           font-weight: 700 !important;
           letter-spacing: 0.02em !important;
+          font-size: var(--btn-fs) !important;
         }
-
-        /* ---------- 2) EXTRA SMALL PHONES (<= 359px) ---------- */
-        @media (max-width: 359px) {
-          .hero .hero__lede {
-            font-size: clamp(5.5px, 2.1vw, 7.5px) !important;
-          }
-          .hero .buy__body {
-            min-height: 22px !important;
-            padding-inline: 9px 14px !important;
-          }
-          .hero .buy__label {
-            font-size: 8.5px !important;
-          }
-        }
-
-        /* ---------- 3) TABLET (640px - 1023px) ---------- */
-        @media (min-width: 640px) and (max-width: 1023px) {
-          .hero .hero__copy {
-            transform: translateY(clamp(12px, 2vw, 22px)) !important;
-          }
-          .hero .hero__lede {
-            font-size: clamp(11px, 1.7vw, 14px) !important;
-            margin: clamp(4px, 0.8vw, 8px) 0 clamp(12px, 2vw, 20px) auto !important;
-          }
-          .hero .buy__body {
-            min-height: clamp(36px, 5vw, 44px) !important;
-            padding-inline: clamp(18px, 2.6vw, 24px) clamp(26px, 3.4vw, 34px) !important;
-          }
-          .hero .buy__label {
-            font-size: clamp(13px, 1.9vw, 16px) !important;
-          }
-        }
-
-        /* ---------- 4) DESKTOP / LAPTOP (>= 1024px) ---------- */
-        @media (min-width: 1024px) {
-          .hero .hero__copy {
-            transform: translateY(clamp(10px, 1.2vw, 28px)) !important;
-          }
-
-          /* Heading aur paragraph ke beech thoda SPACE */
-          .hero .hero__lede {
-            font-family: 'Inter', system-ui, sans-serif !important;
-            font-size: clamp(14px, 1.3vw, 18px) !important;
-            line-height: 1.5 !important;
-            max-width: 580px !important;
-            transform: none !important;
-            margin: clamp(14px, 1.6vw, 34px) 0 clamp(18px, 2vw, 40px) auto !important;
-          }
-
-          /* Download App button: desktop par BADA */
-          .hero .buy__body {
-            min-height: clamp(46px, 3.4vw, 76px) !important;
-            padding-inline: clamp(22px, 2.2vw, 44px) clamp(32px, 3vw, 58px) !important;
-          }
-          .hero .buy__label {
-            font-family: 'Inter', system-ui, sans-serif !important;
-            font-size: clamp(16px, 1.45vw, 28px) !important;
-            font-weight: 600 !important;
-            letter-spacing: 0.02em !important;
-          }
-        }
-
-        /* ---------- 5) EXTRA LARGE (>= 1920px) ---------- */
-        @media (min-width: 1920px) {
-          .hero .hero__lede {
-            font-size: clamp(18px, 1.15vw, 28px) !important;
-            max-width: 900px !important;
-          }
-        }
-
-        /* ---------- 6) LANDSCAPE PHONES (kam height) ---------- */
-        @media (orientation: landscape) and (max-height: 500px) {
-          .hero .hero__copy {
-            transform: translateY(4px) !important;
-          }
-          .hero .hero__lede {
-            margin: 2px 0 6px auto !important;
-          }
-          .hero .buy__body {
-            min-height: 26px !important;
-          }
-        }
-      `,
-        }}
+` }}
       />
 
       <div className="hero__bg" aria-hidden="true">
@@ -197,8 +203,8 @@ export function Hero() {
           <span className="hero__line">JOURNEY</span>
         </h1>
         <p className="hero__lede">
-          <span className="hero__line">Monitor your vehicle, stay connected on every trip, and enable</span>
-          <span className="hero__line">safer public interaction through smart QR, GPS tracking, and</span>
+          <span className="hero__line">Monitor your vehicle, stay connected on every trip, and enable</span>{" "}
+          <span className="hero__line">safer public interaction through smart QR, GPS tracking, and</span>{" "}
           <span className="hero__line">intelligent mobility technology.</span>
         </p>
 

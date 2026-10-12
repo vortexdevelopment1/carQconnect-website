@@ -3,34 +3,39 @@ import { AiChatDemo } from "@/components/product/ai-chat-demo";
 
 export function AiSection() {
   return (
-    <section className="bg-[#f4f4f5] py-24 md:py-32 border-b border-black/10">
-      <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
-        <div>
+    <section className="bg-[#f4f4f5] border-b border-black/10" style={{ paddingBlock: 'clamp(20px, 4vw, 40px)' }}>
+      <div 
+        className="container-page mx-auto w-full max-w-[1120px] 2xl:max-w-[1240px] px-[clamp(16px,4vw,24px)] flex flex-col min-[900px]:flex-row items-center justify-between"
+        style={{ gap: 'clamp(16px, 3vw, 40px)' }}
+      >
+        <div className="w-full min-[900px]:max-w-[520px]">
           <SectionHeading
             title="Just ask carQconnect."
             description="carQconnect AI connects natural-language requests to trip planning, fuel and toll estimates, GPS status, orders, membership and support - always within your approved account permissions."
           />
-          <ul className="mt-8 space-y-3 text-[14px] text-neutral-700">
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d00]" />
-              Understands trip, tracking and support requests in plain language
+          <ul className="text-[clamp(14px,1.8vw,16px)] text-neutral-700" style={{ marginTop: 'clamp(20px, 3vw, 32px)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <li className="flex items-start gap-2.5">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff6a00] mt-[8px]" />
+              <span className="leading-relaxed">Understands trip, tracking and support requests in plain language</span>
             </li>
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d00]" />
-              Explains why a route or recommendation was chosen
+            <li className="flex items-start gap-2.5">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff6a00] mt-[8px]" />
+              <span className="leading-relaxed">Explains why a route or recommendation was chosen</span>
             </li>
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d00]" />
-              Asks for confirmation before purchases or sensitive actions
+            <li className="flex items-start gap-2.5">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff6a00] mt-[8px]" />
+              <span className="leading-relaxed">Asks for confirmation before purchases or sensitive actions</span>
             </li>
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#ff4d00]" />
-              Escalates to a human when it can&apos;t confidently help
+            <li className="flex items-start gap-2.5">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff6a00] mt-[8px]" />
+              <span className="leading-relaxed">Escalates to a human when it can't confidently help</span>
             </li>
           </ul>
         </div>
 
-        <AiChatDemo />
+        <div className="w-full max-w-[560px] min-[900px]:max-w-none flex-1 mx-auto min-[900px]:mx-0">
+          <AiChatDemo />
+        </div>
       </div>
     </section>
   );

@@ -58,7 +58,7 @@ export function Navbar() {
 
   return (
     <>
-      <header 
+      <header data-type-scale="off" 
         className={`fixed top-0 left-0 right-0 z-[100] flex flex-col transition-all duration-300 pt-[env(safe-area-inset-top)] ${
           isScrolled || menuOpen
             ? 'bg-[#fff6ef]/95 backdrop-blur-md shadow-sm border-b border-[#ff6a00]/10' 
@@ -87,11 +87,11 @@ export function Navbar() {
           </div>
 
           <div className="flex-[0_0_auto] min-[1025px]:flex-1 flex min-[1025px]:justify-center justify-start items-center">
-            <Link className="flex items-center gap-2 transition-transform hover:scale-[0.98]" href="/" aria-label="carQconnect home" onClick={closeMenu}>
-              <CarQMark className="" />
+            <Link className="flex items-center gap-2 max-[640px]:gap-2 min-[641px]:max-[1100px]:gap-[8px] min-[1101px]:gap-2 transition-transform hover:scale-[0.98]" href="/" aria-label="carQconnect home" onClick={closeMenu}>
+              <CarQMark className="w-[22px] h-[22px] max-[640px]:w-[22px] min-[641px]:max-[1100px]:w-[clamp(24px,18px+1vw,32px)] min-[641px]:max-[1100px]:h-[clamp(24px,18px+1vw,32px)] min-[1101px]:w-[32px] min-[1101px]:h-[32px]" />
               <span
                 style={{ fontFamily: INTER }}
-                className="text-[clamp(22px,2.1vw,34px)] font-semibold tracking-tight text-[#131316]"
+                className="text-[20px] max-[640px]:text-[20px] min-[641px]:max-[1100px]:text-[clamp(20px,14px+1vw,26px)] min-[1101px]:text-[34px] font-semibold tracking-tight text-[#131316]"
               >
                 car<span className="text-[#ff6a00]">Q</span>connect
               </span>

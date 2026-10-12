@@ -33,14 +33,15 @@ const vehicles = [
 
 export function GarageSection() {
   return (
-    <section className="bg-gradient-to-br from-[#f4f4f5] via-[#e9eaeb] to-[#dedfe1] py-24 md:py-32 border-y border-black/10">
+    <section className="bg-gradient-to-br from-[#f4f4f5] via-[#e9eaeb] to-[#dedfe1] py-[clamp(28px,6vw,56px)] border-y border-black/10">
       <div className="container-page">
         <SectionHeading
           title="Everything about your vehicles, in one place."
           description="Documents, service reminders, trip history and fuel logs — organized by vehicle in your Digital Garage."
         />
+        <div className="text-right mt-2"><span className="text-[11px] text-neutral-400 font-medium bg-black/5 px-2 py-1 rounded-md">Sample data</span></div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-[clamp(16px,3vw,28px)] grid gap-[clamp(10px,1.6vw,16px)] grid-cols-1 min-[560px]:grid-cols-2 min-[900px]:grid-cols-3">
           {vehicles.map((v) => (
             <div key={v.reg} className="rounded-3xl border border-black/10 bg-white/80 p-6 backdrop-blur-xl shadow-sm hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
@@ -58,7 +59,7 @@ export function GarageSection() {
                 </span>
               </div>
 
-              <h3 className="mt-5 font-display text-lg font-bold text-neutral-900">
+              <h3 className="mt-5 font-display font-bold text-neutral-900">
                 {v.name}
               </h3>
               <p className="text-[13px] text-neutral-500">{v.reg}</p>

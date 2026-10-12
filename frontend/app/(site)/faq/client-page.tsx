@@ -37,7 +37,7 @@ export default function FaqClient() {
       >
         <div className="relative z-10 max-w-[1360px] mx-auto px-6 flex flex-col items-start text-left">
           
-          <h1 className="text-[clamp(34px,5vw,56px)] font-[800] leading-[1.06] tracking-[-0.025em] text-[#0f1220] max-w-[800px] mb-[12px]">
+          <h1 className="font-[800] text-[#0f1220] max-w-[800px] mb-[12px]">
             Frequently asked <span className="text-[#ff6a00]">questions.</span>
           </h1>
           
@@ -104,7 +104,7 @@ export default function FaqClient() {
             <div className="inline-block rounded-full bg-[#12141c]/14 px-[14px] py-[7px] text-[12px] font-[800] tracking-[0.12em] text-[#1a0b00] uppercase mb-4">
               AI ASSISTANT
             </div>
-            <h2 className="text-[clamp(26px,3.2vw,36px)] font-[800] tracking-tight text-[#1a0b00] mb-4">
+            <h2 className="font-[800] text-[#1a0b00] mb-4">
               Still have questions? Our AI assistant can help.
             </h2>
             <p className="text-[15px] text-[#3d1d00] max-w-[520px] mb-8 leading-[1.6]">

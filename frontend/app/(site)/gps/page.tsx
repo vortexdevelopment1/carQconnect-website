@@ -37,10 +37,10 @@ export default function GpsPage() {
 
             <div className="flex items-center gap-4 mb-6">
               <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-              <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">GPS TRACKING</span>
+              <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">GPS TRACKING</span>
             </div>
             
-            <h1 className="font-display font-bold tracking-tight text-[#12131A] mb-5" style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.1 }}>
+            <h1 className="font-display font-bold text-[#12131A] mb-5" style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.1 }}>
               Know where your vehicle is.<br/>
               <span className="text-[#FF5A00]">Wherever it goes.</span>
             </h1>
@@ -184,7 +184,7 @@ export default function GpsPage() {
                 <div className="flex h-[48px] w-[48px] items-center justify-center rounded-[14px] bg-[#fff1e6]">
                   <Icon className="h-6 w-6 text-[#FF5A00]" strokeWidth={1.75} />
                 </div>
-                <h3 className="mt-5 font-display text-[15px] font-medium text-ink">{title}</h3>
+                <h3 className="mt-5 font-display font-medium text-ink">{title}</h3>
                 <p className="mt-1.5 text-[13px] text-[#5b6478] leading-relaxed">{description}</p>
               </div>
             ))}

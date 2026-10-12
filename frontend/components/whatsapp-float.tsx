@@ -36,7 +36,7 @@ export default function WhatsAppFloat() {
       }
 
       // New mobile logic: clamp above footer copy bar
-      if (window.innerWidth < 640) {
+      if (true) {
         const copyBar = document.getElementById('footer-copy-bar');
         if (copyBar) {
           const barTop = copyBar.getBoundingClientRect().top;
@@ -50,11 +50,7 @@ export default function WhatsAppFloat() {
       y = Math.max(margin, Math.min(y, viewportY));
       wrap.style.transform = `translateY(${y}px)`;
       
-      if (window.innerWidth < 640) {
-        wrap.style.transition = 'none';
-      } else {
-        wrap.style.transition = '';
-      }
+      wrap.style.transition = 'none';
 
       if (first) {
         first = false;

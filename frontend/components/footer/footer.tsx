@@ -1,85 +1,149 @@
 "use client";
 
 import Link from "next/link";
-import { ShieldCheck, Apple, Smartphone, ArrowUp } from "lucide-react";
+import type { MouseEvent } from "react";
+import { ShieldCheck, ArrowUp } from "lucide-react";
 import { footerColumns } from "@/lib/data/nav";
 
 export function Footer() {
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToTop = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-[#262935] bg-gradient-to-b from-[#12131A] to-[#0D0E13]">
+    <footer
+      data-type-scale="off"
+      className="relative overflow-hidden border-t border-[#262935] bg-gradient-to-b from-[#12131A] to-[#0D0E13]"
+    >
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5A00] to-transparent" />
-      
-      <div className="w-full px-[clamp(24px,6vw,120px)] pt-14 md:pt-[72px] pb-[24px]">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-12 min-[900px]:grid-cols-[1.5fr_repeat(4,1fr)]">
-          
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-3">
+
+      <div className="relative z-10 w-full px-[clamp(20px,6vw,120px)] pt-10 min-[640px]:pt-12 min-[900px]:pt-[60px] pb-0">
+        {/* 2 cols on phones, 4 cols from 640px (brand on its own row), 5 cols from 1100px */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-6 min-[640px]:grid-cols-4 min-[640px]:gap-y-8 min-[1100px]:grid-cols-[1.4fr_repeat(4,1fr)] min-[1100px]:gap-y-10">
+          {/* BRAND */}
+          <div className="col-span-2 min-[640px]:col-span-4 min-[1100px]:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-3">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[11px] bg-gradient-to-br from-[#FF5A00] to-[#FF8A3D] shadow-[0_8px_22px_rgba(255,90,0,0.35)]">
                 <ShieldCheck className="h-5 w-5 text-white" strokeWidth={2.5} />
               </div>
-              <span className="font-display text-[22px] font-bold text-white">carQconnect</span>
+              <span className="font-display text-[clamp(19px,5vw,22px)] font-bold text-white">
+                carQconnect
+              </span>
             </Link>
-            <p className="mt-4 mb-[22px] max-w-[290px] text-[14.5px] leading-[1.6] text-[#A8ACBA]">
-              One connected ecosystem for your vehicle's safety, tracking and everyday journeys.
+
+            <p className="mt-3 mb-4 max-w-[290px] text-[13.5px] leading-[1.6] text-[#A8ACBA] min-[640px]:mt-4 min-[640px]:mb-5 min-[640px]:text-[14.5px]">
+              One connected ecosystem for your vehicle&apos;s safety, tracking and everyday journeys.
             </p>
-            
-            <div className="flex items-center gap-[10px]">
-              <a href="#" className="flex items-center gap-2.5 rounded-[10px] border border-[#3A3D4C] bg-black px-[14px] py-[8px] transition-colors hover:border-[#FF5A00]">
-                <img src="/apple.svg" alt="Apple" className="h-5 w-5" />
-                <div className="flex flex-col items-start">
+
+            <div className="flex flex-wrap items-center gap-[10px]">
+              <a
+                href="#"
+                className="flex shrink-0 items-center gap-2 rounded-[10px] border border-[#3A3D4C] bg-black px-3 py-2 transition-colors hover:border-[#FF5A00]"
+              >
+                <img src="/apple.svg" alt="" width={20} height={20} className="h-5 w-5" />
+                <div className="flex flex-col items-start whitespace-nowrap">
                   <span className="text-[9px] leading-tight text-white/70">Download on the</span>
-                  <span className="text-[12px] font-semibold leading-tight text-white">App Store</span>
+                  <span className="text-[11px] font-semibold leading-tight text-white min-[640px]:text-[12px]">
+                    App Store
+                  </span>
                 </div>
               </a>
-              <a href="#" className="flex items-center gap-2.5 rounded-[10px] border border-[#3A3D4C] bg-black px-[14px] py-[8px] transition-colors hover:border-[#FF5A00]">
-                <img src="/google-play.svg" alt="Google Play" className="h-[22px] w-[22px]" />
-                <div className="flex flex-col items-start">
+              <a
+                href="#"
+                className="flex shrink-0 items-center gap-2 rounded-[10px] border border-[#3A3D4C] bg-black px-3 py-2 transition-colors hover:border-[#FF5A00]"
+              >
+                <img src="/google-play.svg" alt="" width={22} height={22} className="h-[20px] w-[20px] min-[640px]:h-[22px] min-[640px]:w-[22px]" />
+                <div className="flex flex-col items-start whitespace-nowrap">
                   <span className="text-[9px] leading-tight text-white/70">GET IT ON</span>
-                  <span className="text-[12px] font-semibold leading-tight text-white">Google Play</span>
+                  <span className="text-[11px] font-semibold leading-tight text-white min-[640px]:text-[12px]">
+                    Google Play
+                  </span>
                 </div>
               </a>
             </div>
           </div>
 
+          {/* LINK COLUMNS */}
           {footerColumns.map((col) => (
-            <div key={col.title}>
-              <h4 className="mb-5 flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.16em] text-white before:block before:h-[2px] before:w-[14px] before:bg-[#FF5A00] before:content-['']">
+            <div key={col.title} className="min-w-0">
+              <h4 className="mb-2 flex items-center gap-2.5 text-[clamp(10px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-white before:block before:h-[2px] before:w-[14px] before:shrink-0 before:bg-[#FF5A00] before:content-[''] min-[640px]:mb-3 min-[1100px]:mb-4">
                 {col.title}
               </h4>
-              <ul className="flex flex-col gap-[13px]">
+              <ul className="flex flex-col gap-0 min-[1100px]:gap-[8px]">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="group inline-flex items-center min-h-[44px] whitespace-normal text-[14.5px] text-[#A8ACBA] transition-all duration-200 hover:translate-x-1 hover:text-white">
-                      {link.label} <span className="ml-0 text-base leading-none text-[#FF5A00] opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:opacity-100">&rarr;</span>
+                    <Link
+                      href={link.href}
+                      className="group inline-flex min-h-[34px] items-center whitespace-normal py-1 text-[13.5px] text-[#A8ACBA] transition-all duration-200 hover:translate-x-1 hover:text-white min-[640px]:min-h-[36px] min-[640px]:text-[14.5px] min-[1100px]:min-h-[40px] min-[1100px]:py-0"
+                    >
+                      {link.label}{" "}
+                      <span className="ml-0 text-base leading-none text-[#FF5A00] opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:opacity-100">
+                        &rarr;
+                      </span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
-          
         </div>
 
-        <div id="footer-copy-bar" className="relative z-10 mt-14 flex items-center justify-between border-t border-[#262935] py-[22px]">
-          <p className="text-[13px] text-[#7B7F90]">
-            &copy; 2026 carQconnect. All rights reserved.
+        {/* COPYRIGHT BAR (the line lives here, ABOVE the watermark) */}
+        <div
+          id="footer-copy-bar"
+          className="relative z-10 mt-6 flex items-center justify-between gap-4 border-t border-[#262935] py-[10px] min-[640px]:mt-8 min-[640px]:py-[12px]"
+        >
+          <p className="flex flex-col gap-[2px] text-[12.5px] text-[#7B7F90] min-[640px]:text-[13px]">
+            <span>&copy; 2026 carQconnect.</span>
+            <span>All rights reserved.</span>
           </p>
-          <a href="#" onClick={scrollToTop} className="group flex items-center gap-1.5 text-[13px] font-semibold text-[#A8ACBA] transition-colors hover:text-[#FF5A00]">
-            Back to top <ArrowUp className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={2.5} />
+          <a
+            href="#"
+            onClick={scrollToTop}
+            className="group flex min-h-[44px] items-center gap-1.5 text-[12.5px] font-semibold text-[#A8ACBA] transition-colors hover:text-[#FF5A00] min-[640px]:text-[13px]"
+          >
+            Back to top{" "}
+            <ArrowUp
+              className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1"
+              strokeWidth={2.5}
+            />
           </a>
         </div>
       </div>
-      
-      <div className="pointer-events-none relative z-[1] mb-0 pb-6 -mt-6 md:-mt-8 select-none whitespace-normal text-center font-display text-[clamp(60px,15.5vw,230px)] font-bold leading-[0.9] tracking-[-0.05em] text-transparent bg-gradient-to-b from-white/[0.07] to-transparent bg-clip-text" aria-hidden="true">
-        carQconnect
+
+      {/*
+        WATERMARK (SVG): always fills the full width, scales on every screen, and its height is
+        exactly the letters' height, so there is NO empty space above or below it.
+        Brighter/dimmer: change stopOpacity 0.10. Letters cut at the bottom: increase viewBox height 150 to 156.
+      */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none relative z-0 mx-auto w-full max-w-[1500px] select-none px-[clamp(20px,6vw,120px)] pt-1"
+      >
+        <svg
+          viewBox="0 0 1000 150"
+          preserveAspectRatio="xMidYMax meet"
+          className="block h-auto w-full font-display"
+        >
+          <defs>
+            <linearGradient id="cq-watermark" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#ffffff" stopOpacity="0.10" />
+              <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <text
+            x="0"
+            y="128"
+            textLength="1000"
+            lengthAdjust="spacingAndGlyphs"
+            fill="url(#cq-watermark)"
+            style={{ fontSize: 170, fontWeight: 700 }}
+          >
+            carQconnect
+          </text>
+        </svg>
       </div>
     </footer>
   );
 }
-
-

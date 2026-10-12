@@ -69,9 +69,9 @@ export default function ContactClient() {
         <div className="mb-12 text-left">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-[32px] h-[2px] bg-[#ff5a00]" />
-            <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#ff5a00]">CONTACT</span>
+            <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#ff5a00]">CONTACT</span>
           </div>
-          <h1 className="text-[clamp(34px,5vw,52px)] font-[800] leading-[1.1] tracking-tight text-[#12131a] mb-3">
+          <h1 className="font-[800] text-[#12131a] mb-3">
             Get in <span className="text-[#ff5a00]">touch</span>
           </h1>
           <p className="text-[16px] text-[#5b6070] max-w-[560px] leading-relaxed">
@@ -87,7 +87,7 @@ export default function ContactClient() {
                 <div className="w-[64px] h-[64px] bg-[#ecfdf3] text-[#1fa463] rounded-full flex items-center justify-center mb-6">
                   <CheckCircle2 className="w-[32px] h-[32px]" strokeWidth={2} />
                 </div>
-                <h2 className="text-[24px] font-[800] text-[#12131a] mb-2">Message sent</h2>
+                <h2 className="font-[800] text-[#12131a] mb-2">Message sent</h2>
                 <p className="text-[15px] text-[#5b6070] mb-8">We'll get back to you soon.</p>
                 <button 
                   onClick={() => {
@@ -214,7 +214,7 @@ export default function ContactClient() {
                 <Mail className="w-[18px] h-[18px] text-[#ff5a00]" strokeWidth={2.5} />
               </div>
               <div>
-                <h3 className="text-[16px] font-semibold text-[#12131a] mb-0.5">Email</h3>
+                <h3 className="font-semibold text-[#12131a] mb-0.5">Email</h3>
                 <a href="mailto:support@carqconnect.com" className="text-[14px] text-[#5b6070] hover:text-[#ff5a00] transition-colors">
                   support@carqconnect.com
                 </a>
@@ -226,7 +226,7 @@ export default function ContactClient() {
                 <Phone className="w-[18px] h-[18px] text-[#ff5a00]" strokeWidth={2.5} />
               </div>
               <div>
-                <h3 className="text-[16px] font-semibold text-[#12131a] mb-0.5">Phone</h3>
+                <h3 className="font-semibold text-[#12131a] mb-0.5">Phone</h3>
                 <p className="text-[14px] text-[#5b6070]">
                   Available via in-app support
                 </p>
@@ -238,7 +238,7 @@ export default function ContactClient() {
                 <MapPin className="w-[18px] h-[18px] text-[#ff5a00]" strokeWidth={2.5} />
               </div>
               <div>
-                <h3 className="text-[16px] font-semibold text-[#12131a] mb-0.5">Office</h3>
+                <h3 className="font-semibold text-[#12131a] mb-0.5">Office</h3>
                 <p className="text-[14px] text-[#5b6070]">
                   Indore, Madhya Pradesh, India
                 </p>
@@ -250,7 +250,7 @@ export default function ContactClient() {
                 <Smartphone className="w-[18px] h-[18px] text-[#ff5a00]" strokeWidth={2.5} />
               </div>
               <div>
-                <h3 className="text-[16px] font-semibold text-white mb-1">Need quick help?</h3>
+                <h3 className="font-semibold text-white mb-1">Need quick help?</h3>
                 <p className="text-[14px] text-[#a8acba] mb-3 leading-relaxed">
                   Get instant support in the carQconnect app.
                 </p>

@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <section className="flex min-h-[100svh] flex-col items-center justify-center bg-background px-5 text-center">
       <SearchX className="h-10 w-10 text-disabled" strokeWidth={1.5} />
-      <h1 className="mt-5 font-display text-2xl font-medium text-ink">
+      <h1 className="mt-5 font-display font-medium text-ink">
         We couldn&apos;t find that page
       </h1>
       <p className="mt-2 max-w-sm text-[14px] text-tertiary">

@@ -253,7 +253,7 @@ export function PillarStrip() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2.5 rounded-full border border-[#ff4d00]/30 bg-[#ff4d00]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#ff4d00] backdrop-blur-md"
+            className="inline-flex items-center gap-2.5 rounded-full border border-[#ff4d00]/30 bg-[#ff4d00]/10 px-4 py-1.5 text-[clamp(10px,2vw,12px)] font-semibold uppercase tracking-widest text-[#ff4d00] backdrop-blur-md"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff4d00] opacity-75"></span>
@@ -366,7 +366,7 @@ export function PillarStrip() {
 
                 {/* Overlay Bottom Content */}
                 <div className="absolute bottom-6 left-6 right-6 z-10">
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-display">
+                  <h3 className="font-bold text-white font-display">
                     {activePillar.title}
                   </h3>
                   <p className="mt-1 text-sm sm:text-base font-semibold text-[#ff4d00]">
@@ -397,7 +397,7 @@ export function PillarStrip() {
           >
             <div>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#ff4d00] font-semibold">
+                <span className="text-[clamp(10px,2vw,12px)] font-mono uppercase tracking-widest text-[#ff4d00] font-semibold">
                   System {activePillar.index} / 05
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-xs text-neutral-600 font-medium">
@@ -406,7 +406,7 @@ export function PillarStrip() {
                 </span>
               </div>
 
-              <h3 className="mt-4 text-2xl sm:text-3xl font-bold text-neutral-900 tracking-tight font-display">
+              <h3 className="mt-4 font-bold text-neutral-900 font-display">
                 {activePillar.title}
               </h3>
 
@@ -453,7 +453,7 @@ export function PillarStrip() {
         <div className="mt-20">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-black/10 pb-6 mb-8">
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-display">
+              <h3 className="font-bold text-neutral-900 font-display">
                 All Connected Systems
               </h3>
               <p className="mt-1 text-xs sm:text-sm text-neutral-600">
@@ -597,7 +597,7 @@ export function PillarStrip() {
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
+                <h3 className="font-extrabold text-white font-display">
                   {selectedModalPillar.title}
                 </h3>
                 <p className="mt-2 text-base sm:text-lg font-semibold text-[#ff4d00]">
@@ -643,7 +643,7 @@ export function PillarStrip() {
 
                     {/* Capabilities Bullet Points */}
                     <div className="border-t border-white/10 pt-5">
-                      <h4 className="text-xs font-mono uppercase tracking-widest text-[#ff4d00] mb-3">
+                      <h4 className="text-[clamp(10px,2vw,12px)] font-mono uppercase tracking-widest text-[#ff4d00] mb-3">
                         Core Platform Capabilities
                       </h4>
                       <div className="space-y-2.5">

@@ -1,16 +1,28 @@
 const fs = require('fs');
-let content = fs.readFileSync('components/sections/page-header.tsx', 'utf8');
+let phContent = fs.readFileSync('components/sections/page-header.tsx', 'utf8');
 
-// Reduce mobile font size clamp for PageHeader title
-content = content.replace(
-  'text-[clamp(34px,5vw,56px)]',
-  'text-[clamp(26px,7vw,56px)]'
+// Reduce h1 minimum size for very small screens
+phContent = phContent.replace(
+  'text-[clamp(26px,7vw,56px)]',
+  'text-[clamp(22px,6.5vw,56px)]'
 );
 
-// Reduce mobile font size for paragraph
-content = content.replace(
-  'text-[16px]',
-  'text-[15px] sm:text-[16px]'
+// Reduce gap between heading and text
+phContent = phContent.replace(
+  'mb-[12px]',
+  'mb-2 md:mb-[12px]'
 );
 
-fs.writeFileSync('components/sections/page-header.tsx', content, 'utf8');
+// Reduce top padding on mobile
+phContent = phContent.replace(
+  '"pt-[120px] pb-[40px]"',
+  '"pt-[90px] md:pt-[120px] pb-6 md:pb-[40px]"'
+);
+
+// In case the backButton wrapper has margin
+phContent = phContent.replace(
+  '<div className="mb-1 md:mb-2">{backButton}</div>',
+  '<div className="mb-1 md:mb-3">{backButton}</div>'
+);
+
+fs.writeFileSync('components/sections/page-header.tsx', phContent, 'utf8');

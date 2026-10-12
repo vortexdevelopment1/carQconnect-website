@@ -15,7 +15,7 @@ export default function ErrorBoundary({
 
   return (
     <div className="flex min-h-[100svh] flex-col items-center justify-center bg-black p-4 text-white">
-      <h2 className="text-xl font-bold text-red-500 mb-4">Something went wrong!</h2>
+      <h2 className="font-bold text-red-500 mb-4">Something went wrong!</h2>
       <div className="p-4 bg-red-500/10 border border-red-500 rounded-md max-w-2xl overflow-auto text-left mb-6">
         <p className="font-mono text-sm text-red-400">{error.message || "Unknown error"}</p>
         {error.stack && (
