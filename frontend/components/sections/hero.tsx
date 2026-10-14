@@ -1,30 +1,26 @@
-import type { CSSProperties } from "react";
+"use client";
+
 import { HeroQrScanner } from "@/components/qr/hero-qr-scanner";
 
-function CartIcon() {
-  return (
-    <svg
-      className="buy__cart"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.9"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M2.5 3h2.2l2.5 11.3h11.1" />
-      <path d="M6.6 6.4h14.4l-1.9 6.9H8.1" />
-      <circle cx="9.4" cy="19.4" r="1.7" />
-      <circle cx="18.2" cy="19.4" r="1.7" />
-    </svg>
-  );
-}
+const Letters = ({ text }: { text: string }) => (
+  <>
+    <span className="sr-only">{text}</span>
+    <span aria-hidden="true">
+      {Array.from(text).map((ch, i) => (
+        <span key={i} className="hero__ch" style={{ ["--i" as any]: i }}>
+          {ch === " " ? "\u00A0" : ch}
+        </span>
+      ))}
+    </span>
+  </>
+);
 
 export function Hero() {
   return (
     <section data-type-scale="off" className="hero" id="home">
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
         /* =====================================================
@@ -77,7 +73,7 @@ export function Hero() {
             --copy-top: calc(88px + (100% - 88px) * 0.085);
             --copy-pr: clamp(40px, 3.9vw, 96px);
             --gap: clamp(16px, 1.5vw, 28px);
-            --title: clamp(44px, min(4.7vw, 9.2svh), 96px);
+            --title: clamp(44px, min(4.95vw, 9.2svh), 76px);
             --lede: clamp(16px, 1.15vw, 19px);
             --lede-w: 600px;
             --btn-h: clamp(52px, 3.4vw, 76px);
@@ -104,8 +100,8 @@ export function Hero() {
           top: var(--copy-top) !important;
           left: 0 !important;
           right: 0 !important;
-          width: auto !important;          /* removes any global width cap */
-          max-width: none !important;      /* removes any global max-width (e.g. 1200px) */
+          width: auto !important;
+          max-width: none !important;
           bottom: auto !important;
           height: auto !important;
           margin: 0 !important;
@@ -117,8 +113,8 @@ export function Hero() {
           gap: var(--gap) !important;
           text-align: right !important;
           transform: none !important;
-          z-index: 3 !important;           /* text always above the cube image */
-          pointer-events: none;            /* only the button is clickable */
+          z-index: 3 !important;
+          pointer-events: none;
         }
 
         .hero .hero__line,
@@ -127,18 +123,58 @@ export function Hero() {
           white-space: nowrap !important;
         }
 
-        /* TITLE: reference-style typography (lighter stroke, tighter spacing) */
         .hero .hero__title {
+          --hero-ink: #111;
           margin: 0 !important;
           text-align: right !important;
-          font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif !important;
-          font-weight: 800 !important;
-          font-stretch: 100% !important;
+          font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif !important;
+          font-weight: 600 !important;
           font-synthesis: none !important;
+          font-stretch: 100% !important;
+          letter-spacing: -0.03em !important;
+          line-height: 1.04 !important;
           -webkit-font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+          font-kerning: normal;
           font-size: var(--title) !important;
-          line-height: 1.02 !important;
-          letter-spacing: -0.028em !important;
+          color: var(--hero-ink) !important;
+        }
+
+        .hero .hero__ch {
+          display: inline-block;
+          opacity: 0;
+          transform: translate3d(0, .32em, 0) scale(1.04);
+          filter: blur(5px);
+          will-change: transform, opacity, filter;
+          animation: hero-ch 760ms cubic-bezier(.16, 1, .3, 1) forwards;
+          animation-delay: calc(280ms + var(--i) * 42ms);
+        }
+
+        @keyframes hero-ch {
+          0%   { opacity: 0; transform: translate3d(0, .32em, 0) scale(1.04); filter: blur(5px); }
+          55%  { opacity: 1; filter: blur(0); }
+          100% { opacity: 1; transform: none; filter: blur(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero .hero__ch {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+          }
+        }
+
+        .hero .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border-width: 0;
         }
 
         .hero .hero__lede {
@@ -148,9 +184,11 @@ export function Hero() {
           font-size: var(--lede) !important;
           line-height: 1.5 !important;
           max-width: var(--lede-w) !important;
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
         }
 
-        /* below 1101px the paragraph wraps naturally (smaller width, no overlap on the boxes) */
         @media (max-width: 1100px) {
           .hero .hero__lede .hero__line {
             display: inline !important;
@@ -165,8 +203,10 @@ export function Hero() {
           position: relative;
           filter: drop-shadow(0 3px 8px rgba(255, 90, 20, 0.35));
           transition: transform 0.2s ease;
+          animation: none !important;
+          opacity: 1 !important;
         }
-        .hero .buy::before {              /* bigger invisible tap area */
+        .hero .buy::before {
           content: '';
           position: absolute;
           inset: -6px;
@@ -177,12 +217,34 @@ export function Hero() {
         .hero .buy__body {
           min-height: var(--btn-h) !important;
           padding-inline: var(--btn-px) !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 0.5em !important;
         }
         .hero .buy__label {
           font-family: 'Inter', system-ui, sans-serif !important;
           font-weight: 700 !important;
           letter-spacing: 0.02em !important;
           font-size: var(--btn-fs) !important;
+          white-space: nowrap !important;
+        }
+        .hero .buy__arrow {
+          flex: none !important;
+          width: 1.2em !important;
+          height: 1.2em !important;
+          font-size: var(--btn-fs) !important;
+          color: inherit !important;
+          transition: transform .2s ease !important;
+        }
+        @media (hover: hover) {
+          .hero .buy:hover .buy__arrow { transform: translateX(3px); }
+        }
+        @media (max-width: 639px) {
+          .hero .buy__body { padding-right: calc(var(--btn-px) + 0.35em) !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero .buy__arrow { transition: none !important; }
+          .hero .buy:hover .buy__arrow { transform: none !important; }
         }
 ` }}
       />
@@ -198,9 +260,15 @@ export function Hero() {
 
       <div className="hero__copy">
         <h1 className="hero__title">
-          <span className="hero__line">CONNECT YOUR VEHICLE</span>
-          <span className="hero__line">PROTECT EVERY</span>
-          <span className="hero__line">JOURNEY</span>
+          <span className="hero__line">
+            <Letters text="CONNECT YOUR VEHICLE" />
+          </span>
+          <span className="hero__line">
+            <Letters text="PROTECT EVERY" />
+          </span>
+          <span className="hero__line">
+            <Letters text="JOURNEY" />
+          </span>
         </h1>
         <p className="hero__lede">
           <span className="hero__line">Monitor your vehicle, stay connected on every trip, and enable</span>{" "}
@@ -211,6 +279,20 @@ export function Hero() {
         <a className="buy" href="/marketplace">
           <span className="buy__body">
             <span className="buy__label">Download App</span>
+            <svg
+              className="buy__arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M5 12h14" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
           </span>
         </a>
       </div>
