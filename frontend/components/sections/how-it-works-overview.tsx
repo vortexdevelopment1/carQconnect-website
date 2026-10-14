@@ -25,7 +25,7 @@ export default function HowItWorksOverview() {
           <span className="text-[#FF5A00]">Everyday confidence.</span>
         </h2>
 
-        <div className="relative w-full max-w-[1040px] mx-auto">
+        <div className="relative w-full mx-auto">
           {/* Horizontal Dashed Timeline for desktop */}
           <div className="hidden md:block absolute top-[24px] left-[16%] right-[16%] h-px border-t border-dashed border-[#2E3139] z-0" />
           

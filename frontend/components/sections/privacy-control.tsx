@@ -6,22 +6,22 @@ import { cn } from "@/lib/utils";
 
 export function PrivacyControlSection() {
   return (
-    <section id="safety" className="w-full bg-white [@media(max-width:959px)]:pt-[16px] [@media(max-width:959px)]:pb-[40px] [@media(max-width:959px)]:px-[20px] pt-[16px] pb-[40px] px-[32px]">
-      <div className="mx-auto max-w-[1240px]">
+    <section id="safety" className="w-full bg-white section-py">
+      <div className="container-page">
         
         {/* TOP AREA */}
-        <div className="grid gap-[24px] lg:gap-[40px] items-center lg:grid-cols-2">
+        <div className="grid gap-[var(--block-gap)] items-center lg:grid-cols-2">
           
           {/* LEFT: Text & CTAs */}
           <div className="flex flex-col">
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-4">
               <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
-              <span className="text-[clamp(10px,2.2vw,13px)] font-bold tracking-[0.16em] text-[#FF5A00] uppercase">PRIVACY & CONTROL</span>
+              <p className="text-[12px] sm:text-[13px] font-extrabold tracking-[0.16em] text-[#FF5A00] uppercase">PRIVACY & CONTROL</p>
             </div>
             
             <h2 
-              className="font-display font-bold text-[#12131A] mb-6"
-              style={{ fontSize: 'clamp(36px, 4.5vw, 54px)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
+              className="font-display font-extrabold text-[#12131A] mb-5"
+              style={{ fontSize: 'clamp(34px, 4.2vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.03em' }}
             >
               Built around privacy,<br />
               safety and <span className="text-[#FF5A00]">control.</span>
@@ -83,7 +83,7 @@ export function PrivacyControlSection() {
         </div>
 
         {/* BOTTOM CARDS */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mt-[28px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[var(--card-gap)] mt-[var(--block-gap)]">
           {[
             {
               num: "01",
@@ -145,7 +145,7 @@ export function PrivacyControlSection() {
         </div>
 
         {/* TRUST STRIP */}
-        <div className="flex flex-wrap items-center justify-center gap-x-[28px] gap-y-[10px] mt-[24px]">
+        <div className="flex flex-wrap items-center justify-start gap-x-[28px] gap-y-[10px] mt-[var(--block-gap)]">
           {["Server-verified payments", "Rate-limited QR scans", "Consent-based location"].map(text => (
             <div key={text} className="flex items-center gap-[8px]">
               <div className="w-[4px] h-[4px] rounded-full bg-[#FF5A00]" />

@@ -10,8 +10,8 @@ const rows = [
 
 export function ProductComparison() {
   return (
-    <section id="compare" className="bg-[#F7F8FC] pt-[32px] pb-[64px]">
-      <div className="container-page max-w-[1240px] mx-auto">
+    <section id="compare" className="bg-[#F7F8FC] section-py">
+      <div className="container-page">
         
         {/* Heading Area */}
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -34,7 +34,7 @@ export function ProductComparison() {
         </div>
 
         {/* Table Container */}
-        <div className="mt-12 rounded-[20px] border border-[#ECEEF4] bg-white shadow-[0_10px_30px_rgba(18,19,26,0.05)] overflow-hidden">
+        <div className="mt-[var(--block-gap)] rounded-[20px] border border-[#ECEEF4] bg-white shadow-[0_10px_30px_rgba(18,19,26,0.05)] overflow-hidden">
           <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: "touch" }}>
             <div className="min-w-[600px]">
               
@@ -84,7 +84,7 @@ export function ProductComparison() {
         </div>
 
         {/* Footer Info Text */}
-        <p className="mt-6 text-center text-[13.5px] sm:text-[14px] font-medium text-[#5B6070]">
+        <p className="mt-6 text-left text-[13.5px] sm:text-[14px] font-medium text-[#5B6070]">
           Both devices activate in the carQconnect app. Use both for complete coverage.
         </p>
 

@@ -5,20 +5,10 @@ import { faqs } from "@/lib/data/faqs";
 
 export function FaqSection() {
   return (
-    <section id="faq" data-type-scale="off" className="bg-[#f5f6f8] py-12 sm:py-24">
+    <section id="faq" data-type-scale="off" className="bg-[#f5f6f8] section-py">
 
       <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 640px) {
-          #faq {
-            padding-inline: clamp(12px, 4vw, 18px) !important;
-            padding-block: clamp(24px, 6.5vw, 40px) !important;
-          }
-          #faq .container-page {
-            padding: 0 !important;
-            margin: 0 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-          }
           #faq .faq-outer-card {
             border-radius: clamp(12px, 3.6vw, 18px) !important;
           }

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-[#0D0E13] pt-[48px] sm:pt-[96px] px-[24px] pb-[64px] sm:pb-[88px] text-center flex flex-col items-center">
+    <section className="relative overflow-hidden bg-[#0D0E13] section-py text-center flex flex-col items-center">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 blur-[80px]"

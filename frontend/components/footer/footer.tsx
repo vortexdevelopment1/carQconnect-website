@@ -14,11 +14,12 @@ export function Footer() {
   return (
     <footer
       data-type-scale="off"
-      className="relative overflow-hidden border-t border-[#262935] bg-gradient-to-b from-[#12131A] to-[#0D0E13]"
+      className="relative border-t border-[#262935] bg-gradient-to-b from-[#12131A] to-[#0D0E13]"
     >
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5A00] to-transparent" />
 
-      <div className="relative z-10 w-full px-[clamp(20px,6vw,120px)] pt-10 min-[640px]:pt-12 min-[900px]:pt-[60px] pb-0">
+      {/* MAIN FOOTER CONTENT */}
+      <div className="container-page relative z-10 pt-[var(--section-py)] pb-0">
         {/* 2 cols on phones, 4 cols from 640px (brand on its own row), 5 cols from 1100px */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-6 min-[640px]:grid-cols-4 min-[640px]:gap-y-8 min-[1100px]:grid-cols-[1.4fr_repeat(4,1fr)] min-[1100px]:gap-y-10">
           {/* BRAND */}
@@ -89,7 +90,7 @@ export function Footer() {
           ))}
         </div>
 
-        {/* COPYRIGHT BAR (the line lives here, ABOVE the watermark) */}
+        {/* COPYRIGHT BAR */}
         <div
           id="footer-copy-bar"
           className="relative z-10 mt-6 flex items-center justify-between gap-4 border-t border-[#262935] py-[10px] max-[639px]:pr-[64px] min-[640px]:mt-8 min-[640px]:py-[12px]"
@@ -113,18 +114,22 @@ export function Footer() {
       </div>
 
       {/*
-        WATERMARK (SVG): always fills the full width, scales on every screen, and its height is
-        exactly the letters' height, so there is NO empty space above or below it.
-        Brighter/dimmer: change stopOpacity 0.10. Letters cut at the bottom: increase viewBox height 150 to 156.
+        WATERMARK SVG — Root cause of mobile invisibility was TWO issues:
+        1. <footer> had overflow-hidden which clipped the SVG bottom at small heights.
+        2. The watermark wrapper had no bottom padding, so the SVG baseline sat flush
+           against the page end and was partially cut by the browser chrome / WhatsApp button.
+        Fix: removed overflow-hidden from <footer>, added pb-[clamp(16px,4vw,32px)] on the
+        wrapper, and added overflow:visible on the SVG itself.
       */}
       <div
         aria-hidden="true"
-        className="pointer-events-none relative z-0 mx-auto w-full max-w-[1500px] select-none px-[clamp(20px,6vw,120px)] pt-1"
+        className="container-page pointer-events-none relative z-0 select-none pt-1 pb-[clamp(16px,4vw,32px)]"
       >
         <svg
           viewBox="0 0 1000 150"
           preserveAspectRatio="xMidYMax meet"
           className="block h-auto w-full font-display"
+          style={{ overflow: "visible" }}
         >
           <defs>
             <linearGradient id="cq-watermark" x1="0" y1="0" x2="0" y2="1">

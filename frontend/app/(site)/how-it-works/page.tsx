@@ -12,7 +12,7 @@ export default function HowItWorksPage() {
     <>
       {/* Intro Hero */}
       <section 
-        className="relative pt-20 pb-10 text-center"
+        className="relative pt-28 pb-16 sm:pt-36 sm:pb-20 text-center"
         style={{
           background: "radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,0.28), rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3, #f7f9fc)"
         }}
@@ -21,7 +21,7 @@ export default function HowItWorksPage() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-6xl text-ink">
             From sign-up to <span className="text-[#ff6a00]">your first trip.</span>
           </h1>
-          <p className="mt-4 text-lg text-secondary">
+          <p className="mt-5 text-lg text-secondary max-w-xl">
             Follow the carQconnect journey, one step at a time.
           </p>
         </div>

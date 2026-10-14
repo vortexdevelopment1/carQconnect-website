@@ -92,7 +92,13 @@ export function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className={`flex items-center justify-between ${isScrolled || menuOpen ? 'pb-3 pt-3' : 'pb-3 pt-5'}`} style={{ paddingLeft: 'clamp(20px, 4vw, 30px)', paddingRight: 'clamp(20px, 4vw, 30px)' }}>
+        <div
+          className={`flex items-center justify-between ${isScrolled || menuOpen ? 'pb-3 pt-3' : 'pb-3 pt-5'}`}
+          style={{
+            paddingLeft: 'var(--page-gutter)',
+            paddingRight: 'var(--page-gutter)',
+          }}
+        >
           <div className="flex-1 hidden min-[1025px]:flex items-center">
             <nav className="flex items-center gap-[clamp(16px,2vw,28px)]" aria-label="Main">
               {links.map((link) => {
@@ -135,7 +141,7 @@ export function Navbar() {
             </Link>
             
             <button
-              className="min-[1025px]:hidden flex flex-col items-center justify-center gap-1.5 w-[44px] h-[44px] rounded bg-transparent border-0 cursor-pointer relative"
+              className="min-[1025px]:hidden flex flex-col items-center justify-center gap-1.5 w-6 h-[44px] rounded bg-transparent border-0 cursor-pointer relative before:absolute before:inset-y-0 before:-inset-x-2.5 before:content-['']"
               aria-label="Toggle menu"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
@@ -152,8 +158,12 @@ export function Navbar() {
         {menuOpen && (
           <div 
             id="mobile-menu"
-            className="absolute top-[100%] right-[clamp(20px,4vw,30px)] w-[260px] min-[1025px]:hidden bg-[#12141c] rounded-2xl border border-white/10 flex flex-col shadow-2xl overflow-hidden mt-1"
-            style={{ animation: 'popIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards', transformOrigin: 'top right' }}
+            className="absolute top-[100%] w-[260px] min-[1025px]:hidden bg-[#12141c] rounded-2xl border border-white/10 flex flex-col shadow-2xl overflow-hidden mt-1"
+            style={{
+              right: 'var(--page-gutter)',
+              animation: 'popIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              transformOrigin: 'top right',
+            }}
           >
             <nav className="flex flex-col py-3 px-3">
               {links.map((link) => {

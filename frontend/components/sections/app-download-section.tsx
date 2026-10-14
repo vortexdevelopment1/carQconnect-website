@@ -4,18 +4,10 @@ import { Smartphone, Apple, Mic, Calculator, MessageSquareText } from "lucide-re
 
 export function AppDownloadSection() {
   return (
-    <section id="download" data-type-scale="off" className="bg-[#12131A] pt-[64px] pb-[72px] px-[32px] overflow-hidden">
+    <section id="download" data-type-scale="off" className="bg-[#12131A] section-py overflow-hidden">
 
       <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 640px) {
-          #download {
-            padding-inline: clamp(12px, 4vw, 18px) !important;
-            padding-block: clamp(24px, 6.5vw, 40px) !important;
-            padding-bottom: 72px !important;
-          }
-          #download .container-page {
-            padding-inline: 0 !important;
-          }
           #download .left-col {
             gap: clamp(10px, 3vw, 16px) !important;
           }
@@ -119,7 +111,7 @@ export function AppDownloadSection() {
 
       
       
-      <div className="container-page max-w-[1180px] mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-12 items-center relative">
+      <div className="container-page grid lg:grid-cols-[1.1fr_0.9fr] gap-[var(--block-gap)] items-center relative">
         
         {/* LEFT COLUMN */}
         <div className="flex flex-col z-20 left-col">

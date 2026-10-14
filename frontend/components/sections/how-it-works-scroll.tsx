@@ -147,7 +147,7 @@ function StepSection({ step, index }: { step: Step; index: number }) {
     >
       <div className="absolute left-1/2 top-0 bottom-0 w-[1px] -translate-x-1/2 bg-white/[0.08] hidden hidden lg:block" />
 
-      <div className={`step-container ${aniState} relative z-10 flex flex-col items-center w-full max-w-[1120px] gap-[36px] px-6 py-0 lg:grid lg:grid-cols-[1fr_64px_1fr]`}>
+      <div className={`step-container ${aniState} container-page relative z-10 flex flex-col items-center gap-[36px] py-0 lg:grid lg:grid-cols-[1fr_64px_1fr]`}>
         {/* TEXT COLUMN */}
         <div className="flex flex-col justify-center order-2 lg:order-none">
           {/* Mobile Badge */}

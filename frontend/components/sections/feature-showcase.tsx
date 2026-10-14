@@ -176,7 +176,7 @@ export function FeatureShowcase() {
       {/* TAB BAR */}
       <div 
         role="tablist"
-        className="flex overflow-x-auto scrollbar-none z-20 min-[1025px]:static min-[1025px]:bg-[#1D1F26] bg-[#12141c] sticky top-[64px] min-[1025px]:top-auto"
+        className="flex overflow-x-auto scrollbar-none bg-[#1D1F26] relative"
         style={{
           margin: '0 0 16px 0',
           gap: '6px',
