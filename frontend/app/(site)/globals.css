@@ -876,7 +876,7 @@ p, .body-text { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.6; }
 
 /* Global resets */
 html, body {
-  overflow-x: hidden !important;
+  overflow-x: clip;
 }
 
 /* Header Overrides for Mobile/Tablet */
@@ -1076,4 +1076,14 @@ html, body {
   footer #footer-copy-bar a:hover {
     color: #FF5A00 !important;
   }
+}
+
+
+/* Utility to hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { LegalSection } from "@/lib/data/legal/privacy";
-import { ChevronDown } from "lucide-react";
 
 type LegalTemplateProps = {
   data: {
@@ -22,26 +21,32 @@ const TABS = [
 
 export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
   const [activeSection, setActiveSection] = useState(data.sections[0]?.id || "");
-  const [tocOpen, setTocOpen] = useState(false);
+  const mobileBarRef = useRef<HTMLDivElement>(null);
+  const activeChipRef = useRef<HTMLAnchorElement>(null);
+  const activeDesktopLinkRef = useRef<HTMLAnchorElement>(null);
+  const desktopSidebarRef = useRef<HTMLElement>(null);
+  const isClickScrolling = useRef(false);
 
   useEffect(() => {
     setActiveSection(data.sections[0]?.id || "");
 
     let rafId: number;
     const handleScroll = () => {
+      if (isClickScrolling.current) return;
       if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
         let currentActive = data.sections[0]?.id || "";
-        const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
-        
+        const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 30;
+
         if (isAtBottom && data.sections.length > 0) {
           currentActive = data.sections[data.sections.length - 1].id;
         } else {
+          const offsetThreshold = window.innerWidth >= 1024 ? 140 : 180;
           for (const s of data.sections) {
             const el = document.getElementById(s.id);
             if (el) {
               const rect = el.getBoundingClientRect();
-              if (rect.top <= 120) {
+              if (rect.top <= offsetThreshold) {
                 currentActive = s.id;
               }
             }
@@ -62,14 +67,46 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
     };
   }, [data.sections]);
 
+  // Auto-scroll the active chip into view horizontally inside the mobile bar
+  useEffect(() => {
+    if (activeChipRef.current && window.innerWidth < 1024) {
+      activeChipRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeSection]);
+
+  // Auto-scroll the active item into view inside the desktop sidebar if it scrolls outside
+  useEffect(() => {
+    if (activeDesktopLinkRef.current && desktopSidebarRef.current && window.innerWidth >= 1024) {
+      const container = desktopSidebarRef.current;
+      const el = activeDesktopLinkRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+
+      if (elRect.top < containerRect.top || elRect.bottom > containerRect.bottom) {
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }
+    }
+  }, [activeSection]);
+
   const handleTocClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      isClickScrolling.current = true;
       setActiveSection(id);
       history.replaceState(null, "", `#${id}`);
-      setTocOpen(false);
+      el.scrollIntoView({ behavior: "smooth" });
+
+      setTimeout(() => {
+        isClickScrolling.current = false;
+      }, 700);
     }
   };
 
@@ -83,8 +120,7 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-6 pt-[80px] md:pt-[100px]">
-        
+      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 pt-[80px] md:pt-[100px]">
         
         {/* Tab Switcher */}
         <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-[#eceef4]">
@@ -120,46 +156,62 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
           </p>
         </div>
 
-        {/* TWO COLUMN CONTENT */}
-        <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12 items-start">
-          
-          {/* Mobile TOC Toggle */}
-          <div className="block lg:hidden w-full bg-[#f7f8fc] rounded-[16px] border border-[#eceef4] overflow-hidden">
-            <button 
-              onClick={() => setTocOpen(!tocOpen)} 
-              className="flex items-center justify-between w-full p-4 text-[#12131a] font-bold text-[15px]"
-            >
-              <span>On this page</span>
-              <ChevronDown className={`w-[20px] h-[20px] transition-transform ${tocOpen ? 'rotate-180' : ''}`} />
-            </button>
-            {tocOpen && (
-              <div className="px-4 pb-4 flex flex-col gap-3">
-                {data.sections.map((s) => (
-                  <a 
-                    key={s.id} 
-                    href={`#${s.id}`} 
-                    onClick={(e) => handleTocClick(e, s.id)}
-                    className={`text-[14px] ${activeSection === s.id ? 'text-[#ff5a00] font-bold' : 'text-[#5b6070]'}`}
-                  >
-                    {s.title}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Desktop Sticky TOC */}
-          <aside className="hidden lg:flex sticky top-28 self-start flex-col gap-4 max-h-[calc(100svh-8rem)] overflow-y-auto pr-4 pb-4">
+        {/* MOBILE STICKY HORIZONTAL BAR (below 1024px) */}
+        <div 
+          ref={mobileBarRef}
+          style={{ position: "-webkit-sticky" as any }}
+          className="block lg:hidden sticky top-[64px] z-30 bg-white border-b border-[#eceef4] -mx-4 px-4 sm:-mx-6 sm:px-6 mb-8 shadow-sm"
+        >
+          <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap py-3 no-scrollbar scroll-smooth">
             {data.sections.map((s) => {
               const isActive = activeSection === s.id;
               return (
                 <a
                   key={s.id}
+                  ref={isActive ? activeChipRef : null}
                   href={`#${s.id}`}
                   onClick={(e) => handleTocClick(e, s.id)}
-                  className={`text-[14px] pl-4 border-l-2 transition-colors duration-200 ${
+                  className={`inline-flex items-center min-h-[40px] px-3.5 py-1.5 rounded-full text-[14px] font-medium transition-all shrink-0 ${
+                    isActive
+                      ? "bg-[#ff5a00]/10 text-[#ff5a00] border border-[#ff5a00] font-semibold"
+                      : "bg-[#f7f8fc] text-[#5b6070] border border-transparent hover:bg-[#eceef4] hover:text-[#12131a]"
+                  }`}
+                >
+                  {s.title}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* TWO COLUMN CONTENT */}
+        <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 items-start">
+          
+          {/* Desktop Sticky Sidebar (1024px and above) */}
+          <aside 
+            ref={desktopSidebarRef}
+            style={{ 
+              position: "-webkit-sticky" as any,
+              top: "96px",
+              maxHeight: "calc(100vh - 120px)",
+              alignSelf: "flex-start",
+            }}
+            className="hidden lg:flex sticky self-start flex-col gap-2 overflow-y-auto pr-4 pb-6 overscroll-contain no-scrollbar"
+          >
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#9398a7] px-4 mb-2">
+              Table of Contents
+            </span>
+            {data.sections.map((s) => {
+              const isActive = activeSection === s.id;
+              return (
+                <a
+                  key={s.id}
+                  ref={isActive ? activeDesktopLinkRef : null}
+                  href={`#${s.id}`}
+                  onClick={(e) => handleTocClick(e, s.id)}
+                  className={`text-[14px] pl-4 py-1.5 border-l-2 leading-snug transition-colors duration-200 ${
                     isActive 
-                      ? 'border-[#ff5a00] text-[#ff5a00] font-semibold' 
+                      ? 'border-[#ff5a00] text-[#ff5a00] font-bold' 
                       : 'border-transparent text-[#5b6070] hover:text-[#12131a]'
                   }`}
                 >
@@ -172,7 +224,11 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
           {/* Content Column */}
           <div className="w-full max-w-[900px] flex flex-col gap-10">
             {data.sections.map((s, index) => (
-              <div key={s.id} id={s.id} className="scroll-mt-28">
+              <div 
+                key={s.id} 
+                id={s.id} 
+                className="scroll-mt-[135px] lg:scroll-mt-[110px]"
+              >
                 {index !== 0 && <hr className="border-t border-[#eceef4] mb-10" />}
                 <h2 className="font-[800] text-[#12131a] mb-4">
                   {s.title}
@@ -218,4 +274,3 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
     </div>
   );
 }
-

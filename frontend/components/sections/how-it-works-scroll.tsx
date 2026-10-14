@@ -24,9 +24,9 @@ export const steps: Step[] = [
     body: "Sign up with your mobile number or email and verify with an OTP. Then add your vehicle to your Digital Garage with its registration number, make, model, fuel type and average.",
     chips: ["OTP sign-in", "Multiple vehicles", "Documents and reminders"],
     screens: [
-      { name: "OTP verification", src: "/how-it-works/01-a.png" },
-      { name: "Add vehicle", src: "/how-it-works/01-b.png" },
-      { name: "Vehicle detail", src: "/how-it-works/01-c.png" },
+      { name: "OTP verification", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369058/01-a.png" },
+      { name: "Add vehicle", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369058/01-b.png" },
+      { name: "Vehicle detail", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369058/01-c.png" },
     ],
   },
   {
@@ -38,9 +38,9 @@ export const steps: Step[] = [
     body: "Order a QR Safety Tag or GPS Tracker in the app. After delivery, scan or enter the device details, choose your vehicle and confirm. Your hardware is now linked to it.",
     chips: ["Order in the app", "Scan or enter the code", "Linked to one vehicle"],
     screens: [
-      { name: "Marketplace", src: "/how-it-works/02-a.png" },
-      { name: "Scan or enter QR", src: "/how-it-works/02-b.png" },
-      { name: "Vehicle confirmation", src: "/how-it-works/02-c.png" },
+      { name: "Marketplace", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/02-a.png" },
+      { name: "Scan or enter QR", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/02-b.png" },
+      { name: "Vehicle confirmation", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/02-c.png" },
     ],
   },
   {
@@ -52,9 +52,9 @@ export const steps: Step[] = [
     body: "Anyone who scans your QR can reach you through masked calling, with no app needed, and you choose what they see. In an emergency, press and hold SOS to alert your family with your latest location.",
     chips: ["Masked calling", "Your privacy settings", "One-hold SOS"],
     screens: [
-      { name: "Active QR", src: "/how-it-works/03-a.png" },
-      { name: "QR privacy settings", src: "/how-it-works/03-b.png" },
-      { name: "Active SOS", src: "/how-it-works/03-c.png" },
+      { name: "Active QR", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/03-a.png" },
+      { name: "QR privacy settings", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/03-b.png" },
+      { name: "Active SOS", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369058/03-c.png" },
     ],
   },
   {
@@ -66,9 +66,9 @@ export const steps: Step[] = [
     body: "With a compatible GPS tracker, see live location and last-seen status, set geofences and review trips. Then plan your next journey with distance, fuel and toll estimates. Live tracking depends on device and network conditions, and estimates are clearly labelled.",
     chips: ["Live location", "Geofence alerts", "Fuel and toll estimates"],
     screens: [
-      { name: "Live vehicle map", src: "/how-it-works/04-a.png" },
-      { name: "Geofence alert", src: "/how-it-works/04-b.png" },
-      { name: "Trip summary", src: "/how-it-works/04-c.png" },
+      { name: "Live vehicle map", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/04-a.png" },
+      { name: "Geofence alert", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/04-b.png" },
+      { name: "Trip summary", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369059/04-c.png" },
     ],
   },
   {
@@ -80,9 +80,9 @@ export const steps: Step[] = [
     body: "Ask the AI assistant by chat or voice. If it cannot resolve something, a support executive takes over with your conversation, so you never repeat yourself.",
     chips: ["Chat or voice", "Human handoff", "Context carried over"],
     screens: [
-      { name: "AI chat", src: "/how-it-works/05-a.png" },
-      { name: "Voice listening", src: "/how-it-works/05-b.png" },
-      { name: "Human escalation", src: "/how-it-works/05-c.png" },
+      { name: "AI chat", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369060/05-a.png" },
+      { name: "Voice listening", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369060/05-b.png" },
+      { name: "Human escalation", src: "https://res.cloudinary.com/l44x18ko/image/upload/v1791369060/05-c.png" },
     ],
   },
 ];
