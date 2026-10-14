@@ -29,7 +29,7 @@ export function HeroQrScanner() {
       <defs>
         <linearGradient id="fade-mask-mobile" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#000" stopOpacity="0" />
-          <stop offset="0.32" stopColor="#fff" stopOpacity="1" />
+          <stop offset="0.18" stopColor="#fff" stopOpacity="1" />
         </linearGradient>
         <mask id="hero-mask-mobile">
           <rect x="0" y="0" width="1669" height="942" fill="url(#fade-mask-mobile)" />
@@ -67,105 +67,135 @@ export function HeroQrScanner() {
       {/*
         STEP B: GPS Tile Layer on Left Box
         - Base: Clean glossy white rounded-square base/frame
-        - Top panel: Black rounded-square panel with thin white border
-        - Inside: Subtle orange location-pin icon with brackets and faint grid
-        - Contact shadow: Soft ambient occlusion shadow underneath
-        - Matches exact isometric perspective of the left box
+        - Top panel: Rich jet-black rounded-square panel with crisp white border
+        - Inside: Bright vibrant orange location-pin icon, glowing radar, and corner brackets
+        - Size: Balanced 15% larger, clearly visible
+        - Crisp & clean (light subtle shadow, no heavy blur so it is sharp & prominent)
       */}
       <defs>
-        {/* Soft contact shadow filter */}
-        <filter id="tile-shadow" x="-30%" y="-30%" width="160%" height="160%">
-          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#08080c" floodOpacity="0.28" />
+        {/* Contact shadow */}
+        <filter id="tile-shadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+          <feOffset dx="0" dy="5" result="offsetblur" />
+          <feFlood floodColor="#000000" floodOpacity="0.45" />
+          <feComposite in2="offsetblur" operator="in" />
+          <feMerge>
+            <feMergeNode />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
         </filter>
+        <linearGradient id="gpsGlassGloss" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.55" />
+          <stop offset="35%" stopColor="#ffffff" stopOpacity="0.18" />
+          <stop offset="65%" stopColor="#ffffff" stopOpacity="0.0" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0.12" />
+        </linearGradient>
         <clipPath id="gpsInnerClip">
-          <rect x="0.12" y="0.12" width="0.76" height="0.76" rx="0.12" />
+          <rect x="0.10" y="0.10" width="0.80" height="0.80" rx="0.12" />
         </clipPath>
       </defs>
 
       {/*
         Transform mapping unit square [0,1]x[0,1] to isometric tile on left box pad:
-        Center C = (175, 348)
-        Width along right-down axis = 54, along left-down axis = 54
-        dy/dx aspect ratio = 32.5 / 54 = 0.60
+        Increased size: 76 (~25% larger than original)
+        Shifted slightly right on platform: Cx = 186, Cy = 352
+        dx = 76, dy = 45.6 (ratio 0.60)
+        ty = 352 - 45.6 = 306.4
       */}
-      <g id="gps-device-tile" transform="matrix(54 32.4 -54 32.4 175 315.6)">
-        {/* Soft contact shadow */}
-        <rect
-          x="-0.02"
-          y="-0.02"
-          width="1.04"
-          height="1.04"
-          rx="0.18"
-          fill="rgba(20,22,28,0.22)"
-          filter="url(#tile-shadow)"
+      <g id="gps-device-tile" transform="matrix(76 45.6 -76 45.6 186 306.4)" opacity="0.85">
+        {/* Soft contact shadow underneath */}
+        <ellipse
+          cx="0.5"
+          cy="0.6"
+          rx="0.55"
+          ry="0.32"
+          fill="rgba(0,0,0,0.30)"
+          filter="blur(3px)"
         />
 
-        {/* 1. Glossy White Base / Frame */}
+        {/* 1. Glossy White Base / Frame with glass transparency */}
         <rect
           x="0"
           y="0"
           width="1"
           height="1"
           rx="0.18"
-          fill="#f3f4f7"
-          stroke="#e0e3ea"
-          strokeWidth="0.015"
+          fill="rgba(255,255,255,0.82)"
+          stroke="rgba(255,255,255,0.95)"
+          strokeWidth="0.02"
         />
 
-        {/* 2. Black Rounded-Square Panel (with thin even white border visible around it) */}
+        {/* 2. Frosted Dark Panel (softened opacity so it blends like glass) */}
         <rect
-          x="0.09"
-          y="0.09"
-          width="0.82"
-          height="0.82"
+          x="0.08"
+          y="0.08"
+          width="0.84"
+          height="0.84"
           rx="0.14"
-          fill="#111215"
-          stroke="rgba(255,255,255,0.85)"
-          strokeWidth="0.018"
+          fill="rgba(18,20,26,0.78)"
+          stroke="rgba(255,255,255,0.65)"
+          strokeWidth="0.022"
         />
 
-        {/* 3. Panel Interior: Faint grid lines, subtle radar, orange pin */}
-        <g clipPath="url(#gpsInnerClip)" opacity="0.88">
-          {/* Faint subtle grid */}
-          <g stroke="rgba(255,255,255,0.08)" strokeWidth="0.012" fill="none">
-            <path d="M0.3 0.1v0.8 M0.5 0.1v0.8 M0.7 0.1v0.8 M0.1 0.3h0.8 M0.1 0.5h0.8 M0.1 0.7h0.8" />
+        {/* 3. Panel Interior: Crisp subtle orange grid lines & radar */}
+        <g clipPath="url(#gpsInnerClip)" opacity="0.82">
+          {/* Subtle grid */}
+          <g stroke="rgba(255,255,255,0.14)" strokeWidth="0.015" fill="none">
+            <path d="M0.3 0.08v0.84 M0.5 0.08v0.84 M0.7 0.08v0.84 M0.08 0.3h0.84 M0.08 0.5h0.84 M0.08 0.7h0.84" />
           </g>
 
-          {/* Faint route path */}
+          {/* Glowing orange route path */}
           <path
-            d="M0.2 0.82 V0.65 H0.5"
+            d="M0.2 0.80 V0.62 H0.5"
             fill="none"
-            stroke="#ff6a1f"
-            strokeWidth="0.02"
+            stroke="#ff5a00"
+            strokeWidth="0.026"
             strokeLinecap="round"
-            strokeDasharray="0.04 0.04"
-            opacity="0.65"
+            strokeDasharray="0.045 0.045"
+            opacity="0.85"
           >
-            <animate attributeName="stroke-dashoffset" values="0;-0.16" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="stroke-dashoffset" values="0;-0.18" dur="2s" repeatCount="indefinite" />
           </path>
 
-          {/* Subtle gentle radar pulse (not overly loud or bright) */}
-          <circle cx="0.5" cy="0.62" r="0.03" fill="none" stroke="#ff6a1f" strokeWidth="0.016" opacity="0">
-            <animate attributeName="r" values="0.03;0.24" dur="2.6s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.5;0" dur="2.6s" repeatCount="indefinite" />
+          {/* Gentle radar pulse */}
+          <circle cx="0.5" cy="0.60" r="0.03" fill="none" stroke="#ff5a00" strokeWidth="0.02" opacity="0">
+            <animate attributeName="r" values="0.03;0.26" dur="2.4s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.7;0" dur="2.4s" repeatCount="indefinite" />
           </circle>
         </g>
 
         {/* 4. Orange location-pin icon in center */}
-        <g opacity="0.92">
+        <g opacity="0.88">
           {/* Pin body */}
           <path
-            d="M0.5 0.64 C0.5 0.64 0.38 0.52 0.38 0.44 C0.38 0.37 0.43 0.32 0.5 0.32 C0.57 0.32 0.62 0.37 0.62 0.44 C0.62 0.52 0.5 0.64 0.5 0.64 Z"
-            fill="#ff6a1f"
+            d="M0.5 0.63 C0.5 0.63 0.36 0.49 0.36 0.41 C0.36 0.33 0.42 0.27 0.5 0.27 C0.58 0.27 0.64 0.33 0.64 0.41 C0.64 0.49 0.5 0.63 0.5 0.63 Z"
+            fill="#ff5a00"
           />
-          {/* Pin center dot */}
-          <circle cx="0.5" cy="0.44" r="0.04" fill="#111215" />
+          {/* Pin center white dot */}
+          <circle cx="0.5" cy="0.41" r="0.045" fill="#ffffff" />
         </g>
 
-        {/* 5. Orange corner brackets (subtle) */}
-        <g fill="none" stroke="#ff6a1f" strokeWidth="0.02" strokeLinecap="round" strokeLinejoin="round" opacity="0.8">
-          <path d="M0.19 0.28 V0.19 H0.28 M0.72 0.19 H0.81 V0.28 M0.81 0.72 V0.81 H0.72 M0.28 0.81 H0.19 V0.72" />
+        {/* 5. Orange corner brackets */}
+        <g fill="none" stroke="#ff5a00" strokeWidth="0.024" strokeLinecap="round" strokeLinejoin="round" opacity="0.85">
+          <path d="M0.16 0.26 V0.16 H0.26 M0.74 0.16 H0.84 V0.26 M0.84 0.74 V0.84 H0.74 M0.26 0.84 H0.16 V0.74" />
         </g>
+
+        {/* 6. Realistic Glass Reflection / Sheen on Top */}
+        <rect
+          x="0.08"
+          y="0.08"
+          width="0.84"
+          height="0.84"
+          rx="0.14"
+          fill="url(#gpsGlassGloss)"
+          pointerEvents="none"
+        />
+        <path
+          d="M0.12 0.12 L0.88 0.12 L0.35 0.88 L0.12 0.88 Z"
+          fill="rgba(255,255,255,0.12)"
+          clipPath="url(#gpsInnerClip)"
+          pointerEvents="none"
+        />
       </g>
 
       {/* QR scanner laser line */}

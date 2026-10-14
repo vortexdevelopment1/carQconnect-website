@@ -123,7 +123,7 @@ export function Hero() {
           white-space: nowrap !important;
         }
 
-        .hero .hero__title {
+        .hero .hero__title {x
           --hero-ink: #111;
           margin: 0 !important;
           text-align: right !important;
