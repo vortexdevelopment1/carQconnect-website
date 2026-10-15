@@ -120,7 +120,7 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 pt-[80px] md:pt-[100px]">
+      <div className="relative z-10 container-page pt-[90px] md:pt-[110px]">
         
         {/* Tab Switcher */}
         <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-[#eceef4]">
@@ -160,7 +160,7 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
         <div 
           ref={mobileBarRef}
           style={{ position: "-webkit-sticky" as any }}
-          className="block lg:hidden sticky top-[64px] z-30 bg-white border-b border-[#eceef4] -mx-4 px-4 sm:-mx-6 sm:px-6 mb-8 shadow-sm"
+          className="block lg:hidden sticky top-[64px] z-30 bg-white border-b border-[#eceef4] -mx-[clamp(16px,4vw,24px)] px-[clamp(16px,4vw,24px)] mb-8 shadow-sm"
         >
           <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap py-3 no-scrollbar scroll-smooth">
             {data.sections.map((s) => {
@@ -222,7 +222,7 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
           </aside>
 
           {/* Content Column */}
-          <div className="w-full max-w-[900px] flex flex-col gap-10">
+          <div className="w-full flex flex-col gap-10 min-w-0">
             {data.sections.map((s, index) => (
               <div 
                 key={s.id} 
@@ -230,7 +230,7 @@ export default function LegalClient({ data, currentSlug }: LegalTemplateProps) {
                 className="scroll-mt-[135px] lg:scroll-mt-[110px]"
               >
                 {index !== 0 && <hr className="border-t border-[#eceef4] mb-10" />}
-                <h2 className="font-[800] text-[#12131a] mb-4">
+                <h2 className="text-[20px] md:text-[22px] font-[700] text-[#12131a] mb-3 leading-snug">
                   {s.title}
                 </h2>
                 <div className="flex flex-col gap-4">

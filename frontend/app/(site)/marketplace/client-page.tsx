@@ -16,11 +16,13 @@ export default function MarketplaceClient() {
         className="relative pt-[76px] pb-[48px] md:pb-[64px] overflow-visible"
         style={{ background: 'radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,.28) 0%, rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3 0%, #f7f9fc 100%)' }}
       >
-        <div className="relative z-10 max-w-[1360px] mx-auto px-6 flex flex-col items-start text-left">
+        <div className="relative z-10 container-page flex flex-col items-start text-left">
           <div className="mb-2 max-md:mt-4 md:mt-2"><BackButton fallback="/features" label="Back to features" /></div>
           
-          <div className="rounded-full border border-[#e1e6ee] bg-white px-3.5 py-1 text-[13px] font-semibold text-[#5b6478] mb-[16px]">
-            Marketplace
+          <div className="flex items-center gap-4 mb-[16px]">
+            <div className="w-[32px] h-[2px] bg-[#ff5a00]" />
+            <span className="text-[clamp(9.5px,2vw,12px)] font-[800] uppercase tracking-[0.16em] text-[#ff5a00]">HARDWARE</span>
+            <div className="w-[32px] h-[2px] bg-[#ff5a00]" />
           </div>
           
           <h1 className="font-[800] text-[#0f1220] max-w-[800px] mb-[12px]">
@@ -75,52 +77,62 @@ export default function MarketplaceClient() {
 
       {/* 3) PRODUCT GRID BAND */}
       <section className="bg-[#eaeff6] py-[48px]">
-        <div className="max-w-[1360px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+        <div className="container-page flex flex-col gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--card-gap,clamp(16px,2vw,24px))] items-stretch auto-rows-fr w-full">
             {/* QR Safety Tag */}
             {show("qr") && (
-              <div className="flex flex-col rounded-[24px] border border-[#e1e6ee] bg-white transition duration-200 hover:-translate-y-[3px] hover:border-[#ff6a00] hover:shadow-[0_18px_40px_rgba(255,106,0,0.14)] overflow-hidden">
+              <div className="flex flex-col h-full rounded-[24px] border border-[#ff6a00] bg-white shadow-[0_4px_20px_rgba(255,106,0,0.08)] transition duration-200 hover:-translate-y-[2px] hover:shadow-[0_18px_40px_rgba(255,106,0,0.14)] motion-reduce:hover:translate-y-0 overflow-hidden">
                 <div 
-                  className="relative h-[190px] w-full flex items-center justify-center overflow-hidden bg-[#12141c]"
+                  className="relative w-full aspect-[16/5] min-h-[120px] flex items-center justify-center overflow-hidden bg-[#12141c]"
                   style={{ background: 'radial-gradient(60% 80% at 50% 40%, rgba(255,106,0,.20), rgba(255,106,0,0) 70%), #12141c' }}
                 >
-                  <div className="absolute top-5 left-5 z-20 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-3 py-1 text-[12px] font-bold">
+                  <div className="absolute top-4 left-4 z-20 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-2.5 py-0.5 text-[11px] font-bold">
                     Most popular
                   </div>
                   {/* QR Illustration */}
                   <div className="relative flex flex-col items-center justify-center">
-                    <div className="relative flex items-center justify-center w-[96px] h-[96px] bg-white/5 border border-white/10 rounded-[24px] shadow-[0_0_40px_rgba(255,106,0,0.15)] backdrop-blur-sm">
-                      <QrCode className="w-[48px] h-[48px] text-[#ff6a00]" strokeWidth={1.5} />
+                    <div className="relative flex items-center justify-center w-[76px] h-[76px] bg-white/5 border border-white/10 rounded-[18px] shadow-[0_0_30px_rgba(255,106,0,0.15)] backdrop-blur-sm">
+                      <QrCode className="w-[38px] h-[38px] text-[#ff6a00]" strokeWidth={1.5} />
                       {/* Corner Brackets */}
-                      <div className="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-[#ff6a00] rounded-tl-[24px]" />
-                      <div className="absolute -top-[1px] -right-[1px] w-4 h-4 border-t-2 border-r-2 border-[#ff6a00] rounded-tr-[24px]" />
-                      <div className="absolute -bottom-[1px] -left-[1px] w-4 h-4 border-b-2 border-l-2 border-[#ff6a00] rounded-bl-[24px]" />
-                      <div className="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-[#ff6a00] rounded-br-[24px]" />
+                      <div className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t-2 border-l-2 border-[#ff6a00] rounded-tl-[18px]" />
+                      <div className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t-2 border-r-2 border-[#ff6a00] rounded-tr-[18px]" />
+                      <div className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b-2 border-l-2 border-[#ff6a00] rounded-bl-[18px]" />
+                      <div className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b-2 border-r-2 border-[#ff6a00] rounded-br-[18px]" />
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-[22px] flex flex-col flex-grow gap-[10px]">
-                  <div className="text-[12px] font-bold tracking-[0.14em] text-[#c2410c] uppercase">QR Safety</div>
-                  <h2 className="font-[800] text-[#0f1220]">carQconnect QR Safety Tag</h2>
-                  <p className="text-[15px] text-[#5b6478]">
+                <div className="p-5 md:p-6 flex flex-col flex-grow">
+                  <div className="text-[12px] font-bold tracking-[0.08em] text-[#c2410c] uppercase mb-[6px]">
+                    QR SAFETY
+                  </div>
+                  <h3 className="text-[20px] sm:text-[22px] font-[600] text-[#0f1220] leading-snug mb-[8px]">
+                    carQconnect QR Safety Tag
+                  </h3>
+                  <p className="text-[16px] text-[#5b6478] leading-[1.55] mb-[16px]">
                     A private, practical identity for your vehicle. Anyone who finds it can reach you without seeing your number.
                   </p>
                   
-                  <div className="w-full h-[1px] bg-[#e1e6ee] my-[4px]" />
+                  <div className="w-full h-[1px] bg-[#e1e6ee] mb-[16px]" />
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[8px] gap-x-[16px] pt-[14px]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[24px] gap-y-[8px] mb-[16px]">
                     {["Masked calling", "Scanner needs no app", "Parking and emergency reporting", "Linked to one vehicle"].map(item => (
-                      <div key={item} className="flex items-start gap-2.5">
-                        <Check className="w-[16px] h-[16px] text-[#ff6a00] shrink-0 mt-0.5" strokeWidth={2.5} />
-                        <span className="text-[14px] font-medium text-[#0f1220] leading-tight">{item}</span>
+                      <div key={item} className="flex items-start gap-2">
+                        <Check className="w-[15px] h-[15px] text-[#ff6a00] shrink-0 mt-[3px]" strokeWidth={2.5} />
+                        <span className="text-[14px] font-medium text-[#0f1220] leading-[1.45]">{item}</span>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="mt-auto pt-6 flex flex-col gap-4">
-                    <p className="text-[12.5px] text-[#5b6478]">Available as sticker or tag. You choose what the public can see.</p>
-                    <a href="#download" className="self-start inline-flex min-h-[44px] items-center justify-center rounded-[12px] bg-[#ff6a00] px-6 text-[14px] font-bold text-[#1a0b00] shadow-[0_8px_20px_rgba(255,106,0,0.25)] hover:bg-[#ff7b1a] transition-colors">
+                  {/* Pinned bottom note & button group */}
+                  <div className="mt-auto flex flex-col">
+                    <p className="text-[14px] text-[#717b91] leading-[1.5] mb-[20px]">
+                      Available as sticker or tag. You choose what the public can see.
+                    </p>
+                    <a 
+                      href="#download" 
+                      className="self-start inline-flex min-h-[44px] items-center justify-center rounded-[12px] bg-[#ff6a00] px-6 text-[14px] font-bold text-[#1a0b00] shadow-[0_8px_20px_rgba(255,106,0,0.25)] hover:bg-[#ff7b1a] transition-colors"
+                    >
                       Get it in the app
                     </a>
                   </div>
@@ -130,79 +142,90 @@ export default function MarketplaceClient() {
 
             {/* GPS Tracker */}
             {show("gps") && (
-              <div className="flex flex-col rounded-[24px] border border-[#e1e6ee] bg-white transition duration-200 hover:-translate-y-[3px] hover:border-[#ff6a00] hover:shadow-[0_18px_40px_rgba(255,106,0,0.14)] overflow-hidden">
+              <div className="flex flex-col h-full rounded-[24px] border border-[#e1e6ee] bg-white transition duration-200 hover:-translate-y-[2px] hover:border-[#ff6a00] hover:shadow-[0_18px_40px_rgba(255,106,0,0.14)] motion-reduce:hover:translate-y-0 overflow-hidden">
                 <div 
-                  className="relative h-[190px] w-full flex items-center justify-center overflow-hidden bg-[#12141c]"
+                  className="relative w-full aspect-[16/5] min-h-[120px] flex items-center justify-center overflow-hidden bg-[#12141c]"
                   style={{ background: 'radial-gradient(60% 80% at 50% 40%, rgba(255,106,0,.20), rgba(255,106,0,0) 70%), #12141c' }}
                 >
-                  <div className="absolute top-5 left-5 z-20 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-3 py-1 text-[12px] font-bold">
+                  <div className="absolute top-4 left-4 z-20 rounded-full bg-[#e6f7ee] text-[#0b6b3a] px-2.5 py-0.5 text-[11px] font-bold">
                     New
                   </div>
                   {/* GPS Illustration */}
                   <div className="relative flex items-center justify-center w-full h-full">
                     {/* Concentric rings */}
-                    <div className="absolute w-[120px] h-[120px] rounded-full border border-[#ff6a00]/30" />
-                    <div className="absolute w-[180px] h-[180px] rounded-full border border-[#ff6a00]/15" />
-                    <div className="absolute w-[240px] h-[240px] rounded-full border border-[#ff6a00]/5" />
+                    <div className="absolute w-[90px] h-[90px] rounded-full border border-[#ff6a00]/30" />
+                    <div className="absolute w-[140px] h-[140px] rounded-full border border-[#ff6a00]/15" />
+                    <div className="absolute w-[190px] h-[190px] rounded-full border border-[#ff6a00]/5" />
                     
                     {/* Dashed route line */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 280 190">
-                      <path d="M 0 160 Q 140 100 280 40" fill="none" stroke="#ff6a00" strokeWidth="2" strokeDasharray="4 6" opacity="0.5" />
-                      <circle cx="280" cy="40" r="4" fill="#ff6a00" />
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 120">
+                      <path d="M 120 78 Q 200 62 280 44" fill="none" stroke="#ff6a00" strokeWidth="2" strokeDasharray="4 6" opacity="0.6" />
+                      <circle cx="120" cy="78" r="3.5" fill="#ff6a00" />
+                      <circle cx="280" cy="44" r="3.5" fill="#ff6a00" />
                     </svg>
 
                     {/* GPS Device / Pin */}
-                    <div className="relative z-10 flex items-center justify-center w-[64px] h-[64px] bg-[#1e212c] border-[1.5px] border-[#3a3f50] rounded-[16px] shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                      <MapPin className="w-[28px] h-[28px] text-[#ff6a00]" strokeWidth={1.5} />
-                      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-[#ff6a00] rounded-full animate-pulse shadow-[0_0_8px_#ff6a00]" />
+                    <div className="relative z-10 flex items-center justify-center w-[52px] h-[52px] bg-[#1e212c] border-[1.5px] border-[#3a3f50] rounded-[14px] shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                      <MapPin className="w-[24px] h-[24px] text-[#ff6a00]" strokeWidth={1.5} />
+                      <div className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#ff6a00] rounded-full animate-pulse shadow-[0_0_8px_#ff6a00]" />
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-[22px] flex flex-col flex-grow gap-[10px]">
-                  <div className="text-[12px] font-bold tracking-[0.14em] text-[#c2410c] uppercase">GPS Devices</div>
-                  <h2 className="font-[800] text-[#0f1220]">carQconnect GPS Tracker</h2>
-                  <p className="text-[15px] text-[#5b6478]">
+                <div className="p-5 md:p-6 flex flex-col flex-grow">
+                  <div className="text-[12px] font-bold tracking-[0.08em] text-[#c2410c] uppercase mb-[6px]">
+                    GPS DEVICES
+                  </div>
+                  <h3 className="text-[20px] sm:text-[22px] font-[600] text-[#0f1220] leading-snug mb-[8px]">
+                    carQconnect GPS Tracker
+                  </h3>
+                  <p className="text-[16px] text-[#5b6478] leading-[1.55] mb-[16px]">
                     Live location, geofencing and trip history, so you can see your vehicle's status at a glance.
                   </p>
                   
-                  <div className="w-full h-[1px] bg-[#e1e6ee] my-[4px]" />
+                  <div className="w-full h-[1px] bg-[#e1e6ee] mb-[16px]" />
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[8px] gap-x-[16px] pt-[14px]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[24px] gap-y-[8px] mb-[16px]">
                     {["Live location, last-seen", "Geofence entry and exit alerts", "Trip history and sharing", "Movement alerts, device status"].map(item => (
-                      <div key={item} className="flex items-start gap-2.5">
-                        <Check className="w-[16px] h-[16px] text-[#ff6a00] shrink-0 mt-0.5" strokeWidth={2.5} />
-                        <span className="text-[14px] font-medium text-[#0f1220] leading-tight">{item}</span>
+                      <div key={item} className="flex items-start gap-2">
+                        <Check className="w-[15px] h-[15px] text-[#ff6a00] shrink-0 mt-[3px]" strokeWidth={2.5} />
+                        <span className="text-[14px] font-medium text-[#0f1220] leading-[1.45]">{item}</span>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="mt-auto pt-6 flex flex-col gap-4">
-                    <p className="text-[12.5px] text-[#5b6478]">Live tracking depends on device and network conditions.</p>
-                    <a href="#download" className="self-start inline-flex min-h-[44px] items-center justify-center rounded-[12px] bg-[#ff6a00] px-6 text-[14px] font-bold text-[#1a0b00] shadow-[0_8px_20px_rgba(255,106,0,0.25)] hover:bg-[#ff7b1a] transition-colors">
+                  {/* Pinned bottom note & button group */}
+                  <div className="mt-auto flex flex-col">
+                    <p className="text-[14px] text-[#717b91] leading-[1.5] mb-[20px]">
+                      Live tracking depends on device and network conditions.
+                    </p>
+                    <a 
+                      href="#download" 
+                      className="self-start inline-flex min-h-[44px] items-center justify-center rounded-[12px] bg-[#ff6a00] px-6 text-[14px] font-bold text-[#1a0b00] shadow-[0_8px_20px_rgba(255,106,0,0.25)] hover:bg-[#ff7b1a] transition-colors"
+                    >
                       Get it in the app
                     </a>
                   </div>
                 </div>
               </div>
             )}
-            
-            {/* Coming soon card */}
-            {show("soon") && (
-              <div className="md:col-span-2 mt-2 flex flex-col md:flex-row items-center justify-between rounded-[24px] border-[1.5px] border-dashed border-[#c4cddc] bg-white px-[24px] py-[20px] gap-6">
-                <div className="flex-1">
-                  <div className="text-[12px] font-bold tracking-[0.14em] text-[#c2410c] uppercase mb-1">Coming soon</div>
-                  <h2 className="font-[800] text-[#0f1220] mb-2">Compatible hardware</h2>
-                  <p className="text-[15px] text-[#5b6478] max-w-[600px]">
-                    More safety and telematics hardware for the same vehicle profile. Start with a QR tag and add more when you need it.
-                  </p>
-                </div>
-                <a href="#download" className="shrink-0 inline-flex min-h-[44px] items-center justify-center rounded-[12px] border border-[#e1e6ee] bg-white px-6 text-[14px] font-bold text-[#0f1220] hover:border-[#c2410c] hover:text-[#c2410c] transition-colors">
-                  Get the app for updates
-                </a>
-              </div>
-            )}
           </div>
+          
+          {/* Coming soon card - full width of container-page */}
+          {show("soon") && (
+            <div className="w-full flex flex-col md:flex-row items-center justify-between rounded-[24px] border-[1.5px] border-dashed border-[#c4cddc] bg-white px-[28px] py-[22px] gap-6">
+              <div className="flex-1">
+                <div className="text-[12px] font-bold tracking-[0.14em] text-[#c2410c] uppercase mb-1">Coming soon</div>
+                <h2 className="font-[800] text-[#0f1220] mb-2">Compatible hardware</h2>
+                <p className="text-[15px] text-[#5b6478] max-w-[700px]">
+                  More safety and telematics hardware for the same vehicle profile. Start with a QR tag and add more when you need it.
+                </p>
+              </div>
+              <a href="#download" className="shrink-0 inline-flex min-h-[44px] items-center justify-center rounded-[12px] border border-[#e1e6ee] bg-white px-6 text-[14px] font-bold text-[#0f1220] hover:border-[#c2410c] hover:text-[#c2410c] transition-colors">
+                Get the app for updates
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -214,7 +237,7 @@ export default function MarketplaceClient() {
           className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none" 
           style={{ background: 'radial-gradient(circle at top left, rgba(255,106,0,.14), transparent 70%)' }}
         />
-        <div className="relative z-10 max-w-[1360px] mx-auto px-6">
+        <div className="relative z-10 container-page">
           <div className="flex items-center gap-4 mb-[10px]">
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
             <span className="text-[clamp(9.5px,2vw,12px)] font-[800] uppercase tracking-[0.16em] text-[#ff8a3d]">COMPARE</span>
@@ -252,7 +275,7 @@ export default function MarketplaceClient() {
 
       {/* 5) HOW IT WORKS BAND */}
       <section className="bg-[#fff3e6] py-[48px]">
-        <div className="max-w-[1360px] mx-auto px-6">
+        <div className="container-page">
           <div className="flex items-center gap-4 mb-[10px]">
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
             <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#ff6a00]">HOW IT WORKS</span>
@@ -280,7 +303,7 @@ export default function MarketplaceClient() {
 
       {/* 6) CLOSING BAND */}
       <section id="download" className="py-[64px] bg-[#f7f9fc]">
-        <div className="max-w-[1360px] mx-auto px-6">
+        <div className="container-page">
           <div className="relative overflow-hidden rounded-[20px] bg-[#12141c] px-[32px] py-[36px] md:px-[48px] md:py-[40px] flex flex-col md:flex-row items-center justify-between gap-6">
             <div 
               className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"

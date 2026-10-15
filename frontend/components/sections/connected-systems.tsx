@@ -34,7 +34,14 @@ export function ConnectedSystems() {
         </div>
       </section>
 
-      <section id="features" className="bg-white section-py w-full">
+      <section 
+        id="features" 
+        className="section-py w-full"
+        style={{
+          ["--why-bg" as any]: "#faf3e9",
+          backgroundColor: "var(--why-bg)",
+        }}
+      >
         <div className="container-page grid gap-[var(--block-gap)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="pr-0 lg:pr-8">
             <div className="flex items-center gap-4">
@@ -47,7 +54,7 @@ export function ConnectedSystems() {
             >
               Because your vehicle needs more than a phone number on the dashboard.
             </h2>
-            <p className="mt-6 max-w-[48ch] text-[15px] sm:text-[16px] leading-relaxed text-[#5A6270]">
+            <p className="mt-6 max-w-[48ch] text-[15px] sm:text-[16px] leading-relaxed text-[#4d5360]">
               A QR sticker alone cannot protect privacy. A tracker alone cannot help a person who finds your parked car. carQconnect brings the moments that matter into one vehicle profile.
             </p>
             <Link 
@@ -72,13 +79,13 @@ export function ConnectedSystems() {
                     "flex flex-col rounded-[20px] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF5A00] border",
                     isDark 
                       ? "bg-[#111318] border-[#2E3139] shadow-xl hover:shadow-[0_12px_36px_rgba(255,90,0,0.15)]" 
-                      : "bg-white border-[#F1F3F6] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(255,90,0,0.12)]"
+                      : "bg-white border-[#efe5d6] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(255,90,0,0.12)]"
                   )}
                 >
                   <div 
                     className={cn(
                       "flex items-center justify-center w-max px-3.5 py-1.5 rounded-[8px] mb-6",
-                      isDark ? "bg-[#FF5A00]" : "bg-[#FFF0E6]"
+                      isDark ? "bg-[#FF5A00]" : "bg-[#ffe6d2]"
                     )}
                   >
                     <span 

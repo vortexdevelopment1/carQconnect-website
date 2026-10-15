@@ -1,9 +1,9 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader } from '@/components/sections/page-header';
 import {
   QrCode,
-  Satellite,
+  Navigation,
   ShieldAlert,
   Route,
   Sparkles,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const featuresList = [
   { icon: QrCode, title: 'QR Safety', description: 'A physical-to-digital safety identity for your vehicle, with masked public contact.', href: '/qr-safety' },
-  { icon: Satellite, title: 'GPS Tracking', description: 'Live location, trip history, geofencing and movement alerts.', href: '/gps' },
+  { icon: Navigation, title: 'GPS Tracking', description: 'Live location, trip history, geofencing and movement alerts.', href: '/gps' },
   { icon: ShieldAlert, title: 'SOS & Emergency Safety', description: 'Press-and-hold SOS with family notification and emergency support.', href: '/safety' },
   { icon: Route, title: 'Trip Intelligence', description: 'Route, fuel and toll estimation with stop recommendations.', href: '/trip-intelligence' },
   { icon: Wrench, title: 'Vehicle Utilities', description: 'FASTag, RTO info, documents and service reminders.', href: '/vehicle-utilities' },
@@ -44,7 +44,7 @@ export default function FeaturesPage() {
               className="group rounded-card-lg border border-border bg-surface p-6 transition-all hover:border-[#FF5A00]/40 hover:shadow-glow"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-2 border border-border">
-                <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
+                <Icon className="h-5 w-5 text-orange" strokeWidth={2} aria-hidden="true" strokeLinecap="round" strokeLinejoin="round" />
               </span>
               <h3 className="mt-5 font-display font-medium text-ink">
                 {title}

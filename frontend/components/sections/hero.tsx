@@ -239,7 +239,7 @@ export function Hero() {
           overflow: hidden;
           clip: rect(0, 0, 0, 0);
           white-space: nowrap;
-          border-width: 0;
+          border-width: 0;n
         }
 
         .hero .hero__lede {
