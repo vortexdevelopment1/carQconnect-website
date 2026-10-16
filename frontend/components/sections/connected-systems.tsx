@@ -12,19 +12,19 @@ export function ConnectedSystems() {
       <section id="systems" className="w-full section-py bg-[#14151A]">
         <div className="container-page">
           <div className="flex flex-col">
-            <p style={{ color: '#FF5A00', fontWeight: 800, fontSize: '12px', letterSpacing: '.14em', margin: 0, textTransform: 'uppercase' }}>
+            <p style={{ color: '#FF5A00', fontWeight: 800, fontSize: 'clamp(0.7rem, 2.5vw, 0.75rem)', letterSpacing: '0.12em', margin: 0, textTransform: 'uppercase' }}>
               CONNECTED VEHICLE PLATFORM
             </p>
             <h2 
               className="font-display"
-              style={{ color: 'white', fontWeight: 800, fontSize: 'clamp(34px,4.2vw,56px)', lineHeight: 1.08, letterSpacing: '-.03em', margin: '12px 0 14px' }}
+              style={{ color: 'white', fontWeight: 800, fontSize: 'clamp(1.5rem, 7vw, 2.25rem)', lineHeight: 1.15, letterSpacing: '-.03em', margin: '10px 0 12px' }}
             >
               Smart systems. <br />
               <span style={{ color: '#FF5A00' }}>Smooth journeys.</span>
             </h2>
             <p 
               className="leading-relaxed text-[#A4ABB8]"
-              style={{ maxWidth: '56ch', marginBottom: 'var(--block-gap)', fontSize: 'clamp(14px, 1.5vw, 16px)' }}
+              style={{ maxWidth: '56ch', marginBottom: 'var(--block-gap)', fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)', color: '#9ca3af' }}
             >
               carQconnect gives each product a clear job: safety when someone finds your vehicle, visibility while it moves, and useful hardware for every drive.
             </p>
@@ -49,8 +49,8 @@ export function ConnectedSystems() {
               <p className="text-[clamp(10px,2vw,12px)] font-extrabold tracking-[0.16em] text-[#FF5A00] uppercase">WHY CARQCONNECT</p>
             </div>
             <h2 
-              className="mt-6 font-display font-bold text-[#0C0C0E]" 
-              style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: 1.08 }}
+              className="mt-3 sm:mt-6 font-display font-bold text-[#0C0C0E]" 
+              style={{ fontSize: 'clamp(19px, 5.2vw, 44px)', lineHeight: 1.2 }}
             >
               Because your vehicle needs more than a phone number on the dashboard.
             </h2>

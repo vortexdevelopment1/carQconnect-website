@@ -93,7 +93,11 @@ export function Navbar() {
         }`}
       >
         <div
-          className={`flex items-center justify-between ${isScrolled || menuOpen ? 'pb-3 pt-3' : 'pb-3 pt-5'}`}
+          className={`flex items-center justify-between transition-all duration-200 ${
+            isScrolled || menuOpen 
+              ? 'py-1.5 min-[1025px]:pb-2.5 min-[1025px]:pt-2.5' 
+              : 'py-2 min-[1025px]:pb-3 min-[1025px]:pt-5'
+          }`}
           style={{
             paddingLeft: 'var(--page-gutter)',
             paddingRight: 'var(--page-gutter)',
@@ -119,12 +123,12 @@ export function Navbar() {
             </nav>
           </div>
 
-          <div className="flex-[0_0_auto] min-[1025px]:flex-1 flex min-[1025px]:justify-center justify-start items-center">
+          <div className="flex-[0_1_auto] min-w-0 min-[1025px]:flex-1 flex min-[1025px]:justify-center justify-start items-center">
             <Link className="flex items-center gap-2 max-[640px]:gap-2 min-[641px]:max-[1100px]:gap-[8px] min-[1101px]:gap-2 transition-transform hover:scale-[0.98]" href="/" aria-label="carQconnect home" onClick={closeMenu}>
               <CarQMark className="w-[22px] h-[22px] max-[640px]:w-[22px] min-[641px]:max-[1100px]:w-[clamp(24px,18px+1vw,32px)] min-[641px]:max-[1100px]:h-[clamp(24px,18px+1vw,32px)] min-[1101px]:w-[32px] min-[1101px]:h-[32px]" />
               <span
                 style={{ fontFamily: INTER }}
-                className="text-[20px] max-[640px]:text-[20px] min-[641px]:max-[1100px]:text-[clamp(20px,14px+1vw,26px)] min-[1101px]:text-[34px] font-semibold tracking-tight text-[#131316]"
+                className="text-[clamp(15px,5.5vw,20px)] min-[641px]:max-[1100px]:text-[clamp(20px,14px+1vw,26px)] min-[1101px]:text-[34px] font-semibold tracking-tight text-[#131316] truncate"
               >
                 car<span className="text-[#ff6a00]">Q</span>connect
               </span>

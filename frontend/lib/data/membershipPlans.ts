@@ -1,6 +1,7 @@
 export type MembershipPlan = {
   id: string;
   name: string;
+  badge?: string;
   description: string;
   monthlyPrice: string;
   billedYearly: string;
@@ -11,46 +12,54 @@ export type MembershipPlan = {
 
 export const membershipPlans: MembershipPlan[] = [
   {
+    id: "free",
+    name: "Free",
+    description: "Get started with essential vehicle telemetry and basic document protection.",
+    monthlyPrice: "0",
+    billedYearly: "Free forever",
+    savings: "No card required",
+    entitlements: [
+      { name: "Vehicle Profile", description: "1 Vehicle", included: true },
+      { name: "Basic Service Reminders", description: "Standard alerts", included: true },
+      { name: "Document Storage", description: "5 files", included: true },
+      { name: "Service History & Analytics", description: "Available on higher plans", included: false },
+      { name: "Priority Support", description: "Faster human assistance", included: false },
+      { name: "Exclusive Offers", description: "Discounts & member perks", included: false },
+    ]
+  },
+  {
     id: "basic",
     name: "Basic",
-    description: "Essential QR safety for your daily drive.",
-    monthlyPrice: "125",
-    billedYearly: "Billed ₹1,499 yearly",
-    savings: "Save ₹899",
+    description: "More convenience for everyday drivers.",
+    monthlyPrice: "49",
+    billedYearly: "Billed ₹392 yearly",
+    savings: "Save ₹196",
     entitlements: [
-      { name: "QR Safety", description: "1 vehicle - masked calls", included: true },
-      { name: "GPS tracking", description: "Live location & geofence", included: false },
-      { name: "Trip Intelligence", description: "Fuel & toll estimates", included: false },
-      { name: "Priority support", description: "Faster human help", included: false },
+      { name: "Vehicle Profile", description: "Up to 3 vehicles", included: true },
+      { name: "All Reminders", description: "Service, PUC, insurance & FASTag", included: true },
+      { name: "Document Storage", description: "15 files", included: true },
+      { name: "Service History & Analytics", description: "Full tracking & logs", included: true },
+      { name: "Priority Support", description: "Faster human assistance", included: true },
+      { name: "Exclusive Offers", description: "Discounts & member perks", included: false },
     ]
   },
   {
-    id: "plus",
-    name: "Plus",
-    description: "Safety, live tracking and smarter trips.",
-    monthlyPrice: "250",
-    billedYearly: "Billed ₹2,999 yearly",
-    savings: "Save ₹1,189",
+    id: "premium",
+    name: "Premium",
+    badge: "ALL-ACCESS",
+    description: "More convenience for everyday drivers.",
+    monthlyPrice: "149",
+    billedYearly: "Billed ₹1,188 yearly",
+    savings: "Save 25% (₹600)",
     isPopular: true,
     entitlements: [
-      { name: "QR Safety", description: "Up to 2 vehicles - masked calls", included: true },
-      { name: "GPS tracking", description: "Live location & geofence", included: true },
-      { name: "Trip Intelligence", description: "Fuel & toll estimates", included: true },
-      { name: "Priority support", description: "Faster human help", included: false },
-    ]
-  },
-  {
-    id: "pro",
-    name: "Pro",
-    description: "Everything unlocked, with priority help.",
-    monthlyPrice: "417",
-    billedYearly: "Billed ₹4,999 yearly",
-    savings: "Save ₹2,189",
-    entitlements: [
-      { name: "QR Safety", description: "Multiple vehicles - masked calls", included: true },
-      { name: "GPS tracking", description: "Live location & geofence", included: true },
-      { name: "Trip Intelligence", description: "Fuel, toll & AI recommendations", included: true },
-      { name: "Priority support", description: "Faster human help", included: true },
+      { name: "Vehicle Profile", description: "Unlimited vehicles", included: true },
+      { name: "All Reminders", description: "Service, PUC, insurance & FASTag", included: true },
+      { name: "Document Storage", description: "50 files", included: true },
+      { name: "Service History & Analytics", description: "Full tracking & logs", included: true },
+      { name: "Priority Support", description: "Faster human assistance", included: true },
+      { name: "Exclusive Offers", description: "Discounts & member perks", included: true },
     ]
   }
 ];
+

@@ -98,11 +98,18 @@ export default function MembershipPage() {
                   
                   <div className="flex items-center gap-2.5 md:gap-3 mb-1 md:mb-2 mt-0.5 md:mt-1">
                     <div className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] rounded-full bg-[#2a1308] flex items-center justify-center border border-[#ff5a00]/30 shrink-0">
-                      {plan.id === 'basic' && <div className="w-[6px] h-[6px] rounded-full bg-[#ff5a00]" />}
-                      {plan.id === 'plus' && <Zap className="w-[12px] h-[12px] text-[#ff5a00]" fill="currentColor" />}
-                      {plan.id === 'pro' && <Crown className="w-[12px] h-[12px] text-[#ff5a00]" fill="currentColor" />}
+                      {plan.id === 'free' && <div className="w-[6px] h-[6px] rounded-full bg-[#ff5a00]" />}
+                      {plan.id === 'basic' && <Zap className="w-[12px] h-[12px] text-[#ff5a00]" fill="currentColor" />}
+                      {plan.id === 'premium' && <Crown className="w-[12px] h-[12px] text-[#ff5a00]" fill="currentColor" />}
                     </div>
-                    <h3 className="font-[800] text-white text-[16px] md:text-[19px]">{plan.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-[800] text-white text-[16px] md:text-[19px]">{plan.name}</h3>
+                      {plan.badge && (
+                        <span className="bg-[#ff5a00]/20 text-[#ff5a00] border border-[#ff5a00]/40 text-[9px] font-[800] uppercase tracking-wider px-2 py-0.5 rounded-full">
+                          {plan.badge}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   
                   <p className="text-[11.5px] md:text-[13px] text-[#a3a7b7] mb-2.5 md:mb-4 min-h-0 md:min-h-[38px] leading-snug">
@@ -127,7 +134,7 @@ export default function MembershipPage() {
                         : "bg-transparent border border-[#3a3d4a] text-white hover:border-[#ff5a00] hover:text-[#ff5a00]"
                     }`}
                   >
-                    Get {plan.name}
+                    {plan.id === 'free' ? 'Get Started' : `Get ${plan.name}`}
                   </Link>
 
                   <div className="w-full h-[1px] bg-[#2a2c36] mb-2.5 md:mb-4" />

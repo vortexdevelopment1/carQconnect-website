@@ -33,7 +33,7 @@ export function PromoBanner() {
           width={2400}
           height={202}
           sizes="100vw"
-          className="block w-full h-auto m-0 p-0 border-0 rounded-none shadow-none"
+          className="block w-full h-auto max-w-full object-contain m-0 p-0 border-0 rounded-none shadow-none"
           style={{
             width: "100%",
             height: "auto",
