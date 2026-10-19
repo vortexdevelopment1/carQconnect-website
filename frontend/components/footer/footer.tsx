@@ -19,9 +19,9 @@ export function Footer() {
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5A00] to-transparent" />
 
       {/* MAIN FOOTER CONTENT */}
-      <div className="container-page relative z-10 pt-[var(--section-py)] pb-0">
+      <div className="container-page relative z-10 pt-7 sm:pt-10 lg:pt-[var(--section-py)] pb-0">
         {/* 2 cols on phones, 4 cols from 640px, 5 cols in 1 row on desktop */}
-        <div className="footer-main-grid grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-y-8 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-y-10">
+        <div className="footer-main-grid grid grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-4 sm:gap-y-8 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-y-10">
           {/* BRAND */}
           <div className="footer-brand-col col-span-2 sm:col-span-4 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3">
@@ -33,14 +33,14 @@ export function Footer() {
               </span>
             </Link>
 
-            <p className="mt-3 mb-4 max-w-[290px] text-[13.5px] leading-[1.6] text-[#A8ACBA] min-[640px]:mt-4 min-[640px]:mb-5 min-[640px]:text-[14.5px]">
+            <p className="mt-2.5 mb-3.5 max-w-[290px] text-[13px] leading-[1.55] text-[#A8ACBA] min-[640px]:mt-4 min-[640px]:mb-5 min-[640px]:text-[14.5px]">
               One connected ecosystem for your vehicle&apos;s safety, tracking and everyday journeys.
             </p>
 
             <div className="flex flex-wrap items-center gap-[10px]">
               <a
                 href="#"
-                className="flex shrink-0 items-center gap-2 rounded-[10px] border border-[#3A3D4C] bg-black px-3 py-2 transition-colors hover:border-[#FF5A00]"
+                className="flex shrink-0 items-center gap-2 rounded-[10px] border border-[#3A3D4C] bg-black px-2.5 py-1.5 min-[640px]:px-3 min-[640px]:py-2 transition-colors hover:border-[#FF5A00]"
               >
                 <img src="/apple.svg" alt="" width={20} height={20} className="h-5 w-5" />
                 <div className="flex flex-col items-start whitespace-nowrap">
@@ -52,7 +52,7 @@ export function Footer() {
               </a>
               <a
                 href="#"
-                className="flex shrink-0 items-center gap-2 rounded-[10px] border border-[#3A3D4C] bg-black px-3 py-2 transition-colors hover:border-[#FF5A00]"
+                className="flex shrink-0 items-center gap-2 rounded-[10px] border border-[#3A3D4C] bg-black px-2.5 py-1.5 min-[640px]:px-3 min-[640px]:py-2 transition-colors hover:border-[#FF5A00]"
               >
                 <img src="/google-play.svg" alt="" width={22} height={22} className="h-[20px] w-[20px] min-[640px]:h-[22px] min-[640px]:w-[22px]" />
                 <div className="flex flex-col items-start whitespace-nowrap">
@@ -66,9 +66,9 @@ export function Footer() {
           </div>
 
           {/* LINK COLUMNS */}
-          {footerColumns.map((col) => (
-            <div key={col.title} className="min-w-0">
-              <h4 className="mb-2 flex items-center gap-2.5 text-[clamp(10px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-white before:block before:h-[2px] before:w-[14px] before:shrink-0 before:bg-[#FF5A00] before:content-[''] min-[640px]:mb-3 min-[1100px]:mb-4">
+          {footerColumns.map((col, index) => (
+            <div key={col.title} className={`min-w-0 ${index === footerColumns.length - 1 ? "max-[639px]:pr-8" : ""}`}>
+              <h4 className="mb-2 flex items-center gap-2 text-[clamp(10px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-white before:block before:h-[2px] before:w-[12px] before:shrink-0 before:bg-[#FF5A00] before:content-[''] min-[640px]:mb-3 min-[640px]:gap-2.5 min-[640px]:before:w-[14px] min-[1100px]:mb-4">
                 {col.title}
               </h4>
               <ul className="flex flex-col gap-0 min-[1100px]:gap-[8px]">
@@ -76,7 +76,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="group inline-flex min-h-[34px] items-center whitespace-normal py-1 text-[13.5px] text-[#A8ACBA] transition-all duration-200 hover:translate-x-1 hover:text-white min-[640px]:min-h-[36px] min-[640px]:text-[14.5px] min-[1100px]:min-h-[40px] min-[1100px]:py-0"
+                      className="group inline-flex min-h-[30px] items-center whitespace-normal py-0.5 text-[13px] text-[#A8ACBA] transition-all duration-200 hover:translate-x-1 hover:text-white min-[640px]:min-h-[36px] min-[640px]:py-1 min-[640px]:text-[14.5px] min-[1100px]:min-h-[40px] min-[1100px]:py-0"
                     >
                       {link.label}{" "}
                       <span className="ml-0 text-base leading-none text-[#FF5A00] opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:opacity-100">
@@ -93,16 +93,16 @@ export function Footer() {
         {/* COPYRIGHT BAR */}
         <div
           id="footer-copy-bar"
-          className="relative z-10 mt-6 flex items-center justify-between gap-4 border-t border-[#262935] py-[10px] max-[639px]:pr-[64px] min-[640px]:mt-8 min-[640px]:py-[12px]"
+          className="relative z-10 mt-5 flex items-center justify-between gap-4 border-t border-[#262935] pt-3 pb-5 max-[639px]:pr-[64px] min-[640px]:mt-8 min-[640px]:py-[12px]"
         >
-          <p className="flex flex-col gap-[2px] text-[12.5px] text-[#7B7F90] min-[640px]:text-[13px]">
+          <p className="flex flex-col gap-[2px] text-[12px] text-[#7B7F90] min-[640px]:text-[13px]">
             <span>&copy; 2026 carQconnect.</span>
             <span>All rights reserved.</span>
           </p>
           <a
             href="#"
             onClick={scrollToTop}
-            className="group flex min-h-[44px] items-center gap-1.5 text-[12.5px] font-semibold text-[#A8ACBA] transition-colors hover:text-[#FF5A00] min-[640px]:text-[13px]"
+            className="group flex min-h-[44px] items-center gap-1.5 text-[12px] font-semibold text-[#A8ACBA] transition-colors hover:text-[#FF5A00] min-[640px]:text-[13px]"
           >
             Back to top{" "}
             <ArrowUp
@@ -114,16 +114,11 @@ export function Footer() {
       </div>
 
       {/*
-        WATERMARK SVG — Root cause of mobile invisibility was TWO issues:
-        1. <footer> had overflow-hidden which clipped the SVG bottom at small heights.
-        2. The watermark wrapper had no bottom padding, so the SVG baseline sat flush
-           against the page end and was partially cut by the browser chrome / WhatsApp button.
-        Fix: removed overflow-hidden from <footer>, added pb-[clamp(16px,4vw,32px)] on the
-        wrapper, and added overflow:visible on the SVG itself.
+        WATERMARK SVG
       */}
       <div
         aria-hidden="true"
-        className="container-page pointer-events-none relative z-0 select-none pt-1 pb-[clamp(16px,4vw,32px)]"
+        className="container-page pointer-events-none relative z-0 select-none pt-0 pb-3 min-[640px]:pb-[clamp(16px,4vw,32px)]"
       >
         <svg
           viewBox="0 0 1000 150"

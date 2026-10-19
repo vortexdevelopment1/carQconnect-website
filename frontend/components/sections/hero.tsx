@@ -71,18 +71,20 @@ const RESPONSIVE_CSS = `
     align-self: flex-end !important;
   }
 
-  /* 3rd: Product Graphic at the very bottom, stretching FULL WIDTH edge-to-edge */
+  /* 3rd: Product Graphic at the very bottom, stretching FULL WIDTH with prominent cubes sizing */
   #home .hero__product-image {
     position: relative !important;
     inset: auto !important;
     order: 2 !important;
     z-index: 1 !important;
+    flex: 1 1 auto !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin: 4px 0 0 0 !important;
+    height: clamp(280px, 38vh, 380px) !important;
+    min-height: 260px !important;
+    aspect-ratio: auto !important;
+    margin: 8px 0 0 0 !important;
     padding: 0 !important;
-    height: auto !important;
-    aspect-ratio: 1669 / 780 !important;
     overflow: hidden !important;
     display: block !important;
     background: transparent !important;
@@ -94,13 +96,31 @@ const RESPONSIVE_CSS = `
     mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 6%, #000 18%, #000 100%) !important;
   }
 
+  #home .hero__product-image > * {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  #home .hero__product-image img,
+  #home .hero__product-image canvas,
+  #home .hero__product-image video,
+  #home .hero__product-image svg,
   #home .hero__product-image .hero-svg {
     width: 100% !important;
     height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
     display: block !important;
     background: transparent !important;
     mix-blend-mode: multiply !important;
     object-fit: cover !important;
+    object-position: 30% 100% !important;
   }
 }
 
