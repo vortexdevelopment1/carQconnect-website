@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight, MessageCircle, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { faqs } from "@/lib/data/faqs";
 
@@ -72,7 +75,13 @@ export function FaqSection() {
       `}} />
 
       <div className="container-page">
-        <div className="overflow-hidden rounded-[2rem] bg-[#101319] shadow-[0_28px_80px_rgba(12,15,22,0.18)] faq-outer-card">
+        <motion.div 
+          className="overflow-hidden rounded-[2rem] bg-[#101319] shadow-[0_28px_80px_rgba(12,15,22,0.18)] faq-outer-card"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="grid lg:grid-cols-[0.78fr_1.22fr] faq-grid">
             <div className="relative overflow-hidden border-b border-white/10 p-8 sm:p-12 lg:border-b-0 lg:border-r faq-left-pane">
               <div aria-hidden className="absolute -left-24 -top-20 h-72 w-72 rounded-full bg-[#ff4d0d]/20 blur-3xl" />
@@ -98,7 +107,7 @@ export function FaqSection() {
               <Link href="/faq" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#FF5A00] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#FF5A00] hover:text-white">View all FAQs <ArrowUpRight className="h-4 w-4" /></Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -19,6 +19,9 @@ const config: Config = {
       },
     },
     extend: {
+      screens: {
+        lap: { raw: "(min-width: 1024px) and (min-aspect-ratio: 6/5)" },
+      },
       colors: {
         // Global Tokens for public site
         silver: {

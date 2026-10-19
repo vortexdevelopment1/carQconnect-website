@@ -1,11 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function PromoBanner() {
   return (
-    <section 
+    <motion.section 
       aria-label="Promotional banner"
       className="promo-banner w-full relative overflow-hidden"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       style={{
         ["--promo-bg" as any]: "#fff1e6",
         ["--promo-pad-y" as any]: "clamp(8px, 1.2vw, 16px)",
@@ -45,7 +52,7 @@ export function PromoBanner() {
           priority={false}
         />
       </Link>
-    </section>
+    </motion.section>
   );
 }
 

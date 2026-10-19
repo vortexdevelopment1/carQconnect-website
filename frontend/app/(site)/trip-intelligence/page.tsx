@@ -24,7 +24,7 @@ export default function TripIntelligencePage() {
       />
 
       <section className="bg-background" style={{ paddingBottom: 'clamp(24px, 4vw, 40px)', paddingTop: 'clamp(32px, 5vw, 48px)' }}>
-        <div className="container-page mx-auto w-full max-w-[1120px] 2xl:max-w-[1240px] px-[clamp(16px,4vw,24px)]">
+        <div className="container-page">
           <div style={{ marginBottom: 'clamp(8px, 1.5vw, 16px)' }}>
             <SectionHeading
               title="Plan a trip"

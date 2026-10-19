@@ -111,64 +111,179 @@ export function FeatureShowcase() {
       onBlur={() => setIsPaused(false)}
     >
       <style dangerouslySetInnerHTML={{ __html: `
+        /* Base styles (< 640px) */
         .feature-card {
           display: grid;
+          grid-template-columns: 1fr;
+          grid-template-areas: 
+            "head"
+            "visual"
+            "body";
           background: #1D1F26;
           border: 1px solid #2E3139;
           border-top: 2px solid #FF5A00;
-          border-radius: 20px;
-          padding: clamp(16px, 5vw, 28px);
-          gap: clamp(14px, 4vw, 22px);
-          min-height: 400px;
+          border-radius: 16px;
+          padding: clamp(14px, 4vw, 20px);
+          gap: 14px;
+          min-height: auto;
         }
-        @media(min-width: 1025px) {
+
+        .feature-head {
+          grid-area: head;
+          min-width: 0;
+          width: 100%;
+        }
+
+        .feature-visual {
+          grid-area: visual;
+          min-width: 0;
+          width: 100%;
+        }
+
+        .feature-body {
+          grid-area: body;
+          min-width: 0;
+          width: 100%;
+          padding-bottom: 12px;
+          padding-right: clamp(16px, 12vw, 54px);
+        }
+
+        .tablist-container {
+          margin: 0 0 16px 0;
+          gap: 4px;
+          border: 1px solid #2E3139;
+          padding: 4px;
+          border-radius: 14px;
+          width: 100%;
+          max-width: 500px;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+        .tablist-container::-webkit-scrollbar {
+          display: none;
+        }
+
+        .tablist-btn {
+          min-height: 44px;
+          white-space: nowrap;
+          touch-action: manipulation;
+        }
+
+        .visual-box {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 240px;
+          border-radius: 14px;
+          background: #15171d;
+          overflow: hidden;
+          padding: 20px 14px;
+          border-left: none;
+        }
+
+        .visual-glow {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 0;
+          background: radial-gradient(circle at 50% 50%, rgba(255,90,0,.30) 0%, rgba(255,90,0,.08) 50%, transparent 72%);
+        }
+
+        .visual-stage {
+          position: relative;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+        }
+
+        .phone-device-mockup {
+          transform: scale(0.82);
+          transform-origin: center center;
+          margin: 0 auto;
+        }
+
+        /* Tablet portrait (640px - 899px) */
+        @media (min-width: 640px) {
+          .feature-card {
+            padding: 24px;
+            gap: 16px;
+            border-radius: 20px;
+          }
+          .tablist-container {
+            padding: 6px;
+            gap: 6px;
+          }
+          .visual-box {
+            min-height: 300px;
+            padding: 28px 20px;
+            border-radius: 18px;
+          }
+          .phone-device-mockup {
+            transform: scale(0.92);
+          }
+        }
+
+        /* Large Tablet & Desktop (900px+): 2 Columns */
+        @media (min-width: 900px) {
           .feature-card {
             grid-template-columns: 1.1fr 1fr;
             grid-template-areas: 
               "head visual"
               "body visual";
             align-items: center;
+            padding: clamp(24px, 3.2vw, 36px);
+            gap: clamp(20px, 3vw, 40px);
+            min-height: 420px;
           }
-        }
-        @media(max-width: 1024px) {
-          .feature-card {
-            grid-template-columns: 1fr;
-            grid-template-areas: 
-              "head"
-              "visual"
-              "body";
+          .feature-head {
+            padding-right: clamp(16px, 2.5vw, 28px);
           }
-        }
-        
-        .feature-head { grid-area: head; min-width: 0; width: 100%; padding-right: 20px; }
-        .feature-body { grid-area: body; min-width: 0; width: 100%; padding-right: 20px; }
-        .feature-visual { grid-area: visual; min-width: 0; width: 100%; }
-        
-        @media(max-width: 1024px) {
-          .feature-head { padding-right: 0; }
-          .feature-body { padding-right: 0; }
+          .feature-body {
+            padding-right: clamp(16px, 2.5vw, 28px);
+            padding-bottom: 0;
+          }
+          .visual-box {
+            border-left: 1px solid #2E3139;
+            padding-left: clamp(24px, 3vw, 40px);
+            padding-right: 0;
+            min-height: 360px;
+            background: transparent;
+            border-radius: 0;
+          }
+          .phone-device-mockup {
+            transform: scale(0.92);
+          }
         }
 
-        .visual-box {
-          position: relative;
-          display: grid;
-          place-items: center;
-          min-height: 340px;
-          border-left: 1px solid #2E3139;
-          padding-left: 40px;
-        }
-        @media(max-width: 1024px) {
+        /* Laptop (1025px+): 100% UNTOUCHED ORIGINAL LOOK */
+        @media (min-width: 1025px) {
+          .feature-card {
+            grid-template-columns: 1.1fr 1fr;
+            grid-template-areas: 
+              "head visual"
+              "body visual";
+            align-items: center;
+            min-height: 400px;
+          }
           .visual-box {
-            border-left: none;
-            padding-left: 0;
-            margin-inline: auto;
-            width: 100%;
-            max-width: 420px;
-            height: clamp(190px, 52vw, 280px);
-            min-height: 0;
-            overflow: hidden;
-            border-radius: clamp(16px, 4vw, 24px);
-            background: #15171d;
+            min-height: 340px;
+            border-left: 1px solid #2E3139;
+            padding-left: 40px;
+            padding-right: 0;
+            background: transparent;
+          }
+          .visual-glow {
+            background: radial-gradient(circle at calc(50% + 20px) 50%, rgba(255,90,0,.30) 0%, transparent 65%);
+          }
+          .phone-device-mockup {
+            transform: scale(0.85);
           }
         }
       `}} />
@@ -176,16 +291,8 @@ export function FeatureShowcase() {
       {/* TAB BAR */}
       <div 
         role="tablist"
-        className="flex overflow-x-auto scrollbar-none bg-[#1D1F26] relative"
-        style={{
-          margin: '0 0 16px 0',
-          gap: '6px',
-          border: '1px solid #2E3139',
-          padding: '6px',
-          borderRadius: '14px',
-          width: '100%',
-          maxWidth: '500px'
-        }}
+        aria-label="Features"
+        className="tablist-container flex overflow-x-auto scrollbar-none bg-[#1D1F26] relative"
       >
         {features.map((feature, idx) => {
           const isActive = idx === activeIndex;
@@ -200,8 +307,7 @@ export function FeatureShowcase() {
               onClick={() => { handleTabChange(idx); setIsPaused(true); }}
               onKeyDown={(e) => handleKeyDown(e, idx)}
               className={cn(
-                "whitespace-nowrap transition-colors flex-1 flex items-center justify-center focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1D1F26] text-[15px] px-[20px] py-[11px]",
-                "[@media(max-width:767px)]:text-[13px] [@media(max-width:767px)]:px-[14px] [@media(max-width:767px)]:py-[9px]"
+                "tablist-btn whitespace-nowrap transition-colors flex-1 min-w-max flex items-center justify-center focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1D1F26] text-[13px] sm:text-[15px] px-[12px] sm:px-[20px] py-[10px] sm:py-[11px]"
               )}
               style={{
                 fontWeight: 700,
@@ -245,15 +351,13 @@ export function FeatureShowcase() {
         </div>
 
         <div className="feature-visual visual-box">
-          <div className="absolute inset-0 ml-[40px] [@media(max-width:859px)]:ml-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[450px] h-[450px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,90,0,.30) 0%, transparent 65%)' }} />
-          </div>
+          <div className="visual-glow" />
 
           <div 
-            className="relative z-10 flex items-center justify-center w-full h-full min-[1025px]:scale-100 scale-100"
+            className="visual-stage relative z-10 flex items-center justify-center w-full h-full min-[1025px]:scale-100 scale-100"
           >
             {activeFeature.id === "qr-safety" && (
-              <div style={{ width: 'clamp(180px, 45vw, 210px)', background: '#16171C', border: '2px solid #34373F', borderRadius: '32px', padding: '16px 12px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 12px 30px rgba(0,0,0,0.4)', transform: 'scale(0.85)' }} className="min-[1025px]:scale-100 min-[1025px]:p-[20px_16px_18px]">
+              <div style={{ width: 'clamp(180px, 45vw, 210px)', background: '#16171C', border: '2px solid #34373F', borderRadius: '32px', padding: '16px 12px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 12px 30px rgba(0,0,0,0.4)' }} className="phone-device-mockup min-[1025px]:scale-100 min-[1025px]:p-[20px_16px_18px]">
                 <div style={{ width: '56px', height: '6px', background: '#34373F', borderRadius: '9px', marginBottom: '18px' }} />
                 <div style={{ background: '#0C0C0E', border: '1px solid #2E3139', borderRadius: '10px', fontWeight: 800, fontSize: 'clamp(12px, 3.5vw, 15px)', padding: '12px', width: '100%', textAlign: 'center', color: 'white', marginBottom: '10px' }}>
                   MP09 &bull;&bull; 1234
@@ -317,7 +421,7 @@ export function FeatureShowcase() {
             {activeFeature.description}
           </p>
 
-          <div style={{ borderTop: '1px solid #2E3139', paddingTop: '18px', fontSize: '12px', fontWeight: 800, letterSpacing: '.12em', color: '#A4ABB8' }}>
+          <div className="key-caps" style={{ borderTop: '1px solid #2E3139', paddingTop: '18px', fontSize: '12px', fontWeight: 800, letterSpacing: '.12em', color: '#A4ABB8' }}>
             KEY CAPABILITIES
           </div>
 
@@ -335,7 +439,7 @@ export function FeatureShowcase() {
 
           <Link
             href={activeFeature.href}
-            className="inline-flex items-center justify-center transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1D1F26] min-h-[48px] [@media(max-width:479px)]:w-full"
+            className="inline-flex items-center justify-center transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1D1F26] min-h-[48px] w-fit"
             style={{
               alignSelf: 'flex-start',
               background: 'linear-gradient(90deg, #FF7A1A, #FF5A00)',

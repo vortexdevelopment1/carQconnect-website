@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function FinalCta() {
   return (
@@ -14,7 +17,13 @@ export function FinalCta() {
         }}
       />
 
-      <div className="container-page relative flex flex-col items-center z-10 w-full">
+      <motion.div 
+        className="container-page relative flex flex-col items-center z-10 w-full"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+      >
         <h2 
           className="font-display font-extrabold text-white mx-auto" 
           style={{ 
@@ -27,7 +36,13 @@ export function FinalCta() {
           Make every vehicle smarter. Make every journey <span className="text-[#FF5A00]">safer.</span>
         </h2>
         
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-[14px]">
+        <motion.div 
+          className="mt-10 flex flex-wrap items-center justify-center gap-[14px]"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        >
           <Link
             href="#download"
             className="flex items-center justify-center bg-[#FF5A00] text-white text-[clamp(12px,2vw,14px)] font-bold px-[clamp(18px,4vw,28px)] py-[clamp(11px,3vw,15px)] rounded-[12px] shadow-[0_10px_30px_rgba(255,90,0,0.35)] hover:bg-[#FF7226] transition-colors"
@@ -40,8 +55,8 @@ export function FinalCta() {
           >
             View Hardware
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

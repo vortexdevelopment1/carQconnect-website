@@ -20,10 +20,10 @@ export function Footer() {
 
       {/* MAIN FOOTER CONTENT */}
       <div className="container-page relative z-10 pt-[var(--section-py)] pb-0">
-        {/* 2 cols on phones, 4 cols from 640px (brand on its own row), 5 cols from 1100px */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-6 min-[640px]:grid-cols-4 min-[640px]:gap-y-8 min-[1100px]:grid-cols-[1.4fr_repeat(4,1fr)] min-[1100px]:gap-y-10">
+        {/* 2 cols on phones, 4 cols from 640px, 5 cols in 1 row on desktop */}
+        <div className="footer-main-grid grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-y-8 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-y-10">
           {/* BRAND */}
-          <div className="col-span-2 min-[640px]:col-span-4 min-[1100px]:col-span-1">
+          <div className="footer-brand-col col-span-2 sm:col-span-4 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3">
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[11px] bg-gradient-to-br from-[#FF5A00] to-[#FF8A3D] shadow-[0_8px_22px_rgba(255,90,0,0.35)]">
                 <ShieldCheck className="h-5 w-5 text-white" strokeWidth={2.5} />

@@ -6,7 +6,7 @@ import type { Faq } from "@/lib/data/faqs";
 import { cn } from "@/lib/utils";
 
 export function FaqAccordion({ items, light = false, variant = "default" }: { items: Faq[]; light?: boolean; variant?: "default" | "dark" }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div

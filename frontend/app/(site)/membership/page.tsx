@@ -15,10 +15,10 @@ export default function MembershipPage() {
       
       {/* 1. HERO SECTION */}
       <section 
-        className="pt-[80px] md:pt-[110px] pb-[40px] px-6 relative"
+        className="pt-[80px] md:pt-[110px] pb-[40px] relative"
         style={{ background: 'radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,.28) 0%, rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3 0%, #f7f9fc 100%)' }}
       >
-        <div className="max-w-[1240px] mx-auto flex flex-col items-center text-center relative z-10">
+        <div className="container-page flex flex-col items-center text-center relative z-10">
           <div className="w-full flex justify-start -mt-2 mb-2 md:mt-0 md:mb-6"><BackButton fallback="/features" label="Back to features" /></div>
           <div className="flex items-center gap-4 mb-6">
             <div className="w-[32px] h-[2px] bg-[#ff5a00]" />
@@ -52,10 +52,10 @@ export default function MembershipPage() {
       </section>
 
       {/* 2. PLAN CARDS SECTION (MOVED UP) */}
-      <section className="pt-[20px] pb-[20px] px-6 relative overflow-hidden">
+      <section className="pt-[20px] pb-[20px] relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#ff5a00] opacity-[0.12] blur-[120px] pointer-events-none rounded-full" />
         
-        <div className="max-w-[1140px] mx-auto relative z-10 flex flex-col items-center">
+        <div className="container-page relative z-10 flex flex-col items-center">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-[32px] h-[1px] bg-[#ff5a00]" />
             <span className="text-[clamp(9px,1.8vw,11px)] font-[800] uppercase tracking-[0.2em] text-[#ff5a00]">PLANS</span>
@@ -190,8 +190,8 @@ export default function MembershipPage() {
       </section>
 
       {/* 3. HOW IT WORKS (MOVED DOWN) */}
-      <section className="pt-[60px] pb-[60px] px-6 relative bg-[#f7f9fc]">
-        <div className="max-w-[1240px] mx-auto">
+      <section className="pt-[60px] pb-[60px] relative bg-[#f7f9fc]">
+        <div className="container-page">
           <h2 className="font-[800] mb-8 text-center text-[#111218]">How it works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -211,8 +211,8 @@ export default function MembershipPage() {
       </section>
 
       {/* 4. WHERE MEMBERSHIP APPLIES */}
-      <section className="py-[60px] px-6 relative">
-        <div className="max-w-[1240px] mx-auto">
+      <section className="py-[60px] relative">
+        <div className="container-page">
           <h2 className="font-[800] mb-3 text-center text-white">Where membership applies</h2>
           <p className="text-[#a3a7b7] text-[16px] text-center mb-10 font-medium">One membership, four areas of your connected drive.</p>
           
@@ -287,8 +287,8 @@ export default function MembershipPage() {
       </section>
 
       {/* 5. MANAGE IT IN THE APP */}
-      <section className="py-[80px] bg-[#fff2e8] border-t border-[#ffe4d1] px-6 text-[#111218]">
-        <div className="max-w-[1240px] mx-auto text-center flex flex-col items-center">
+      <section className="py-[80px] bg-[#fff2e8] border-t border-[#ffe4d1] text-[#111218]">
+        <div className="container-page text-center flex flex-col items-center">
           <h2 className="font-[800] mb-8">Manage it in the app</h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-4">
             {[

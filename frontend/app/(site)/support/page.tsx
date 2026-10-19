@@ -23,7 +23,7 @@ export default function SupportPage() {
 
       {/* THREE WAYS TO GET HELP */}
       <section className="pt-6 md:pt-10 pb-[60px] md:pb-[80px]">
-        <div className="max-w-[1120px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[64px] items-center">
+        <div className="container-page grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[64px] items-center">
           
           <div>
             <div className="flex items-center gap-4 mb-[16px]">
@@ -108,7 +108,7 @@ export default function SupportPage() {
 
       {/* ASK THE ASSISTANT ABOUT */}
       <section className="py-[80px] bg-[#eaeff6]">
-        <div className="max-w-[1120px] mx-auto px-6">
+        <div className="container-page">
           <div className="flex items-center gap-4 mb-[16px]">
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
             <span className="text-[12px] font-[800] uppercase tracking-[0.16em] text-[#c2410c]">WHAT WE HELP WITH</span>
@@ -147,7 +147,7 @@ export default function SupportPage() {
 
       {/* WHEN A HUMAN STEPS IN */}
       <section className="py-[80px] bg-[#12141c]">
-        <div className="max-w-[1120px] mx-auto px-6">
+        <div className="container-page">
           <div className="flex items-center gap-4 mb-[16px]">
             <div className="w-[28px] h-[2px] bg-[#ff6a00]" />
             <span className="text-[clamp(9.5px,2vw,12px)] font-[800] uppercase tracking-[0.16em] text-[#ff8a3d]">HUMAN SUPPORT</span>
@@ -182,7 +182,7 @@ export default function SupportPage() {
 
       {/* FINAL CTA BAND */}
       <section id="download" className="py-[48px]" style={{ background: 'linear-gradient(110deg, #ff6a00, #ff8a2b)' }}>
-        <div className="max-w-[1120px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="container-page flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex-1">
             <h2 className="font-[800] text-[#1a0b00] mb-[4px]">
               Get help in the app.

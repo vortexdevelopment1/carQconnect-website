@@ -25,7 +25,7 @@ export default function QrSafetyPage() {
           className="pointer-events-none absolute inset-0"
           style={{ background: 'radial-gradient(600px 400px at 85% 0%, rgba(255,90,0,0.12), transparent 70%)' }}
         />
-        <div className="container-page relative z-10 max-w-[1180px] mx-auto">
+        <div className="container-page relative z-10">
         <div className="mb-2 max-md:mt-4 md:mt-2"><BackButton fallback="/features" label="Back to features" /></div>
           <div className="flex items-center gap-4 mb-3 md:mb-6">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
@@ -54,7 +54,7 @@ export default function QrSafetyPage() {
       <QrScannerDemo />
 
       <section className="bg-white py-8 md:py-10 border-t border-[#ECEEF4]">
-        <div className="mx-auto max-w-[1180px] px-6">
+        <div className="container-page">
           <div className="flex items-center gap-4 mb-3.5">
             <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
             <span className="text-[clamp(9.5px,2vw,12px)] font-bold uppercase tracking-[0.16em] text-[#FF5A00]">PRIVACY</span>

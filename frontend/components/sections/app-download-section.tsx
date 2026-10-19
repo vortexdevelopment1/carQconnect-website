@@ -1,6 +1,7 @@
 "use client";
 
 import { Smartphone, Apple, Mic, Calculator, MessageSquareText } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function AppDownloadSection() {
   return (
@@ -114,7 +115,13 @@ export function AppDownloadSection() {
       <div className="container-page grid lg:grid-cols-[1.1fr_0.9fr] gap-[var(--block-gap)] items-center relative">
         
         {/* LEFT COLUMN */}
-        <div className="flex flex-col z-20 left-col">
+        <motion.div 
+          className="flex flex-col z-20 left-col"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="flex items-center gap-4 mb-6">
             <div className="w-[32px] h-[2px] bg-[#FF5A00] eyebrow-line" />
             <span className="text-[clamp(9.5px,2vw,12px)] font-bold tracking-[0.16em] text-[#FF5A00] uppercase eyebrow">GET THE APP</span>
@@ -176,10 +183,16 @@ export function AppDownloadSection() {
               </div>
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* RIGHT COLUMN (Chat Card) */}
-        <div className="relative flex justify-center items-center lg:justify-end lg:pr-12 min-h-[380px] z-10 chat-card-wrap">
+        <motion.div 
+          className="relative flex justify-center items-center lg:justify-end lg:pr-12 min-h-[380px] z-10 chat-card-wrap"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        >
           
           <div className="relative w-full max-w-[420px]">
             {/* Radial Glow */}
@@ -235,7 +248,7 @@ export function AppDownloadSection() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   </section>
   );

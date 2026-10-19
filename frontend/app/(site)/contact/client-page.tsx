@@ -64,7 +64,7 @@ export default function ContactClient() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-6 pt-[120px] pb-[80px]">
+      <div className="container-page relative z-10 pt-[120px] pb-[80px]">
         {/* HEADER */}
         <div className="mb-12 text-left">
           <div className="flex items-center gap-4 mb-4">

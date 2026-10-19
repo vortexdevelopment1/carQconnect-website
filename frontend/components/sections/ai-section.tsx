@@ -5,7 +5,7 @@ export function AiSection() {
   return (
     <section className="bg-[#f4f4f5] border-b border-black/10" style={{ paddingBlock: 'clamp(20px, 4vw, 40px)' }}>
       <div 
-        className="container-page mx-auto w-full max-w-[1120px] 2xl:max-w-[1240px] px-[clamp(16px,4vw,24px)] flex flex-col min-[900px]:flex-row items-center justify-between"
+        className="container-page flex flex-col min-[900px]:flex-row items-center justify-between"
         style={{ gap: 'clamp(16px, 3vw, 40px)' }}
       >
         <div className="w-full min-[900px]:max-w-[520px]">

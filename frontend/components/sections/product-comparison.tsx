@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Check, X, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const rows = [
   ["Public QR safety page", true, false],
@@ -14,7 +17,13 @@ export function ProductComparison() {
       <div className="container-page">
         
         {/* Heading Area */}
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <motion.div 
+          className="flex flex-col justify-between gap-6 md:flex-row md:items-end"
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="max-w-2xl">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-[32px] h-[2px] bg-[#FF5A00]" />
@@ -31,10 +40,16 @@ export function ProductComparison() {
             Explore all hardware 
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
           </Link>
-        </div>
+        </motion.div>
 
         {/* Table Container */}
-        <div className="mt-[var(--block-gap)] rounded-[20px] border border-[#ECEEF4] bg-white shadow-[0_10px_30px_rgba(18,19,26,0.05)] overflow-hidden">
+        <motion.div 
+          className="mt-[var(--block-gap)] rounded-[20px] border border-[#ECEEF4] bg-white shadow-[0_10px_30px_rgba(18,19,26,0.05)] overflow-hidden"
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.65, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: "touch" }}>
             <div className="min-w-[600px]">
               
@@ -81,12 +96,18 @@ export function ProductComparison() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Footer Info Text */}
-        <p className="mt-6 text-left text-[13.5px] sm:text-[14px] font-medium text-[#5B6070]">
+        <motion.p 
+          className="mt-6 text-left text-[13.5px] sm:text-[14px] font-medium text-[#5B6070]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           Both devices activate in the carQconnect app. Use both for complete coverage.
-        </p>
+        </motion.p>
 
       </div>
     </section>

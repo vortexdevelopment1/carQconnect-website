@@ -20,19 +20,19 @@ export default function WhatsAppFloat() {
     const place = () => {
       raf = 0;
       const vh = window.innerHeight;
-      const margin = window.innerWidth < 640 ? 14 : 24;
+      const margin = 16;
       const safe = parseFloat(getComputedStyle(probe).paddingBottom) || 0;
-      const h = wrap.offsetHeight;
+      const h = wrap.offsetHeight || 48;
       const hero = document.querySelector<HTMLElement>(".hero");
       const atTop = window.scrollY <= 10;
 
       const viewportY = vh - h - margin - safe;
       let y = viewportY;
       
-      // Original logic: slide into hero on desktop
-      if (window.innerWidth >= 640 && atTop && hero) {
+      // Desktop logic: slide into hero on >= 1024px
+      if (window.innerWidth >= 1024 && atTop && hero) {
         const heroBottom = Math.min(hero.getBoundingClientRect().bottom, vh);
-        y = heroBottom - h - margin;
+        y = heroBottom - h - 24;
       }
 
       // New mobile logic: clamp above footer copy bar

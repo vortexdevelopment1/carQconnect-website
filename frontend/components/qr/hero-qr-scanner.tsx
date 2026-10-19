@@ -12,24 +12,56 @@ export const QR_CORNERS = [
 
 export function HeroQrScanner() {
   const [debug, setDebug] = useState(false);
+  const [aspectMode, setAspectMode] = useState<"desktop" | "tablet" | "mobile" | "midrange">("desktop");
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.search.includes("debugqr=1")) {
       setDebug(true);
     }
+    const lapMq = window.matchMedia("(min-width: 1024px) and (min-aspect-ratio: 6/5)");
+    const midMq = window.matchMedia("(min-width: 441px) and (max-width: 767.98px)");
+    const mobileMq = window.matchMedia("(max-width: 440.98px)");
+
+    const update = () => {
+      if (lapMq.matches) {
+        setAspectMode("desktop");
+      } else if (midMq.matches) {
+        setAspectMode("midrange");
+      } else if (mobileMq.matches) {
+        setAspectMode("mobile");
+      } else {
+        setAspectMode("tablet");
+      }
+    };
+    update();
+    lapMq.addEventListener("change", update);
+    midMq.addEventListener("change", update);
+    mobileMq.addEventListener("change", update);
+    return () => {
+      lapMq.removeEventListener("change", update);
+      midMq.removeEventListener("change", update);
+      mobileMq.removeEventListener("change", update);
+    };
   }, []);
+
+  const preserveAspect =
+    aspectMode === "desktop"
+      ? "xMidYMax slice"
+      : "xMinYMax slice";
 
   return (
     <svg
-      className="hero-svg absolute inset-0 w-full h-full pointer-events-none"
+      className="hero-svg pointer-events-none"
       viewBox="0 0 1669 942"
-      preserveAspectRatio="xMidYMax slice"
+      preserveAspectRatio={preserveAspect}
       aria-hidden="true"
     >
       <defs>
         <linearGradient id="fade-mask-mobile" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#000" stopOpacity="0" />
-          <stop offset="0.18" stopColor="#fff" stopOpacity="1" />
+          <stop offset="0.10" stopColor="#fff" stopOpacity="1" />
+          <stop offset="0.90" stopColor="#fff" stopOpacity="1" />
+          <stop offset="1" stopColor="#000" stopOpacity="0" />
         </linearGradient>
         <mask id="hero-mask-mobile">
           <rect x="0" y="0" width="1669" height="942" fill="url(#fade-mask-mobile)" />
@@ -55,6 +87,7 @@ export function HeroQrScanner() {
         preserveAspectRatio="none"
         mask="url(#hero-mask-mobile)"
         className="hero-image-mobile-only"
+        style={{ mixBlendMode: "multiply" }}
       />
       <image
         href="/Futuristic_Cube_Device_Showcase_edited.png"

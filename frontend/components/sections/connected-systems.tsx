@@ -1,34 +1,41 @@
+"use client";
+
 import Link from "next/link";
 import { Camera, MapPinned, QrCode, ShieldCheck, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { FeatureShowcase } from "./feature-showcase";
 import { PrivacyControlSection } from "./privacy-control";
 import { cn } from "@/lib/utils";
 
-
-
 export function ConnectedSystems() {
   return (
     <>
-      <section id="systems" className="w-full section-py bg-[#14151A]">
+      <section id="systems" className="w-full section-py bg-[#14151A] max-[767px]:!pt-8 max-[767px]:!pb-24">
         <div className="container-page">
-          <div className="flex flex-col">
+          <motion.div 
+            className="flex flex-col"
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          >
             <p style={{ color: '#FF5A00', fontWeight: 800, fontSize: 'clamp(0.7rem, 2.5vw, 0.75rem)', letterSpacing: '0.12em', margin: 0, textTransform: 'uppercase' }}>
               CONNECTED VEHICLE PLATFORM
             </p>
             <h2 
-              className="font-display"
+              className="font-display max-[767px]:!text-[clamp(1.35rem,5.5vw,1.85rem)] max-[767px]:!my-1.5"
               style={{ color: 'white', fontWeight: 800, fontSize: 'clamp(1.5rem, 7vw, 2.25rem)', lineHeight: 1.15, letterSpacing: '-.03em', margin: '10px 0 12px' }}
             >
               Smart systems. <br />
               <span style={{ color: '#FF5A00' }}>Smooth journeys.</span>
             </h2>
             <p 
-              className="leading-relaxed text-[#A4ABB8]"
+              className="leading-relaxed text-[#A4ABB8] max-[767px]:!mb-3 max-[767px]:!text-[clamp(12.5px,3.2vw,14px)] max-[767px]:!leading-[1.45]"
               style={{ maxWidth: '56ch', marginBottom: 'var(--block-gap)', fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)', color: '#9ca3af' }}
             >
               carQconnect gives each product a clear job: safety when someone finds your vehicle, visibility while it moves, and useful hardware for every drive.
             </p>
-          </div>
+          </motion.div>
 
           <FeatureShowcase />
         </div>
@@ -43,7 +50,13 @@ export function ConnectedSystems() {
         }}
       >
         <div className="container-page grid gap-[var(--block-gap)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div className="pr-0 lg:pr-8">
+          <motion.div 
+            className="pr-0 lg:pr-8"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="flex items-center gap-4">
               <div className="w-8 h-[2px] bg-[#FF5A00]" />
               <p className="text-[clamp(10px,2vw,12px)] font-extrabold tracking-[0.16em] text-[#FF5A00] uppercase">WHY CARQCONNECT</p>
@@ -63,7 +76,7 @@ export function ConnectedSystems() {
             >
               See all product features <ArrowUpRight className="h-4 w-4 stroke-[2.5]" />
             </Link>
-          </div>
+          </motion.div>
           <div className="grid gap-[var(--card-gap)] sm:grid-cols-2">
             {[
               ["Privacy first", "Your personal number stays private while a genuine caller can still reach you."],
@@ -73,8 +86,12 @@ export function ConnectedSystems() {
             ].map(([title, text], index) => {
               const isDark = index === 3;
               return (
-                <div 
+                <motion.div 
                   key={title} 
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className={cn(
                     "flex flex-col rounded-[20px] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF5A00] border",
                     isDark 
@@ -113,7 +130,7 @@ export function ConnectedSystems() {
                   >
                     {text}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
           </div>

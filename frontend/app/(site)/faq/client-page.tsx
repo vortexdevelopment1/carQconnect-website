@@ -35,7 +35,7 @@ export default function FaqClient() {
         className="relative pt-[120px] pb-[32px] overflow-hidden border-b border-[#e1e6ee]"
         style={{ background: 'radial-gradient(60% 120% at 90% 0%, rgba(255,106,0,.28) 0%, rgba(255,106,0,0) 62%), linear-gradient(180deg, #fff1e3 0%, #f7f9fc 100%)' }}
       >
-        <div className="relative z-10 max-w-[1360px] mx-auto px-6 flex flex-col items-start text-left">
+        <div className="container-page relative z-10 flex flex-col items-start text-left">
           
           <h1 className="font-[800] text-[#0f1220] max-w-[800px] mb-[12px]">
             Frequently asked <span className="text-[#ff6a00]">questions.</span>
@@ -84,7 +84,7 @@ export default function FaqClient() {
 
       {/* FAQ LIST */}
       <section className="py-[64px]">
-        <div className="max-w-[1120px] mx-auto px-6">
+        <div className="container-page">
           {filteredFaqs.length > 0 ? (
             <FaqAccordion items={filteredFaqs} />
           ) : (
@@ -97,7 +97,7 @@ export default function FaqClient() {
 
       {/* CLOSING BAND */}
       <section id="download" className="py-[48px]" style={{ background: 'linear-gradient(110deg, #ff6a00, #ff8a2b)' }}>
-        <div className="max-w-[1120px] mx-auto px-6 grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-[40px] items-center">
+        <div className="container-page grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-[40px] items-center">
           
           {/* Left Column */}
           <div className="flex flex-col items-start text-left">

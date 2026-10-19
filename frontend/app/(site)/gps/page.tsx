@@ -26,7 +26,7 @@ export default function GpsPage() {
           className="pointer-events-none absolute inset-0"
           style={{ background: 'radial-gradient(600px 400px at 85% 0%, rgba(255,90,0,0.12), transparent 70%)' }}
         />
-        <div className="container-page relative z-10 max-w-[1180px] mx-auto">
+        <div className="container-page relative z-10">
           <div className="mb-2 max-md:mt-4 md:mt-2"><BackButton fallback="/features" label="Back to features" /></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         

@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   },
   description:
     "carQconnect connects your vehicle to QR-based safety, GPS tracking, SOS, emergency protection and everyday vehicle utilities - all in one ecosystem.",
+  icons: {
+    icon: "/favicon.ico",
+  },
   keywords: [
     "vehicle safety",
     "vehicle GPS tracking",
