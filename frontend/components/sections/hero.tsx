@@ -256,7 +256,7 @@ export function Hero() {
 
         <motion.a 
           className="buy" 
-          href="/marketplace" 
+          href="#download" 
           aria-label="Download App"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

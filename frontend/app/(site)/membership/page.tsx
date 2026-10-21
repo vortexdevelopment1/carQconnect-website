@@ -36,7 +36,7 @@ export default function MembershipPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Link 
-              href="/#download" 
+              href="#plans" 
               className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center rounded-[12px] bg-[#ff5a00] px-8 text-[15px] font-[800] text-white shadow-[0_4px_14px_rgba(255,90,0,0.3)] hover:bg-[#ff7226] transition-all"
             >
               View Plans
@@ -52,7 +52,7 @@ export default function MembershipPage() {
       </section>
 
       {/* 2. PLAN CARDS SECTION (MOVED UP) */}
-      <section className="pt-[20px] pb-[20px] relative overflow-hidden">
+      <section id="plans" className="pt-[20px] pb-[20px] relative overflow-hidden scroll-mt-24">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#ff5a00] opacity-[0.12] blur-[120px] pointer-events-none rounded-full" />
         
         <div className="container-page relative z-10 flex flex-col items-center">

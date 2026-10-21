@@ -15,7 +15,7 @@ export function PromoBanner() {
       transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       style={{
         ["--promo-bg" as any]: "#fff1e6",
-        ["--promo-pad-y" as any]: "clamp(8px, 1.2vw, 16px)",
+        ["--promo-pad-y" as any]: "clamp(2px, 0.5vw, 6px)",
         width: "100%",
         margin: 0,
         paddingBlock: "var(--promo-pad-y)",
